@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "all_rows": 1043,
+    "published_pages": 83,
+    "published_posts": 7,
+    "attachments": 518,
+    "type_counts": {
+      "post": 9,
+      "page": 85,
+      "wpcf7_contact_form": 6,
+      "attachment": 518,
+      "custom_css": 3,
+      "portfolio": 9,
+      "team": 7,
+      "client": 8,
+      "testimonial": 8,
+      "nav_menu_item": 45,
+      "case-studies": 3,
+      "revision": 341,
+      "wpforms": 1
+    },
+    "business_pages": 37
+  },
+  "options": {
+    "blogname": "Beyond Borders",
+    "blogdescription": "Beyond Borders Ltd",
+    "siteurl": "https://www.beyondborders.ng",
+    "home": "https://www.beyondborders.ng",
+    "admin_email": "admin@beyondborders.ng"
+  }
+}

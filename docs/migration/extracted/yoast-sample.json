@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "permalink": "https://www.beyondborders.ng/",
+    "object_type": null,
+    "object_sub_type": "home-page",
+    "title": null,
+    "description": null
+  },
+  {
+    "id": "2",
+    "permalink": "https://www.beyondborders.ng/author/bborders/",
+    "object_type": "1",
+    "object_sub_type": "user",
+    "title": null,
+    "description": null
+  },
+  {
+    "id": "3",
+    "permalink": "https://www.beyondborders.ng/?page_id=3",
+    "object_type": "3",
+    "object_sub_type": "post",
+    "title": "draft",
+    "description": "0"
+  },
+  {
+    "id": "4",
+    "permalink": "https://www.beyondborders.ng/sample-page/",
+    "object_type": "2",
+    "object_sub_type": "post",
+    "title": "publish",
+    "description": null
+  },
+  {
+    "id": "5",
+    "permalink": "https://www.beyondborders.ng/hello-world/",
+    "object_type": "1",
+    "object_sub_type": "post",
+    "title": "publish",
+    "description": null
+  },
+  {
+    "id": "6",
+    "permalink": "https://www.beyondborders.ng/category/uncategorized/",
+    "object_type": "1",
+    "object_sub_type": "term",
+    "title": null,
+    "description": null
+  },
+  {
+    "id": "7",
+    "permalink": null,
+    "object_type": null,
+    "object_sub_type": "system-page",
+    "title": null,
+    "description": null
+  },
+  {
+    "id": "8",
+    "permalink": null,
+    "object_type": null,
+    "object_sub_type": "system-page",
+    "title": null,
+    "description": null
+  },
+  {
+    "id": "9",
+    "permalink": null,
+    "object_type": null,
+    "object_sub_type": "date-archive",
+    "title": null,
+    "description": "0"
+  },
+  {
+    "id": "10",
+    "permalink": null,
+    "object_type": "5",
+    "object_sub_type": "post",
+    "title": "publish",
+    "description": null
+  },
+  {
+    "id": "11",
+    "permalink": null,
+    "object_type": "6",
+    "object_sub_type": "post",
+    "title": null,
+    "description": null
+  }
+]

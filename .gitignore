@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+web/node_modules/
+.pnp
+.pnp.*
+
+# Next.js Build Outputs
+web/.next/
+web/out/
+web/build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Large Backup & Archive Files
+*.zip
+*.tar.gz
+*.sql
+backup_*
+
+# Environment Variables
+.env*.local
+web/.env*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
