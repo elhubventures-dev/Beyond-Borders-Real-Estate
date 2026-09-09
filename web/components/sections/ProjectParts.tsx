@@ -119,14 +119,14 @@ export function UnitPricing({
                   href={`https://wa.me/${site.whatsapp}?text=${whatsappInquiry}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded border border-bb-bronze/40 bg-amber-50/40 px-3 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:text-white transition"
+                  className="inline-flex items-center justify-center rounded border border-bb-bronze/40 bg-amber-50/40 px-3.5 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:!text-white transition"
                 >
                   WhatsApp Inquiry
                 </a>
 
                 <Link
                   href="/schedule-an-inspection/"
-                  className="rounded bg-bb-obsidian px-3.5 py-2 text-xs font-semibold text-white hover:bg-bb-bronze-dark transition"
+                  className="inline-flex items-center justify-center rounded bg-bb-obsidian px-4 py-2 text-xs font-bold !text-white hover:bg-bb-bronze-dark hover:!text-white transition shadow-sm"
                 >
                   Book Tour
                 </Link>

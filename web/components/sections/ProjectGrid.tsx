@@ -227,7 +227,7 @@ export function ProjectGrid({
                     <div className="flex items-center gap-2 text-xs font-semibold">
                       <Link
                         href={project.housesSlug}
-                        className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:text-white"
+                        className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:!text-white"
                       >
                         Houses
                       </Link>

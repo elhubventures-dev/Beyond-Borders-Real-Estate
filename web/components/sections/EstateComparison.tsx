@@ -147,7 +147,7 @@ export function EstateComparison() {
                   <div className="flex flex-col items-end gap-1.5">
                     <Link
                       href={e.housesSlug}
-                      className="rounded bg-bb-obsidian px-3 py-1.5 text-xs font-semibold text-white hover:bg-bb-bronze-dark transition"
+                      className="rounded bg-bb-obsidian px-3 py-1.5 text-xs font-semibold !text-white hover:bg-bb-bronze-dark hover:!text-white transition"
                     >
                       View Houses
                     </Link>
