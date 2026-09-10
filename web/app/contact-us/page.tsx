@@ -19,12 +19,25 @@ export default function ContactPage() {
       <PageHero title="Contact Us" subtitle="We love to hear from you." />
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-2">
         <div>
-          <h2 className="font-display text-2xl">Our office address</h2>
-          <p className="mt-3 text-bb-muted">
-            {site.address.line1}
-            <br />
-            {site.address.line2}
-          </p>
+          <h2 className="font-display text-2xl">Our office addresses</h2>
+          <div className="mt-3 space-y-5 text-bb-muted">
+            <p>
+              <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
+                Jahi (Primary)
+              </span>
+              {site.address.line1}
+              <br />
+              {site.address.line2}
+            </p>
+            <p>
+              <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
+                Kado
+              </span>
+              {site.addressAlt.line1}
+              <br />
+              {site.addressAlt.line2}
+            </p>
+          </div>
           <h2 className="mt-8 font-display text-2xl">Talk to us</h2>
           <ul className="mt-3 space-y-2 text-bb-muted">
             <li>
@@ -34,13 +47,31 @@ export default function ContactPage() {
               </a>
             </li>
             <li>
-              Phone:{" "}
+              Abuja:{" "}
+              <a className="text-bb-accent-deep" href={`tel:${site.phone.replace(/\s/g, "")}`}>
+                {site.phone}
+              </a>
+              {" · "}
               <a className="text-bb-accent-deep" href={`tel:${site.phoneAlt.replace(/\s/g, "")}`}>
                 {site.phoneAlt}
               </a>
+              {" · "}
+              <a className="text-bb-accent-deep" href={`tel:${site.phoneExtra.replace(/\s/g, "")}`}>
+                {site.phoneExtra}
+              </a>
             </li>
             <li>
-              WhatsApp only:{" "}
+              Port Harcourt:{" "}
+              <a className="text-bb-accent-deep" href={`tel:${site.phonePh.replace(/\s/g, "")}`}>
+                {site.phonePh}
+              </a>
+              {" · "}
+              <a className="text-bb-accent-deep" href={`tel:${site.phonePhAlt.replace(/\s/g, "")}`}>
+                {site.phonePhAlt}
+              </a>
+            </li>
+            <li>
+              WhatsApp:{" "}
               <a
                 className="text-bb-accent-deep"
                 href={`https://wa.me/${site.whatsapp}`}
@@ -51,6 +82,26 @@ export default function ContactPage() {
               </a>
             </li>
           </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={site.downloads.companyProfile}
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-bb-bronze-dark hover:underline"
+            >
+              Download company profile →
+            </a>
+            <a
+              href={site.downloads.portfolioFlyer}
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-bb-bronze-dark hover:underline"
+            >
+              Download portfolio flyer →
+            </a>
+          </div>
         </div>
         <div className="md:pt-2">
           <ContactForm heading="Send a message" embedded />

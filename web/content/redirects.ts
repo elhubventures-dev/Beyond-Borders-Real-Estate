@@ -1,9 +1,29 @@
 /** Permanent redirects from legacy WordPress / theme demo URLs */
 export const redirects: { source: string; destination: string; permanent: boolean }[] = [
+  // Retired estate URLs → current catalog
+  { source: "/houses-white-city-idu", destination: "/houses-white-city-beverly/", permanent: true },
+  { source: "/houses-white-city-idu/", destination: "/houses-white-city-beverly/", permanent: true },
+  { source: "/lands-white-city-idu", destination: "/lands-white-city-beverly/", permanent: true },
+  { source: "/lands-white-city-idu/", destination: "/lands-white-city-beverly/", permanent: true },
+  { source: "/white-coutry-gardens-lugbe", destination: "/houses-white-country-parks/", permanent: true },
+  { source: "/white-coutry-gardens-lugbe/", destination: "/houses-white-country-parks/", permanent: true },
+  { source: "/white-country-gardens-lugbe", destination: "/lands-white-country-parks/", permanent: true },
+  { source: "/white-country-gardens-lugbe/", destination: "/lands-white-country-parks/", permanent: true },
+  { source: "/houses-white-court-dakwo", destination: "/houses-white-court/", permanent: true },
+  { source: "/houses-white-court-dakwo/", destination: "/houses-white-court/", permanent: true },
+  { source: "/houses-white-city-kuje", destination: "/houses-white-city-aspen-1/", permanent: true },
+  { source: "/houses-white-city-kuje/", destination: "/houses-white-city-aspen-1/", permanent: true },
+  { source: "/lands-white-city-kuje", destination: "/lands-white-city-aspen-1/", permanent: true },
+  { source: "/lands-white-city-kuje/", destination: "/lands-white-city-aspen-1/", permanent: true },
+  { source: "/houses-white-city-giri", destination: "/houses/", permanent: true },
+  { source: "/houses-white-city-giri/", destination: "/houses/", permanent: true },
+  { source: "/lands-white-city-giri", destination: "/lands/", permanent: true },
+  { source: "/lands-white-city-giri/", destination: "/lands/", permanent: true },
+
   // Typo / alternate land-house links
   {
     source: "/white-country-gardens-lugbe-houses",
-    destination: "/white-coutry-gardens-lugbe/",
+    destination: "/houses-white-country-parks/",
     permanent: true,
   },
   // Legacy subpath

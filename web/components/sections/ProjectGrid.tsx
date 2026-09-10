@@ -8,60 +8,9 @@ import { projects } from "@/content/projects";
 
 type FilterTab = "all" | "houses" | "lands";
 
-const projectMetadata: Record<
-  string,
-  {
-    locationBadge: string;
-    distanceBadge: string;
-    startingHouse: string;
-    startingLand?: string;
-    houseTypes: string;
-    landSizes?: string;
-  }
-> = {
-  idu: {
-    locationBadge: "Idu Railway District",
-    distanceBadge: "10 Mins to Wuse 2",
-    startingHouse: "₦19 Million",
-    startingLand: "₦3.0 Million",
-    houseTypes: "2-4 Bed Terraces & Duplexes",
-    landSizes: "300m² & 500m² Plots",
-  },
-  lugbe: {
-    locationBadge: "Airport Expressway",
-    distanceBadge: "20 Mins to Airport / CBD",
-    startingHouse: "₦17 Million",
-    startingLand: "₦800,000",
-    houseTypes: "3-4 Bed Terraces, Penthouses & Duplexes",
-    landSizes: "300m² - 1,000m² Plots",
-  },
-  dakwo: {
-    locationBadge: "Kabusa Gardens District",
-    distanceBadge: "5 Mins to Wuse 2",
-    startingHouse: "₦38 Million",
-    houseTypes: "4 Bed Terraces & Detached Duplexes",
-  },
-  kuje: {
-    locationBadge: "Kuje Residential Hub",
-    distanceBadge: "South Abuja Corridor",
-    startingHouse: "₦17 Million",
-    startingLand: "₦1.0 Million",
-    houseTypes: "3 Bed Terraces & 4 Bed Penthouses",
-    landSizes: "300m² - 800m² Plots",
-  },
-  giri: {
-    locationBadge: "Giri Junction / Gwagwalada",
-    distanceBadge: "Institutional Corridor",
-    startingHouse: "₦17 Million",
-    startingLand: "₦500,000",
-    houseTypes: "3 Bed Terraces & 4 Bed Penthouses",
-    landSizes: "300m² - 600m² Plots",
-  },
-};
-
 export function ProjectGrid({
   title = "Master-Planned Communities",
-  subtitle = "Architecturally planned residential estates across prime Abuja growth corridors. Built for capital preservation and refined family living.",
+  subtitle = "Architecturally planned residential estates and land investments across Abuja and Port Harcourt. Built for capital preservation and refined family living.",
 }: {
   title?: string;
   subtitle?: string;
@@ -131,12 +80,16 @@ export function ProjectGrid({
       <motion.div layout className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence>
           {filteredProjects.map((project, i) => {
-            const meta = projectMetadata[project.id] || {
-              locationBadge: "Abuja",
-              distanceBadge: "Strategic Hub",
-              startingHouse: "Contact for Pricing",
-              houseTypes: "Residential Units",
+            const meta = {
+              locationBadge: project.locationBadge,
+              distanceBadge: project.distanceBadge,
+              startingHouse: project.startingHouse,
+              startingLand: project.startingLand,
+              houseTypes: project.houseTypes,
+              landSizes: project.landSizes,
             };
+            const hasHouses = project.houses.length > 0;
+            const hasLands = Boolean(project.lands?.length);
 
             return (
               <motion.article
@@ -164,7 +117,7 @@ export function ProjectGrid({
                     <span className="rounded bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
                       {meta.locationBadge}
                     </span>
-                    <span className="rounded bg-bb-bronze/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-bb-obsidian backdrop-blur-md">
+                    <span className="rounded bg-bb-bronze/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
                       {meta.distanceBadge}
                     </span>
                   </div>
@@ -225,18 +178,20 @@ export function ProjectGrid({
                   {/* Actions Bar */}
                   <div className="mt-6 pt-5 border-t border-bb-border flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2 text-xs font-semibold">
-                      <Link
-                        href={project.housesSlug}
-                        className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:!text-white"
-                      >
-                        Houses
-                      </Link>
-                      {project.landsSlug && (
+                      {hasHouses && (
+                        <Link
+                          href={project.housesSlug}
+                          className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:!text-white"
+                        >
+                          Houses
+                        </Link>
+                      )}
+                      {hasLands && project.landsSlug && (
                         <Link
                           href={project.landsSlug}
                           className="rounded border border-bb-border px-3 py-1.5 text-slate-600 transition hover:bg-slate-100 hover:text-bb-obsidian"
                         >
-                          Lands
+                          {hasHouses ? "Lands" : "Plots"}
                         </Link>
                       )}
                     </div>

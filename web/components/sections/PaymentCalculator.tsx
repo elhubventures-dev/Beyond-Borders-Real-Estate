@@ -5,16 +5,22 @@ import Link from "next/link";
 import { site } from "@/content/site";
 
 const PRESET_UNITS = [
-  { name: "2 Bedroom Terrace (White City Idu)", price: 19000000 },
-  { name: "3 Bedroom Terrace (Lugbe / Giri)", price: 17000000 },
-  { name: "3 Bedroom Terrace + BQ (White City Idu)", price: 24900000 },
-  { name: "3 Bedroom Duplex + BQ (White City Idu)", price: 29000000 },
-  { name: "4 Bedroom Duplex + Pool/BQ (White City Idu)", price: 34000000 },
-  { name: "4 Bedroom Terrace + BQ (Dakwo)", price: 38000000 },
-  { name: "4 Bedroom Fully Detached Duplex (Dakwo)", price: 46000000 },
-  { name: "Prime Land Plot 300m² (White City Idu)", price: 3000000 },
-  { name: "Prime Land Plot 500m² (White City Idu)", price: 4500000 },
-  { name: "Residential Land Plot 500m² (Lugbe)", price: 1500000 },
+  { name: "High Flyer — 2 Bed + BQ (White City Beverly)", price: 59000000 },
+  { name: "Pearl 2 — 3 Bed Terrace + BQ (White City Beverly)", price: 89000000 },
+  { name: "Emerald — 3 Bed Semi Detached (White City Beverly)", price: 99000000 },
+  { name: "Silver — 3 Bed Duplex + BQ (White City Beverly)", price: 109000000 },
+  { name: "Gold — 4 Bed Duplex + 2BQ (White City Beverly)", price: 114000000 },
+  { name: "Diamond — 5 Bed Duplex + BQ (White City Beverly)", price: 129000000 },
+  { name: "250 SQM Buy & Build (White City Beverly)", price: 20000000 },
+  { name: "1 Hectare / 10,000 SQM (Abuja corridors)", price: 79000000 },
+  { name: "5 Bed Premium Smart Duplex (White Court)", price: 225000000 },
+  { name: "250 SQM Package (White City Aspen 2)", price: 3000000 },
+  { name: "250 SQM Package (White City Dallas)", price: 5000000 },
+  { name: "250 SQM Package (White City Savanah)", price: 6000000 },
+  { name: "250 SQM Package (Royal City Beverly)", price: 15000000 },
+  { name: "250 SQM Package (KingsCity Davos)", price: 25000000 },
+  { name: "250 SQM Land (KingsCity Parks & Gardens PH)", price: 1600000 },
+  { name: "250 SQM Land (Kings City Manhattan PH)", price: 7900000 },
 ];
 
 function formatNaira(amount: number): string {
@@ -26,9 +32,9 @@ function formatNaira(amount: number): string {
 }
 
 export function PaymentCalculator() {
-  const [selectedPresetIndex, setSelectedPresetIndex] = useState(3); // Default to ₦29M Duplex
+  const [selectedPresetIndex, setSelectedPresetIndex] = useState(0);
   const [customPrice, setCustomPrice] = useState<number | null>(null);
-  const [depositPercent, setDepositPercent] = useState<number>(30); // 30% initial deposit default
+  const [depositPercent, setDepositPercent] = useState<number>(50);
   const [tenureMonths, setTenureMonths] = useState<number>(12); // 12 months default
 
   const currentPrice = customPrice !== null ? customPrice : PRESET_UNITS[selectedPresetIndex].price;

@@ -31,7 +31,7 @@ export function WhatsAppConcierge() {
                     Beyond Borders Concierge
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 mt-0.5">Abuja Real Estate Advisory Desk</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Abuja & Port Harcourt Advisory Desk</p>
               </div>
 
               <button
@@ -46,18 +46,18 @@ export function WhatsAppConcierge() {
 
             {/* Body */}
             <div className="py-3 text-xs text-slate-600 leading-relaxed">
-              Welcome to Beyond Borders. How can our Abuja investment managers assist you today?
+              Welcome to Beyond Borders. How can our investment managers in Abuja or Port Harcourt assist you today?
             </div>
 
             {/* Quick Action Options */}
             <div className="space-y-2">
               <a
-                href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20inquire%20about%20White%20City%20Idu%20houses%20and%20plots.`}
+                href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20inquire%20about%20White%20City%20Beverly%20houses%20and%20plots%20(opposite%20Idu%20Railway).`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-amber-50/40"
+                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-bb-forest/5"
               >
-                <span>Inquire About White City Idu</span>
+                <span>Inquire About White City Beverly</span>
                 <span className="text-bb-bronze-dark">→</span>
               </a>
 
@@ -65,7 +65,7 @@ export function WhatsAppConcierge() {
                 href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20want%20to%20book%20a%20VIP%20site%20inspection.`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-amber-50/40"
+                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-bb-forest/5"
               >
                 <span>Book VIP Site Inspection</span>
                 <span className="text-bb-bronze-dark">→</span>
@@ -75,7 +75,7 @@ export function WhatsAppConcierge() {
                 href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20request%20the%20complete%20pricing%20catalog.`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-amber-50/40"
+                className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-800 transition hover:border-bb-bronze hover:bg-bb-forest/5"
               >
                 <span>Request Pricing & Title Catalog</span>
                 <span className="text-bb-bronze-dark">→</span>

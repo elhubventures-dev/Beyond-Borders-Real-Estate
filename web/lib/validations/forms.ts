@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { site } from "@/content/site";
+import { projects } from "@/content/projects";
 
 const serviceValues = [...site.services] as [string, ...string[]];
 
@@ -13,13 +14,10 @@ export const contactSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactSchema>;
 
-export const inspectionProjects = [
-  "White City (Idu Train Station Abuja)",
-  "White Country Gardens (Ketti Lugbe Abuja)",
-  "White Courts (Kabusa Gardens, Dakwo Abuja)",
-  "White City (Kuje Abuja)",
-  "White City (Giri) Abuja",
-] as const;
+export const inspectionProjects = projects.map((p) => p.inspectionLabel) as [
+  string,
+  ...string[],
+];
 
 export const inspectionSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),

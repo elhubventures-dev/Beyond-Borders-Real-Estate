@@ -8,11 +8,24 @@ import { site } from "@/content/site";
 import { projects } from "@/content/projects";
 
 const estateHighlights: Record<string, { corridor: string; starting: string }> = {
-  idu: { corridor: "Opposite Train Station • 10m to Wuse 2", starting: "Houses from ₦19M • Land ₦3M" },
-  lugbe: { corridor: "Airport Expressway • 20m to CBD", starting: "Houses from ₦17M • Land ₦800k" },
-  dakwo: { corridor: "Kabusa Gardens • 5m from Wuse 2", starting: "Luxury Duplexes from ₦38M" },
-  kuje: { corridor: "High-Growth Residential Corridor", starting: "Houses from ₦17M • Land ₦1M" },
-  giri: { corridor: "Strategic Investment Territory", starting: "Houses from ₦17M • Land ₦500k" },
+  beverly: { corridor: "Idu • Opposite Railway", starting: "Homes from ₦59M • Packages from ₦20M" },
+  savanah: { corridor: "Idu • After Train Station", starting: "Packages from ₦6M" },
+  dallas: { corridor: "Idu • Before Army Estate", starting: "Packages from ₦5M" },
+  "royal-beverly": { corridor: "Idu • Before Train Station", starting: "Packages from ₦15M" },
+  "royal-phase-1": { corridor: "Idu • Legacy Phase 1", starting: "Contact for packages" },
+  "royal-dallas": { corridor: "Idu Growth Corridor", starting: "Packages from ₦7.5M" },
+  "aspen-1": { corridor: "Kuje • FCDA Approved", starting: "Packages from ₦4M" },
+  "aspen-2": { corridor: "Kuje • Near Kuchiako LEA", starting: "Packages from ₦3M" },
+  ketti: { corridor: "Ketti 1&2 • Airport Corridor", starting: "Packages from ₦2.5M" },
+  davos: { corridor: "Katampe Extension • Hilltop", starting: "Packages from ₦25M" },
+  "white-court": { corridor: "Prime Abuja Location", starting: "5 Bed Smart Duplex ₦225M" },
+  lifecamp: { corridor: "Lifecamp Abuja", starting: "Contact for packages" },
+  guzape: { corridor: "Guzape Abuja", starting: "Contact for packages" },
+  jahi: { corridor: "Jahi • Mabushi Corridor", starting: "Contact for packages" },
+  "hectare-abuja": { corridor: "Idu · Katampe · Kuje · Ketti", starting: "1 Hectare from ₦79M" },
+  manhattan: { corridor: "Igurita, Port Harcourt", starting: "Land from ₦7.9M" },
+  "parks-ph": { corridor: "Isiokpo, Port Harcourt", starting: "Land from ₦1.6M" },
+  "los-angeles": { corridor: "Omagwa, Port Harcourt", starting: "Land from ₦3M" },
 };
 
 export function Header() {
@@ -94,7 +107,7 @@ export function Header() {
       {/* Main Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
-          scrolled ? "glass-nav shadow-sm py-2.5" : "bg-[#faf9f6]/95 backdrop-blur-md border-b border-bb-border py-3.5"
+          scrolled ? "glass-nav shadow-sm py-2.5" : "bg-bb-cream/95 backdrop-blur-md border-b border-bb-border py-3.5"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
@@ -158,84 +171,88 @@ export function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute left-1/2 top-full mt-2 w-[720px] -translate-x-1/2 rounded-lg border border-bb-border bg-white/98 p-6 shadow-2xl backdrop-blur-xl"
+                    className="absolute left-1/2 top-full z-50 mt-2 flex w-[min(720px,calc(100vw-2rem))] max-h-[min(72vh,calc(100dvh-7rem))] -translate-x-1/2 flex-col overflow-hidden rounded-lg border border-bb-border bg-white/98 shadow-2xl backdrop-blur-xl"
                   >
-                    <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
-                      <div>
-                        <p className="font-display text-lg font-medium text-bb-obsidian">Master-Planned Abuja Estates</p>
-                        <p className="text-xs text-slate-500">Explore premium duplexes, terraces, and verified land holdings</p>
+                    <div className="flex shrink-0 items-center justify-between gap-4 border-b border-slate-100 px-6 pb-3 pt-5">
+                      <div className="min-w-0">
+                        <p className="font-display text-lg font-medium text-bb-obsidian">Abuja & Port Harcourt Portfolio</p>
+                        <p className="text-xs text-slate-500">Smart homes, buy & build packages, and titled land — 50% promo pricing</p>
                       </div>
-                      <div className="flex gap-2 text-xs">
+                      <div className="flex shrink-0 gap-2 text-xs">
                         <Link
                           href="/houses/"
-                          className="rounded bg-slate-100 px-2.5 py-1 font-semibold text-slate-700 hover:bg-bb-bronze hover:text-white transition"
+                          className="rounded bg-slate-100 px-2.5 py-1 font-semibold text-slate-700 transition hover:bg-bb-bronze hover:text-white"
                         >
                           All Houses
                         </Link>
                         <Link
                           href="/lands/"
-                          className="rounded bg-slate-100 px-2.5 py-1 font-semibold text-slate-700 hover:bg-bb-bronze hover:text-white transition"
+                          className="rounded bg-slate-100 px-2.5 py-1 font-semibold text-slate-700 transition hover:bg-bb-bronze hover:text-white"
                         >
                           All Lands
                         </Link>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3">
-                      {projects.map((p) => {
-                        const meta = estateHighlights[p.id] || { corridor: "Abuja Corridor", starting: "Available Now" };
-                        return (
-                          <div
-                            key={p.id}
-                            className="group relative flex gap-3 rounded-md border border-slate-100 p-2.5 transition hover:border-bb-bronze/40 hover:bg-amber-50/20"
-                          >
-                            <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded bg-slate-100">
-                              <Image
-                                src={p.cardImage}
-                                alt={p.name}
-                                fill
-                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                sizes="80px"
-                              />
-                            </div>
-                            <div className="flex flex-col justify-between py-0.5 min-w-0">
-                              <div>
-                                <h4 className="truncate font-display text-sm font-semibold text-bb-obsidian group-hover:text-bb-bronze-dark">
-                                  {p.name}
-                                </h4>
-                                <p className="truncate text-[11px] text-slate-500">{meta.corridor}</p>
+                    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-3 [scrollbar-gutter:stable]">
+                      <div className="grid grid-cols-2 gap-3">
+                        {projects.map((p) => {
+                          const meta = estateHighlights[p.id] || { corridor: "Abuja Corridor", starting: "Available Now" };
+                          return (
+                            <div
+                              key={p.id}
+                              className="group relative flex gap-3 rounded-md border border-slate-100 p-2.5 transition hover:border-bb-bronze/40 hover:bg-bb-forest/5"
+                            >
+                              <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded bg-slate-100">
+                                <Image
+                                  src={p.cardImage}
+                                  alt={p.name}
+                                  fill
+                                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                  sizes="80px"
+                                />
                               </div>
-                              <div className="flex items-center gap-3 pt-1 text-[11px]">
-                                <Link
-                                  href={p.housesSlug}
-                                  className="font-bold text-bb-bronze-dark hover:underline"
-                                  onClick={() => setProjectsMenuOpen(false)}
-                                >
-                                  Houses →
-                                </Link>
-                                {p.landsSlug && (
-                                  <Link
-                                    href={p.landsSlug}
-                                    className="font-medium text-slate-600 hover:text-bb-obsidian hover:underline"
-                                    onClick={() => setProjectsMenuOpen(false)}
-                                  >
-                                    Lands
-                                  </Link>
-                                )}
+                              <div className="flex min-w-0 flex-col justify-between py-0.5">
+                                <div>
+                                  <h4 className="truncate font-display text-sm font-semibold text-bb-obsidian group-hover:text-bb-bronze-dark">
+                                    {p.name}
+                                  </h4>
+                                  <p className="truncate text-[11px] text-slate-500">{meta.corridor}</p>
+                                </div>
+                                <div className="flex items-center gap-3 pt-1 text-[11px]">
+                                  {p.houses.length > 0 ? (
+                                    <Link
+                                      href={p.housesSlug}
+                                      className="font-bold text-bb-bronze-dark hover:underline"
+                                      onClick={() => setProjectsMenuOpen(false)}
+                                    >
+                                      Houses →
+                                    </Link>
+                                  ) : null}
+                                  {p.landsSlug && (
+                                    <Link
+                                      href={p.landsSlug}
+                                      className="font-medium text-slate-600 hover:text-bb-obsidian hover:underline"
+                                      onClick={() => setProjectsMenuOpen(false)}
+                                    >
+                                      {p.houses.length > 0 ? "Lands" : "Plots →"}
+                                    </Link>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
                     </div>
 
-                    <div className="mt-4 flex items-center justify-between rounded bg-[#0b0f17] px-4 py-2.5 text-white">
+                    <div className="mx-6 mb-5 mt-1 flex shrink-0 items-center justify-between rounded bg-[#0b0f17] px-4 py-2.5 text-white">
                       <span className="text-xs text-slate-300">
                         Need immediate site consultation or custom payment plan?
                       </span>
                       <Link
                         href="/schedule-an-inspection/"
-                        className="rounded bg-bb-bronze px-3 py-1 text-xs font-bold text-bb-obsidian hover:brightness-110 transition"
+                        className="rounded bg-bb-bronze px-3 py-1 text-xs font-bold text-white transition hover:brightness-110"
                         onClick={() => setProjectsMenuOpen(false)}
                       >
                         Book VIP Inspection
@@ -373,20 +390,22 @@ export function Header() {
                       <div className="flex items-center justify-between">
                         <span className="font-display font-medium text-slate-100">{p.name}</span>
                         <div className="flex gap-2 text-xs">
-                          <Link
-                            href={p.housesSlug}
-                            onClick={() => setMobileOpen(false)}
-                            className="rounded bg-bb-bronze/20 px-2 py-0.5 text-bb-bronze-light hover:bg-bb-bronze hover:text-black"
-                          >
-                            Houses
-                          </Link>
+                          {p.houses.length > 0 && (
+                            <Link
+                              href={p.housesSlug}
+                              onClick={() => setMobileOpen(false)}
+                              className="rounded bg-bb-bronze/20 px-2 py-0.5 text-bb-bronze-light hover:bg-bb-bronze hover:text-white"
+                            >
+                              Houses
+                            </Link>
+                          )}
                           {p.landsSlug && (
                             <Link
                               href={p.landsSlug}
                               onClick={() => setMobileOpen(false)}
                               className="rounded bg-white/10 px-2 py-0.5 text-slate-300 hover:bg-white/20"
                             >
-                              Lands
+                              {p.houses.length > 0 ? "Lands" : "Plots"}
                             </Link>
                           )}
                         </div>

@@ -37,12 +37,15 @@ export function Footer() {
               Abuja Communities
             </h3>
             <ul className="mt-5 space-y-3 text-sm">
-              {projects.map((p) => (
+              {projects
+                .filter((p) => p.region === "abuja")
+                .slice(0, 10)
+                .map((p) => (
                 <li key={p.id} className="flex items-center justify-between text-slate-300 hover:text-white">
                   <Link href={p.housesSlug} className="hover:text-bb-bronze-light transition">
                     {p.name}
                   </Link>
-                  {p.landsSlug && (
+                  {p.landsSlug && p.landsSlug !== p.housesSlug && (
                     <Link
                       href={p.landsSlug}
                       className="text-xs text-slate-500 hover:text-bb-bronze-light"
@@ -52,6 +55,11 @@ export function Footer() {
                   )}
                 </li>
               ))}
+              <li>
+                <Link href="/estates/" className="text-bb-bronze-light hover:underline text-xs font-semibold">
+                  View all estates →
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -101,9 +109,22 @@ export function Footer() {
             </h3>
             <ul className="mt-5 space-y-3 text-sm text-slate-300">
               <li className="leading-snug">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                  Jahi
+                </span>
+                <br />
                 {site.address.line1}
                 <br />
                 <span className="text-slate-400">{site.address.line2}</span>
+              </li>
+              <li className="leading-snug">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                  Kado
+                </span>
+                <br />
+                {site.addressAlt.line1}
+                <br />
+                <span className="text-slate-400">{site.addressAlt.line2}</span>
               </li>
               <li>
                 <a

@@ -11,7 +11,7 @@ export type SeoEntry = {
 };
 
 export const defaultSeo: SeoEntry = {
-  title: `${site.name} | Smart & Luxury Homes in Abuja`,
+  title: `${site.name} | Smart Homes in Abuja & Port Harcourt`,
   description: site.description,
   path: "/",
   image: site.ogImage,
@@ -22,27 +22,27 @@ export const seoByPath: Record<string, SeoEntry> = {
   "/our-company/": {
     title: `Our Company | ${site.name}`,
     description:
-      "Beyond Borders delivers affordable, quality housing and turnkey construction across Abuja estates and lands.",
+      "Beyond Borders delivers smart homes, Buy & Build packages, and titled land across Abuja and Port Harcourt.",
     path: "/our-company/",
   },
   "/estates/": {
     title: `Estates | ${site.name}`,
-    description: "Explore Beyond Borders residential estates across Abuja.",
+    description: "Explore Beyond Borders communities across Abuja corridors and Port Harcourt.",
     path: "/estates/",
   },
   "/houses/": {
     title: `Houses | ${site.name}`,
-    description: "Browse house packages at White City and White Country Gardens estates.",
+    description: "Browse smart homes and buy & build packages across White City, Royal City, Aspen, KingsCity, and White Court.",
     path: "/houses/",
   },
   "/lands/": {
     title: `Lands | ${site.name}`,
-    description: "Land plots and investment opportunities with Beyond Borders in Abuja.",
+    description: "Land plots and investment opportunities with Beyond Borders in Abuja and Port Harcourt.",
     path: "/lands/",
   },
   "/schedule-an-inspection/": {
     title: `Schedule an Inspection | ${site.name}`,
-    description: "Book a site inspection at any Beyond Borders project in Abuja.",
+    description: "Book a site inspection at any Beyond Borders project in Abuja or Port Harcourt.",
     path: "/schedule-an-inspection/",
   },
   "/contact-us/": {

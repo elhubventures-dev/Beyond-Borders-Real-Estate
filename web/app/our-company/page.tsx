@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { aboutPage } from "@/content/pages";
+import { aboutGallery, aboutPage } from "@/content/pages";
 import { site } from "@/content/site";
 import { PageHero, CTABand } from "@/components/sections/ProjectParts";
+import { VideoBand } from "@/components/sections/VideoBand";
+import { BrandGallery } from "@/components/sections/BrandGallery";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -34,7 +36,37 @@ export default function OurCompanyPage() {
         <p className="mt-10 text-sm text-bb-muted">
           Portfolio snapshot: {site.stats.sqFt} · {site.stats.estates} · {site.stats.lands}
         </p>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <a
+            href={site.downloads.companyProfile}
+            download
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary !text-xs !uppercase !tracking-wider"
+          >
+            Download Company Profile
+          </a>
+          <a
+            href={site.downloads.portfolioFlyer}
+            download
+            target="_blank"
+            rel="noreferrer"
+            className="btn-outline !text-xs !uppercase !tracking-wider"
+          >
+            Portfolio Flyer
+          </a>
+        </div>
       </section>
+      <VideoBand
+        eyebrow="Brand Film"
+        title="Beyond Borders — Achieving More"
+        subtitle="Logo intro and our ongoing work across Abuja — with more cities ahead."
+        clips={[
+          { src: site.videos.logoIntro, label: "Brand Intro" },
+          { src: site.videos.abujaOngoing, label: "Ongoing In Abuja" },
+        ]}
+      />
+      <BrandGallery items={[...aboutGallery]} />
       <CTABand />
     </>
   );

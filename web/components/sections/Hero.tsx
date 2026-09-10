@@ -7,12 +7,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { homeHero } from "@/content/pages";
 import { projects } from "@/content/projects";
+import { site } from "@/content/site";
 
 const trustMetrics = [
-  { value: "4", label: "Master-Planned Estates", sub: "Strategic Abuja Corridors" },
-  { value: "8M+", label: "Sq. Ft. Portfolio", sub: "Managed & Delivered Land" },
-  { value: "100%", label: "Title Verified", sub: "FCDA & AGIS Compliant" },
-  { value: "10-20m", label: "To Abuja CBD & Airport", sub: "Prime Transit Proximity" },
+  { value: "18+", label: "Active Offerings", sub: "Abuja & Port Harcourt" },
+  { value: "8M+", label: "Sq. Ft. Portfolio", sub: "Estates & Investment Land" },
+  { value: "FCDA", label: "Approved Layouts", sub: "Verified Abuja Developments" },
+  { value: "2", label: "City Markets", sub: "FCT + Rivers corridors" },
 ];
 
 export function Hero() {
@@ -87,7 +88,7 @@ export function Hero() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze"></span>
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-light">
-                Abuja Master-Planned Communities
+                Abuja & Port Harcourt Communities
               </span>
             </motion.div>
 
@@ -112,8 +113,8 @@ export function Hero() {
               transition={{ delay: 0.35 }}
               className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300/90"
             >
-              Curated luxury duplexes, contemporary terrace homes, and prime titled plots across
-              Abuja’s most promising growth corridors. Built with structural integrity and long-term capital appreciation.
+              Smart homes, Buy & Build packages, and titled land across Idu, Kuje, Katampe, and Ketti in
+              Abuja — plus Igurita, Isiokpo, and Omagwa in Port Harcourt.
             </motion.p>
 
             {/* Hero CTAs */}
@@ -130,7 +131,17 @@ export function Hero() {
                 Explore All Estates
               </Link>
               <a
-                href={`https://wa.me/2347042070950?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20receive%20the%20portfolio%20brochure.`}
+                href={site.downloads.portfolioFlyer}
+                download
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition px-2 py-1"
+              >
+                <span>Download Portfolio Flyer</span>
+                <span aria-hidden>→</span>
+              </a>
+              <a
+                href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20receive%20the%20portfolio%20brochure.`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition px-2 py-1"
@@ -158,7 +169,7 @@ export function Hero() {
                   onChange={(e) => setSelectedEstate(e.target.value)}
                   className="w-full rounded border border-white/20 bg-slate-900/90 px-3.5 py-2.5 text-sm font-medium text-white outline-none transition focus:border-bb-bronze"
                 >
-                  <option value="all">All Abuja Locations</option>
+                  <option value="all">All Locations (Abuja & PH)</option>
                   {projects.map((p) => (
                     <option key={p.id} value={p.id}>
                       {p.name}

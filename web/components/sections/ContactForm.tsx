@@ -84,7 +84,7 @@ export function ContactForm({
           <textarea
             className="input-field min-h-28"
             {...form.register("message")}
-            placeholder="Specify preferred estate (e.g. White City Idu, Lugbe), typology, or custom architectural request..."
+            placeholder="Specify preferred estate (e.g. White City Beverly, Aspen 2), typology, or custom architectural request..."
           />
         </Field>
 
@@ -134,7 +134,7 @@ export function ContactForm({
   if (embedded) return <div>{inner}</div>;
 
   return (
-    <section className="bg-gradient-to-b from-white via-slate-50 to-[#faf9f6] py-20 md:py-28">
+    <section className="bg-gradient-to-b from-white via-bb-stone to-bb-cream py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-6">{inner}</div>
     </section>
   );

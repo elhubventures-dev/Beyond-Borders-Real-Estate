@@ -33,7 +33,7 @@ export function UnitPricing({
         {toggleHref && toggleLabel && (
           <Link
             href={toggleHref}
-            className="inline-flex items-center gap-2 rounded border border-bb-bronze/40 bg-amber-50/50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-bb-bronze-dark transition hover:bg-bb-bronze hover:text-white"
+            className="inline-flex items-center gap-2 rounded border border-bb-bronze/40 bg-bb-forest/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-bb-bronze-dark transition hover:bg-bb-bronze hover:text-white"
           >
             <span>{toggleLabel}</span>
             <span>→</span>
@@ -81,8 +81,13 @@ export function UnitPricing({
                   {/* Price overlay banner */}
                   <div className="absolute bottom-3 left-3 right-3">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
-                      Offering Price
+                      {unit.wasPrice ? "Promo Price" : "Offering Price"}
                     </span>
+                    {unit.wasPrice && (
+                      <p className="text-sm font-semibold text-slate-300 line-through decoration-red-400/80">
+                        {unit.wasPrice}
+                      </p>
+                    )}
                     <p className="font-display text-2xl font-medium text-white drop-shadow-sm">
                       {unit.price}
                     </p>
@@ -119,7 +124,7 @@ export function UnitPricing({
                   href={`https://wa.me/${site.whatsapp}?text=${whatsappInquiry}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded border border-bb-bronze/40 bg-amber-50/40 px-3.5 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:!text-white transition"
+                  className="inline-flex items-center justify-center rounded border border-bb-bronze/40 bg-bb-forest/5 px-3.5 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:!text-white transition"
                 >
                   WhatsApp Inquiry
                 </a>
@@ -176,7 +181,7 @@ export function FeatureList({ features }: { features: string[] }) {
 
 export function ProjectPageHeader({ project, kind }: { project: Project; kind: "houses" | "lands" }) {
   return (
-    <div className="border-b border-bb-border bg-gradient-to-b from-white via-slate-50 to-[#faf9f6]">
+    <div className="border-b border-bb-border bg-gradient-to-b from-white via-bb-stone to-bb-cream">
       <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
@@ -205,7 +210,29 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
             </p>
           </div>
 
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 flex-wrap items-center gap-3">
+            {project.applicationPdf && (
+              <a
+                href={project.applicationPdf}
+                download
+                target="_blank"
+                rel="noreferrer"
+                className="btn-outline !text-xs !uppercase !tracking-wider"
+              >
+                Download Application
+              </a>
+            )}
+            {project.brochurePdf && (
+              <a
+                href={project.brochurePdf}
+                download
+                target="_blank"
+                rel="noreferrer"
+                className="btn-outline !text-xs !uppercase !tracking-wider"
+              >
+                Download Brochure
+              </a>
+            )}
             <Link href="/schedule-an-inspection/" className="btn-gold !text-xs !uppercase !tracking-wider">
               Book On-Site Inspection
             </Link>
@@ -278,6 +305,87 @@ export function CTABand() {
   );
 }
 
+export function EstateFees({ project }: { project: Project }) {
+  if (!project.fees) return null;
+  const { fees } = project;
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-14 md:py-16">
+      <div className="max-w-2xl mb-8">
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
+          Application &amp; Plot Fees
+        </span>
+        <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-bb-obsidian">
+          Fees For {project.name}
+        </h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Separate from house or land package prices. Confirm current terms on inspection.
+        </p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="rounded-lg border border-bb-border bg-white p-5">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Application Form</p>
+          <p className="mt-2 font-display text-2xl text-bb-obsidian">{fees.applicationForm}</p>
+        </div>
+        <div className="rounded-lg border border-bb-border bg-white p-5">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Documentation</p>
+          <p className="mt-2 font-display text-2xl text-bb-obsidian">{fees.documentation}</p>
+        </div>
+        <div className="rounded-lg border border-bb-border bg-white p-5">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Development Levy</p>
+          <p className="mt-2 font-display text-2xl text-bb-obsidian">{fees.developmentLevy}</p>
+        </div>
+      </div>
+      {fees.notes && fees.notes.length > 0 && (
+        <ul className="mt-6 space-y-2 text-sm text-slate-600">
+          {fees.notes.map((note) => (
+            <li key={note} className="flex gap-2">
+              <span className="text-bb-bronze">•</span>
+              <span>{note}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {project.applicationPdf && (
+        <a
+          href={project.applicationPdf}
+          download
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 inline-flex btn-primary !text-xs !uppercase !tracking-wider"
+        >
+          Download Application Form
+        </a>
+      )}
+    </section>
+  );
+}
+
+export function EstateFaqs({ project }: { project: Project }) {
+  if (!project.faqs?.length) return null;
+  return (
+    <section className="bg-bb-cream border-y border-bb-border py-14 md:py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl mb-8">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
+            Estate FAQ
+          </span>
+          <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-bb-obsidian">
+            Buying At {project.name}
+          </h2>
+        </div>
+        <dl className="mx-auto max-w-3xl space-y-5">
+          {project.faqs.map((item) => (
+            <div key={item.q} className="border-b border-bb-border pb-5">
+              <dt className="font-display text-lg text-bb-obsidian">{item.q}</dt>
+              <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
 export function PageHero({
   title,
   subtitle,
@@ -288,7 +396,7 @@ export function PageHero({
   category?: string;
 }) {
   return (
-    <div className="border-b border-bb-border bg-gradient-to-b from-[#faf9f6] via-white to-[#faf9f6]">
+    <div className="border-b border-bb-border bg-gradient-to-b from-bb-cream via-white to-bb-cream">
       <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
           {category}

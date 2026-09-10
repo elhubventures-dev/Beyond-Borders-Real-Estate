@@ -1,10 +1,11 @@
 # Design System Report — Beyond Borders
 
 ## Brand signals
-- Logo: `Main_logo.png` (primary), favicon variant `Main-Logo.png`
-- Accent (from WPBakery): `#ff8f3a` (warm construction orange)
-- Photography: aerial estate shots, duplex exteriors, land plots (2022 uploads)
-- Atmosphere: Abuja daylight, concrete + green landscape — not flat solid backgrounds
+- Logo: `Main_logo.png` (horizontal lockup for header/footer), `Main-Logo.png` (stacked), `logo-mark.png` (emblem), `logo-light.png` (light-surface stacked)
+- Source assets: `Updates/These are our current branding colors/`
+- Tagline: “Achieving more…”
+- Photography: aerial estate shots, duplex exteriors, land plots
+- Atmosphere: Abuja daylight, landscape greens — soft green-tinted surfaces, not flat solid fills
 
 ## Typography (Next.js)
 Avoid Inter/Roboto/Arial. Pairing:
@@ -12,20 +13,30 @@ Avoid Inter/Roboto/Arial. Pairing:
 - **Body / UI:** Manrope (geometric sans for nav, prices, forms)
 
 ## Color tokens
+Official brand primary from lockups: **`#0A4C04`**.
+
 ```css
---bb-ink: #1a1a1a;
---bb-muted: #5c5c5c;
---bb-cream: #f7f3ee; /* warm paper, not generic #F4F1EA terracotta kit */
---bb-sand: #e8dfd2;
---bb-accent: #ff8f3a;
---bb-accent-deep: #e07220;
---bb-forest: #1e3a2f; /* grounding for footer/contrast */
+--bb-forest: #0a4c04;      /* primary brand green */
+--bb-bronze: #0a4c04;      /* accent alias (legacy token name) */
+--bb-bronze-light: #3f8a38; /* accents on dark surfaces */
+--bb-bronze-dark: #073803;  /* accents on light surfaces */
+--bb-accent: #0a4c04;
+--bb-accent-deep: #073803;
+--bb-black: #000000;
+--bb-obsidian: #0b0f17;    /* dark chrome / footer */
+--bb-ink: #111827;
+--bb-muted: #64748b;
+--bb-cream: #f5f8f5;       /* light surface with green cast */
+--bb-stone: #eef3ee;
+--bb-sand: #e4ebe4;
 --bb-white: #ffffff;
 ```
 
+CTA class `.btn-gold` uses the green gradient (name retained for compatibility).
+
 ## Layout
 - Full-bleed hero only (edge-to-edge photography)
-- Brand name is hero-level on home
+- Brand name / logo is hero-level on home
 - First viewport: brand + one headline + one supporting line + CTA group + dominant image
 - No cards in hero; cards only for interactive project selection
 - One job per section

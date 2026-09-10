@@ -3,7 +3,7 @@ export const aboutPage = {
   headline: "Who we are",
   body: [
     "At Beyond Borders, we take you further in the area of building construction, real estate, roads, bridges and turnkey projects. From smart homes to solar cities, we are your trusted name with home-grown engineers taking on world-class buildings and engineering infrastructure to change the African construction landscape.",
-    "Our portfolio spans 8 million sq ft and comprises 4 estates with about 19 conveniently located lands. We hand-pick our assets to deliberately focus on providing top quality affordable housing solutions at excellent locations and we avoid structurally challenged sub-sector buildings and plazas.",
+    "Our portfolio spans 8 million+ sq ft across master-planned communities in Abuja and Port Harcourt — from Idu, Kuje, Katampe, Ketti, Lifecamp, Guzape, and Jahi in the FCT to Igurita, Isiokpo, and Omagwa in Rivers. Completed delivery includes twenty 4-bedroom terraces at Dakwa, with ongoing estates and land banking across both cities.",
     "This focus, combined with our affordable housing and desirable locations, delivers sustainable and growing returns for our growing clients, while we also provide further opportunities to provide value from our portfolio of properties and lands.",
   ],
   pillars: [
@@ -17,6 +17,29 @@ export const aboutPage = {
     },
   ],
 };
+
+export const aboutGallery = [
+  {
+    src: "/media/brand/dream-home-delivered.jpeg",
+    alt: "Your dream home delivered across Abuja corridors",
+  },
+  {
+    src: "/media/brand/buy-sell-invest.jpeg",
+    alt: "Buy, sell, and invest with Beyond Borders",
+  },
+  {
+    src: "/media/brand/construction-crew.jpeg",
+    alt: "Beyond Borders construction team on site",
+  },
+  {
+    src: "/media/brand/site-machinery.jpeg",
+    alt: "Estate construction machinery and delivery",
+  },
+  {
+    src: "/media/brand/landlord-amenities.jpeg",
+    alt: "Estate lifestyle and landlord amenities",
+  },
+] as const;
 
 export const services = [
   {
@@ -59,11 +82,15 @@ export const faqs = [
     items: [
       {
         q: "What locations do you develop in?",
-        a: "Our active projects include White City Idu, White Country Gardens Lugbe, White Courts Dakwo, White City Kuje and White City Giri — all in and around Abuja.",
+        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1), Kuje (Aspen), Katampe (KingsCity Davos), Ketti, Lifecamp, Guzape, Jahi, The White Court, and hectare land banking. In Port Harcourt: Igurita, Isiokpo, and Omagwa.",
       },
       {
         q: "Do you sell both houses and land?",
-        a: "Yes. Most estates offer completed or finishing house packages as well as plot sizes (typically 300 and 500 square metres where listed).",
+        a: "Yes. Most estates offer finished smart homes and Buy & Build packages (typically 250–750 SQM). We also sell hectare land banking (10,000 SQM / 1 hectare from ₦79M) plus investment plots in Port Harcourt.",
+      },
+      {
+        q: "What extra fees apply when I buy?",
+        a: "Application, documentation, and development levy amounts vary by estate — see each project page for the published schedule (and download the application form where available).",
       },
       {
         q: "Are payment plans available?",
@@ -76,11 +103,11 @@ export const faqs = [
     items: [
       {
         q: "How do I schedule a site inspection?",
-        a: "Use the Schedule an Inspection form, choose your preferred project and date/time, or call / WhatsApp +234 704 207 0950.",
+        a: "Use the Schedule an Inspection form, choose your preferred project and date/time, or call / WhatsApp +234 907 171 1222 (Abuja) or +234 902 849 7393 (Port Harcourt).",
       },
       {
         q: "Where is your office?",
-        a: "Suite A13D Platinum Plaza, opposite Mabushi Ultramodern Market, Jahi, Abuja, NG.",
+        a: "Primary: Suite A13D Platinum Plaza, opposite Mabushi Ultramodern Market, Jahi, Abuja. Also: Plot 84, Victor B.K Crescent, off Graba Idris Street, After Lakeview Homes, Behind Customs Quarters, Kado, Abuja.",
       },
       {
         q: "Which email should I use?",
