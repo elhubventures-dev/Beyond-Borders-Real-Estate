@@ -32,3 +32,7 @@ error_log
 Thumbs.db
 .vscode/
 .idea/
+
+# Client source dumps (site uses web/public/media copies)
+Updates/
+
