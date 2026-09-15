@@ -37,6 +37,7 @@ export type Project = {
   brochurePdf?: string;
   fees?: ProjectFees;
   faqs?: ProjectFaq[];
+  progressGallery?: { src: string; alt: string }[];
 };
 
 const ABUJA_ESTATE_FEATURES = [
@@ -75,7 +76,7 @@ export const projects: Project[] = [
     id: "beverly",
     name: "White City Beverly",
     shortName: "Beverly",
-    cardImage: "/media/projects/white-city-beverly.jpg",
+    cardImage: "/media/projects/beverly-progress/gatehouse.jpg",
     housesSlug: "/houses-white-city-beverly/",
     landsSlug: "/lands-white-city-beverly/",
     inspectionLabel: "White City Beverly (Idu Abuja, Opposite Railway)",
@@ -84,12 +85,47 @@ export const projects: Project[] = [
     startingHouse: "₦59 Million",
     startingLand: "₦20 Million",
     houseTypes: "2–5 Bed Smart Homes + BQ",
-    landSizes: "250–750 SQM · 1 Hectare from ₦79M",
+    landSizes: "250–750 SQM Buy & Build",
     region: "abuja",
-    promo: "Special 50% Independence Day Promo — 50% deposit, 50% discount",
+    promo: "Active campaign — 50% Independence Day Promo · site works ongoing opposite Idu Railway",
     housesIntro: "Brochure models with Independence Day promo pricing",
-    landsIntro: "Buy & Build packages and hectare land banking",
+    landsIntro:
+      "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Golden Abuja Land — Hectares.",
     brochurePdf: "/media/brochures/white-city-beverly-brochure.pdf",
+    progressGallery: [
+      {
+        src: "/media/projects/beverly-progress/gatehouse.jpg",
+        alt: "White City Beverly estate gatehouse under construction opposite Idu Railway",
+      },
+      {
+        src: "/media/projects/beverly-progress/duplex-aerial.jpg",
+        alt: "Aerial view of a near-complete duplex at White City Beverly Idu",
+      },
+      {
+        src: "/media/projects/beverly-progress/terrace-finishing.jpg",
+        alt: "Terrace block exterior finishing in progress at White City Beverly",
+      },
+      {
+        src: "/media/projects/beverly-progress/terrace-row.jpg",
+        alt: "Row of terrace units under construction at White City Beverly",
+      },
+      {
+        src: "/media/projects/beverly-progress/site-overview.jpg",
+        alt: "Wide overview of White City Beverly construction opposite Idu Railway",
+      },
+      {
+        src: "/media/projects/beverly-progress/shells-aerial.jpg",
+        alt: "Aerial view of housing shells rising across White City Beverly",
+      },
+      {
+        src: "/media/projects/beverly-progress/foundation-works.jpg",
+        alt: "Foundation and civil works underway at White City Beverly",
+      },
+      {
+        src: "/media/projects/beverly-progress/unit-scaffolding.jpg",
+        alt: "Scaffolded residential unit with site utilities at White City Beverly",
+      },
+    ],
     houses: [
       {
         title: "High Flyer — 2 Bed + BQ Apartment",
@@ -133,16 +169,10 @@ export const projects: Project[] = [
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦60 million", "₦30 million", "/media/projects/white-city-beverly.jpg"),
       packageUnit(500, "6 Bed Smart Duplex with BQ", "₦80 million", "₦40 million", "/media/projects/white-city-beverly.jpg"),
       packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦120 million", "₦60 million", "/media/projects/white-city-beverly.jpg"),
-      {
-        title: "1 Hectare (10,000 SQM) — Idu Railway",
-        price: "From ₦79 million",
-        image: "/media/projects/hectare-oclock.jpg",
-      },
     ],
     features: [
       ...ABUJA_ESTATE_FEATURES,
-      "Directly opposite Idu Railway Station",
-      "Beside Idu Train Station, Lugbe 1 Layout",
+      "Directly opposite Idu Railway Station · Lugbe 1 Layout",
       "~15 mins to Nnamdi Azikiwe International Airport",
       "Smart Home Automation",
       "24-hour power supply",
@@ -153,7 +183,7 @@ export const projects: Project[] = [
       "Gated compound · armed security · CCTV",
       "Tarred roads with drainage · fibre internet",
       "Modern healthcare facility",
-      "Ongoing development — houses, plots & hectares available",
+      "Ongoing development — houses and Buy & Build plots available",
     ],
   },
   {

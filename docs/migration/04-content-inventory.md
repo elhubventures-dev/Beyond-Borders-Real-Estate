@@ -33,6 +33,9 @@ dream-home-delivered · buy-sell-invest · construction-crew · site-machinery �
 
 Corner 10% · late 5%/mo. Shown on estate pages + estate FAQs.
 
+## Beverly progress gallery
+`web/public/media/projects/beverly-progress/` — 8 site photos. Shown once on Home (below promo) and once on Beverly houses/lands pages. Hectare Idu listing lives only under **Golden Abuja Land — Hectares** (not duplicated on Beverly lands).
+
 ## Beverly finished homes (promo)
 High Flyer ₦59M · Pearl 2 ₦89M · Emerald ₦99M · Silver ₦109M · Gold ₦114M · Diamond ₦129M
 

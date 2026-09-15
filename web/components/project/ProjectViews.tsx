@@ -1,3 +1,4 @@
+import { BrandGallery } from "@/components/sections/BrandGallery";
 import {
   CTABand,
   EstateFaqs,
@@ -7,6 +8,18 @@ import {
   UnitPricing,
 } from "@/components/sections/ProjectParts";
 import type { Project } from "@/content/projects";
+
+function ProjectProgressGallery({ project }: { project: Project }) {
+  if (!project.progressGallery?.length) return null;
+  return (
+    <BrandGallery
+      items={project.progressGallery}
+      eyebrow="Project Updates"
+      title="Site Progress"
+      subtitle={`Live construction at ${project.name} — ${project.distanceBadge}, ${project.locationBadge}.`}
+    />
+  );
+}
 
 export function HousesProjectBody({ project }: { project: Project }) {
   const units = project.houses.length > 0 ? project.houses : (project.lands ?? []);
@@ -30,6 +43,7 @@ export function HousesProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <ProjectProgressGallery project={project} />
       <EstateFees project={project} />
       <FeatureList features={project.features} />
       <EstateFaqs project={project} />
@@ -57,6 +71,7 @@ export function LandsProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <ProjectProgressGallery project={project} />
       <EstateFees project={project} />
       <FeatureList features={project.features} />
       <EstateFaqs project={project} />

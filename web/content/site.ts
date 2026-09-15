@@ -43,12 +43,12 @@ export const site = {
     abujaOngoing: "/media/video/abuja-ongoing.mp4",
   },
   promo: {
-    eyebrow: "50% PROMO",
+    eyebrow: "Active Campaign · White City Beverly",
     title: "Independence Day Smart Home Promo",
-    body: "Acquire a smart home or investment plot with 50% deposit and get 50% discount across White City, Royal City, Aspen, KingsCity, and White Court offerings in Abuja — plus KingsCity land investments in Port Harcourt. Installment plans also available.",
+    body: "50% deposit, 50% discount across White City, Royal City, Aspen, KingsCity, and White Court in Abuja — plus KingsCity land in Port Harcourt. White City Beverly is under active construction opposite Idu Railway; inspect the site and lock promo pricing now.",
     ctaLabel: "Schedule an Inspection",
     ctaHref: "/schedule-an-inspection/",
-    image: "/media/projects/white-city-beverly.jpg",
+    image: "/media/projects/beverly-progress/site-overview.jpg",
   },
   stats: {
     sqFt: "8 million+ sq ft",

@@ -6,10 +6,15 @@ import { EstateComparison } from "@/components/sections/EstateComparison";
 import { PaymentCalculator } from "@/components/sections/PaymentCalculator";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { CTABand } from "@/components/sections/ProjectParts";
+import { BrandGallery } from "@/components/sections/BrandGallery";
 import { VideoBand } from "@/components/sections/VideoBand";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+
+const beverlyProgress =
+  projects.find((p) => p.id === "beverly")?.progressGallery ?? [];
 
 const seo = getSeo("/");
 
@@ -42,6 +47,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <PromoBanner />
+      <BrandGallery
+        items={beverlyProgress}
+        eyebrow="Project Updates"
+        title="White City Beverly — On Site"
+        subtitle="Ongoing construction opposite Idu Railway Station, Abuja — gatehouse, terraces, duplexes, and foundations rising now."
+      />
       <ProjectGrid />
       <VideoBand
         eyebrow="White City Estates"
@@ -54,7 +66,6 @@ export default function HomePage() {
       />
       <EstateComparison />
       <PaymentCalculator />
-      <PromoBanner />
       <CTABand />
       <ContactForm />
     </>
