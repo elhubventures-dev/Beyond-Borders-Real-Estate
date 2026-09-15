@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FlipBookGallery } from "@/components/sections/FlipBookGallery";
 
 export type GalleryItem = { src: string; alt: string };
 
@@ -7,13 +8,27 @@ export function BrandGallery({
   title = "On The Ground",
   subtitle = "Construction delivery, brand presence, and the corridors we serve across Abuja.",
   eyebrow = "Brand & Delivery",
+  variant = "grid",
 }: {
   items: GalleryItem[];
   title?: string;
   subtitle?: string;
   eyebrow?: string;
+  variant?: "grid" | "flipbook";
 }) {
   if (!items.length) return null;
+
+  if (variant === "flipbook") {
+    return (
+      <FlipBookGallery
+        items={items}
+        title={title}
+        subtitle={subtitle}
+        eyebrow={eyebrow}
+      />
+    );
+  }
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
       <div className="max-w-2xl mb-10">

@@ -11,6 +11,7 @@ import { VideoBand } from "@/components/sections/VideoBand";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 import { projects } from "@/content/projects";
+import { campaignGallery } from "@/content/pages";
 import { site } from "@/content/site";
 
 const beverlyProgress =
@@ -49,18 +50,29 @@ export default function HomePage() {
       <Hero />
       <PromoBanner />
       <BrandGallery
+        items={[...campaignGallery]}
+        variant="flipbook"
+        eyebrow="Active Campaigns"
+        title="See Your Home Clearly"
+        subtitle="Today’s plot becomes tomorrow’s dream villa — exclusive listings and the 50% promo still on."
+      />
+      <BrandGallery
         items={beverlyProgress}
+        variant="flipbook"
         eyebrow="Project Updates"
         title="White City Beverly — On Site"
-        subtitle="Ongoing construction opposite Idu Railway Station, Abuja — gatehouse, terraces, duplexes, and foundations rising now."
+        subtitle="Ongoing construction opposite Idu Railway Station, Abuja — turn the album to walk the site."
       />
       <ProjectGrid />
       <VideoBand
         eyebrow="White City Estates"
         title="Wouldn't You Rather Live Here"
-        subtitle="Tour our White City communities and current product lineup — excellence at its peak."
+        subtitle="Tour White City communities, interiors, and Aspen 2 — excellence at its peak."
         clips={[
           { src: site.videos.whiteCity, label: "White City Estates" },
+          { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
+          { src: site.videos.whiteCityInterior, label: "Interior Living" },
+          { src: site.videos.aspen2Promo, label: "Aspen 2" },
           { src: site.videos.products, label: "Current Products" },
         ]}
       />

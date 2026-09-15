@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Project, Unit } from "@/content/projects";
 import { site } from "@/content/site";
+import { HoverPopImage } from "@/components/ui/HoverPopImage";
 
 export function UnitPricing({
   title,
@@ -41,7 +41,7 @@ export function UnitPricing({
         )}
       </div>
 
-      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-8 overflow-visible sm:grid-cols-2 lg:grid-cols-3">
         {units.map((unit) => {
           const isLand = kind === "lands" || unit.title.toLowerCase().includes("meter");
           const whatsappInquiry = encodeURIComponent(
@@ -51,35 +51,33 @@ export function UnitPricing({
           return (
             <article
               key={`${unit.title}-${unit.price}`}
-              className="architectural-card group flex flex-col justify-between overflow-hidden rounded-lg bg-white"
+              className="architectural-card group relative z-0 flex flex-col justify-between overflow-visible rounded-lg bg-white"
             >
               <div>
-                {/* Visual Thumbnail */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                {/* Visual Thumbnail — pop-out only on this section */}
+                <div className="group/media relative z-0 hover:z-40">
                   {unit.image ? (
-                    <Image
+                    <HoverPopImage
                       src={unit.image}
                       alt={unit.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width:768px) 100vw, 33vw"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-slate-800 text-xs text-slate-400">
+                    <div className="flex aspect-[16/10] w-full items-center justify-center bg-slate-800 text-xs text-slate-400">
                       Beyond Borders Architecture
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-700 group-hover/media:opacity-30" />
 
                   {/* Badge */}
-                  <div className="absolute top-3 left-3">
+                  <div className="pointer-events-none absolute top-3 left-3 z-10 transition-opacity duration-700 group-hover/media:opacity-0">
                     <span className="rounded bg-black/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-bb-bronze-light backdrop-blur-md">
                       {isLand ? "Demarcated Plot" : "Architectural Typology"}
                     </span>
                   </div>
 
                   {/* Price overlay banner */}
-                  <div className="absolute bottom-3 left-3 right-3">
+                  <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-10 transition-opacity duration-700 group-hover/media:opacity-0">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
                       {unit.wasPrice ? "Promo Price" : "Offering Price"}
                     </span>

@@ -38,6 +38,7 @@ export type Project = {
   fees?: ProjectFees;
   faqs?: ProjectFaq[];
   progressGallery?: { src: string; alt: string }[];
+  videos?: { src: string; label: string }[];
 };
 
 const ABUJA_ESTATE_FEATURES = [
@@ -90,7 +91,7 @@ export const projects: Project[] = [
     promo: "Active campaign — 50% Independence Day Promo · site works ongoing opposite Idu Railway",
     housesIntro: "Brochure models with Independence Day promo pricing",
     landsIntro:
-      "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Golden Abuja Land — Hectares.",
+      "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Hectare O'Clock — Golden Abuja Land.",
     brochurePdf: "/media/brochures/white-city-beverly-brochure.pdf",
     progressGallery: [
       {
@@ -124,6 +125,28 @@ export const projects: Project[] = [
       {
         src: "/media/projects/beverly-progress/unit-scaffolding.jpg",
         alt: "Scaffolded residential unit with site utilities at White City Beverly",
+      },
+    ],
+    videos: [
+      {
+        src: "/media/video/white-city-cgi-tour.mp4",
+        label: "White City Vision — Gate & Mall",
+      },
+      {
+        src: "/media/video/beverly-4bed-duplex-build.mp4",
+        label: "4 Bed Duplex + BQ Build",
+      },
+      {
+        src: "/media/video/beverly-4bed-idu-construction.mp4",
+        label: "White City Idu Construction",
+      },
+      {
+        src: "/media/video/beverly-site-blockwork.mp4",
+        label: "Site Blockwork Progress",
+      },
+      {
+        src: "/media/video/white-city-interior-tour.mp4",
+        label: "Interior Living Area",
       },
     ],
     houses: [
@@ -458,6 +481,12 @@ export const projects: Project[] = [
       allocationExtra:
         "After complete payment for the land and documentation fees you receive allocation. Construction on the land begins after payment of development fees.",
     }),
+    videos: [
+      {
+        src: "/media/video/white-city-aspen-2-promo.mp4",
+        label: "White City Aspen 2 Promo",
+      },
+    ],
   },
   {
     id: "ketti",
@@ -531,21 +560,22 @@ export const projects: Project[] = [
     id: "white-court",
     name: "The White Court",
     shortName: "White Court",
-    cardImage: "/media/projects/white-court.jpg",
+    cardImage: "/media/projects/white-court-flyer.jpg",
     housesSlug: "/houses-white-court/",
-    inspectionLabel: "The White Court — Premium Finished Smart Duplex",
-    locationBadge: "Abuja",
-    distanceBadge: "Prime Location",
-    startingHouse: "₦225 Million",
+    inspectionLabel: "The White Court (Jahi Abuja)",
+    locationBadge: "Jahi Abuja",
+    distanceBadge: "Prime Living, Prime Location",
+    startingHouse: "₦250 Million",
     houseTypes: "5 Bed Premium Smart Duplex + BQ",
     region: "abuja",
-    promo: "50% Promo — Installment available",
+    promo: "Active 50% Promo — was ₦500M · now ₦250M · installment available",
+    housesIntro: "Premium finished smart duplex — FCDA approved",
     houses: [
       {
         title: "5 Bedroom Premium Finished Smart Duplex + BQ",
-        wasPrice: "₦450 million",
-        price: "₦225 million",
-        image: "/media/projects/white-court.jpg",
+        wasPrice: "₦500 million",
+        price: "₦250 million",
+        image: "/media/projects/white-court-flyer.jpg",
       },
     ],
     features: [
@@ -553,11 +583,12 @@ export const projects: Project[] = [
       "Double Living Room",
       "Swimming Pool",
       "Spacious Masters",
+      "Serene & Secure Environment",
       "24/7 Security",
       "Well-planned Road Network",
       "Modern Infrastructure & Amenities",
       "Approved by FCDA",
-      "Serene & Secure Environment",
+      "Jahi Abuja — prime living, prime location",
     ],
   },
   {
@@ -748,42 +779,43 @@ export const projects: Project[] = [
   },
   {
     id: "hectare-abuja",
-    name: "Golden Abuja Land — Hectares",
-    shortName: "Hectares",
-    cardImage: "/media/projects/hectare-oclock.jpg",
+    name: "Hectare O'Clock — Golden Abuja Land",
+    shortName: "Hectare O'Clock",
+    cardImage: "/media/projects/hectare-oclock-flyer.jpg",
     housesSlug: "/lands-hectare-abuja/",
     landsSlug: "/lands-hectare-abuja/",
-    inspectionLabel: "Hectare Land Banking (Idu, Katampe, Kuje, Ketti)",
+    inspectionLabel: "Hectare O'Clock — Idu Railway, Katampe Extension, Kuje, Ketti",
     locationBadge: "Abuja Corridors",
-    distanceBadge: "Hectare O'Clock",
+    distanceBadge: "10,000 SQM · From ₦79M",
     startingHouse: "₦79 Million",
     startingLand: "₦79 Million",
     houseTypes: "Estate Development Land",
     landSizes: "1 Hectare (10,000 SQM)",
     region: "abuja",
-    promo: "Start your own estate development — from ₦79M",
+    promo: "Hectare O'Clock — start your own estate development from ₦79M",
+    landsIntro: "10,000 SQM of Golden Abuja Land — start your own estate development with ease",
     brochurePdf: "/media/brochures/beverly-and-hectare-flyer.pdf",
     houses: [],
     lands: [
       {
         title: "1 Hectare (10,000 SQM) — Idu Railway",
         price: "From ₦79 million",
-        image: "/media/projects/hectare-oclock.jpg",
+        image: "/media/projects/hectare-oclock-flyer.jpg",
       },
       {
         title: "1 Hectare (10,000 SQM) — Katampe Extension",
         price: "From ₦79 million",
-        image: "/media/projects/hectare-oclock.jpg",
+        image: "/media/projects/hectare-oclock-flyer.jpg",
       },
       {
         title: "1 Hectare (10,000 SQM) — Kuje",
         price: "From ₦79 million",
-        image: "/media/projects/hectare-oclock.jpg",
+        image: "/media/projects/hectare-oclock-flyer.jpg",
       },
       {
         title: "1 Hectare (10,000 SQM) — Ketti",
         price: "From ₦79 million",
-        image: "/media/projects/hectare-oclock.jpg",
+        image: "/media/projects/hectare-oclock-flyer.jpg",
       },
     ],
     features: [
@@ -793,7 +825,100 @@ export const projects: Project[] = [
       "Unbeatable ROI up to 500%",
       "FCDA Approved Designs",
       "Secured Land Banking",
-      "Start Your Own Estate Development",
+      "Start Your Own Estate Development with Ease",
+      "Available: Idu Railway · Katampe Extension · Kuje · Ketti",
+    ],
+  },
+  {
+    id: "halaand",
+    name: "Halaand Estate",
+    shortName: "Halaand",
+    cardImage: "/media/projects/halaand-estate-flyer.jpg",
+    housesSlug: "/houses-halaand-estate/",
+    landsSlug: "/lands-halaand-estate/",
+    inspectionLabel: "Halaand Estate (Katampe Abuja)",
+    locationBadge: "Katampe Abuja",
+    distanceBadge: "Hectares Investment · High ROI",
+    startingHouse: "₦69 Million",
+    startingLand: "₦14.9 Million",
+    houseTypes: "Housing units from ₦69M",
+    landSizes: "Serviced plots from ₦14.9M · Hectares from ₦449M",
+    region: "abuja",
+    promo: "Hectares on promo — from ₦449M (was ₦900M)",
+    housesIntro: "Housing units available at Halaand Estate, Katampe",
+    landsIntro:
+      "Serviced plots and hectare land banking — build wealth, establish legacy, own your estate brand",
+    houses: [
+      {
+        title: "Housing Units — Halaand Estate",
+        price: "From ₦69 million",
+        image: "/media/projects/halaand-estate-flyer.jpg",
+      },
+    ],
+    lands: [
+      {
+        title: "Serviced Plots",
+        price: "From ₦14.9 million",
+        image: "/media/projects/halaand-estate-flyer.jpg",
+      },
+      {
+        title: "1 Hectare — Halaand Estate (Katampe)",
+        wasPrice: "₦900 million",
+        price: "From ₦449 million",
+        image: "/media/projects/halaand-estate-flyer.jpg",
+      },
+    ],
+    features: [
+      "EV Charging Stations",
+      "Golf Course",
+      "Movie Production Studios",
+      "Water Shows",
+      "Corporate Towers",
+      "Sporting & Entertainment Centers",
+      "Katampe Abuja",
+      "Unbeatable Opportunity · High ROI",
+      "Build Wealth · Establish Legacy · Own Your Estate Brand",
+    ],
+  },
+  {
+    id: "beyond-towers",
+    name: "Beyond Towers",
+    shortName: "Beyond Towers",
+    cardImage: "/media/projects/beyond-towers-flyer.jpg",
+    housesSlug: "/houses-beyond-towers/",
+    landsSlug: "/lands-beyond-towers/",
+    inspectionLabel: "Beyond Towers — Twin Tower Mixed-Use",
+    locationBadge: "Abuja",
+    distanceBadge: "Premium Mixed-Use",
+    startingHouse: "Contact for packages",
+    startingLand: "Contact for commercial",
+    houseTypes: "Residential apartments",
+    landSizes: "Retail & commercial spaces",
+    region: "abuja",
+    promo: "Exclusive twin tower mixed-use — a smarter way to live",
+    housesIntro: "Residential apartments in an exclusive twin-tower mixed-use project",
+    landsIntro: "Retail and commercial spaces within Beyond Towers",
+    houses: [
+      {
+        title: "Residential Apartments",
+        price: "Contact for pricing",
+        image: "/media/projects/beyond-towers-flyer.jpg",
+      },
+    ],
+    lands: [
+      {
+        title: "Retail & Commercial Spaces",
+        price: "Contact for pricing",
+        image: "/media/projects/beyond-towers-flyer.jpg",
+      },
+    ],
+    features: [
+      "Residential Apartments",
+      "Retail & Commercial Spaces",
+      "Premium Security",
+      "Modern Living Environment",
+      "Exclusive twin tower mixed-use project",
+      "Premium real estate · a smarter way to live",
     ],
   },
 ];
@@ -816,32 +941,37 @@ export function getProjectById(id: string) {
 
 export const estateHubListings = [
   {
+    title: "Beyond Towers — Residential Apartments",
+    location: "Twin Tower Mixed-Use",
+    image: "/media/projects/beyond-towers-flyer.jpg",
+  },
+  {
     title: "2 Bed + BQ Apartment",
     location: "White City Beverly (Idu)",
     image: "/media/projects/beverly-2bed-apartment.jpg",
   },
   {
     title: "5 Bed Premium Smart Duplex + BQ",
-    location: "The White Court",
-    image: "/media/projects/white-court.jpg",
+    location: "The White Court (Jahi)",
+    image: "/media/projects/white-court-flyer.jpg",
   },
   {
     title: "3 Bed Semi Detached Package",
     location: "White City Aspen 2 (Kuje)",
     image: "/media/projects/white-city-aspen-2.jpg",
   },
-  {
-    title: "Hilltop Duplex Packages",
-    location: "KingsCity Davos (Katampe)",
-    image: "/media/projects/kingscity-davos.jpg",
-  },
 ];
 
 export const landHubListings = [
   {
     title: "1 Hectare (10,000 SQM) from ₦79M",
-    location: "Idu · Katampe · Kuje · Ketti",
-    image: "/media/projects/hectare-oclock.jpg",
+    location: "Idu · Katampe · Kuje · Ketti — Hectare O'Clock",
+    image: "/media/projects/hectare-oclock-flyer.jpg",
+  },
+  {
+    title: "Halaand Estate — plots from ₦14.9M · hectares from ₦449M",
+    location: "Katampe Abuja",
+    image: "/media/projects/halaand-estate-flyer.jpg",
   },
   {
     title: "250–750 SQM Buy & Build",

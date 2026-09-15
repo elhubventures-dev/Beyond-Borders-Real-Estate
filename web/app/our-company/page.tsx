@@ -66,7 +66,13 @@ export default function OurCompanyPage() {
           { src: site.videos.abujaOngoing, label: "Ongoing In Abuja" },
         ]}
       />
-      <BrandGallery items={[...aboutGallery]} />
+      <BrandGallery
+        items={[...aboutGallery]}
+        variant="flipbook"
+        eyebrow="Brand & Campaigns"
+        title="Achieving More"
+        subtitle="Premium properties, smart investments, and a global perspective — from plot to dream villa."
+      />
       <CTABand />
     </>
   );

@@ -8,24 +8,40 @@ export const aboutPage = {
   ],
   pillars: [
     {
-      title: "Planning & Strategy",
-      body: "Our different portfolio options give us the flexibility to respond to a changing competitive landscape and deliver long-term value to our clients.",
+      title: "Premium Properties",
+      body: "Exclusive luxury listings and master-planned communities — from Buy & Build plots to finished smart homes across Abuja and Port Harcourt.",
     },
     {
-      title: "Client Satisfaction",
-      body: "The satisfaction of our clients is our topmost priority. Whether it is a luxury home, family home or investment opportunity, we offer a service that comes with peace of mind.",
+      title: "Trust & Transparency",
+      body: "Verified documents, clear fees, and FCDA-aligned processes so today’s plot can become tomorrow’s dream villa with confidence.",
+    },
+    {
+      title: "Expert Guidance",
+      body: "Home-grown engineers and advisors walk you through inspection, allocation, and delivery — a smarter way to live and invest.",
+    },
+    {
+      title: "End-to-End Support",
+      body: "From first enquiry to keys in hand: design, construction, and portfolio options that deliver long-term value.",
     },
   ],
 };
 
 export const aboutGallery = [
   {
-    src: "/media/brand/dream-home-delivered.jpeg",
-    alt: "Your dream home delivered across Abuja corridors",
+    src: "/media/campaigns/todays-plot-tomorrows-villa.jpg",
+    alt: "Today’s plot… tomorrow’s dream villa — Beyond Borders land-to-home vision",
   },
   {
-    src: "/media/brand/buy-sell-invest.jpeg",
-    alt: "Buy, sell, and invest with Beyond Borders",
+    src: "/media/campaigns/see-your-home-clearly.jpg",
+    alt: "See your home clearly with Beyond Borders — premium properties and smart investments",
+  },
+  {
+    src: "/media/campaigns/time-never-waits-promo.jpg",
+    alt: "Time never waits — exclusive luxury listings and 50% promo still on",
+  },
+  {
+    src: "/media/brand/dream-home-delivered.jpeg",
+    alt: "Your dream home delivered across Abuja corridors",
   },
   {
     src: "/media/brand/construction-crew.jpeg",
@@ -35,9 +51,20 @@ export const aboutGallery = [
     src: "/media/brand/site-machinery.jpeg",
     alt: "Estate construction machinery and delivery",
   },
+] as const;
+
+export const campaignGallery = [
   {
-    src: "/media/brand/landlord-amenities.jpeg",
-    alt: "Estate lifestyle and landlord amenities",
+    src: "/media/campaigns/todays-plot-tomorrows-villa.jpg",
+    alt: "Today’s plot… tomorrow’s dream villa",
+  },
+  {
+    src: "/media/campaigns/see-your-home-clearly.jpg",
+    alt: "See your home clearly with Beyond Borders Realty",
+  },
+  {
+    src: "/media/campaigns/time-never-waits-promo.jpg",
+    alt: "Time never waits — best properties and 50% promo",
   },
 ] as const;
 
@@ -82,7 +109,7 @@ export const faqs = [
     items: [
       {
         q: "What locations do you develop in?",
-        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1), Kuje (Aspen), Katampe (KingsCity Davos), Ketti, Lifecamp, Guzape, Jahi, The White Court, and hectare land banking. In Port Harcourt: Igurita, Isiokpo, and Omagwa.",
+        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1), Kuje (Aspen), Katampe (KingsCity Davos, Halaand Estate), Ketti, Lifecamp, Guzape, Jahi (including The White Court), Beyond Towers mixed-use, and Hectare O'Clock land banking. In Port Harcourt: Igurita, Isiokpo, and Omagwa.",
       },
       {
         q: "Do you sell both houses and land?",

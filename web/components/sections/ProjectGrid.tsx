@@ -1,10 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/content/projects";
+import { HoverPopImage } from "@/components/ui/HoverPopImage";
+import { site } from "@/content/site";
 
 type FilterTab = "all" | "houses" | "lands";
 
@@ -77,7 +78,7 @@ export function ProjectGrid({
       </div>
 
       {/* Grid of Elevated Property Cards */}
-      <motion.div layout className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div layout className="mt-12 grid gap-8 overflow-visible sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence>
           {filteredProjects.map((project, i) => {
             const meta = {
@@ -99,21 +100,19 @@ export function ProjectGrid({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="architectural-card group flex flex-col overflow-hidden rounded-lg"
+                className="architectural-card group relative z-0 flex flex-col overflow-visible rounded-lg"
               >
-                {/* Media Image Frame with Badges */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
-                  <Image
+                {/* Media Image Frame with Badges — pop-out only on this section */}
+                <div className="group/media relative z-0 hover:z-40">
+                  <HoverPopImage
                     src={project.cardImage}
                     alt={project.name}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
+                  <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-700 group-hover/media:opacity-30" />
 
                   {/* Top Location & Distance Badges */}
-                  <div className="absolute left-3.5 top-3.5 flex flex-wrap gap-2">
+                  <div className="pointer-events-none absolute left-3.5 top-3.5 z-10 flex flex-wrap gap-2 transition-opacity duration-700 group-hover/media:opacity-0">
                     <span className="rounded bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
                       {meta.locationBadge}
                     </span>
@@ -123,7 +122,7 @@ export function ProjectGrid({
                   </div>
 
                   {/* Price Tag Floating Overlay */}
-                  <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-end justify-between">
+                  <div className="pointer-events-none absolute bottom-3.5 left-3.5 right-3.5 z-10 flex items-end justify-between transition-opacity duration-700 group-hover/media:opacity-0">
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-bb-bronze-light">
                         Starting From
@@ -229,7 +228,7 @@ export function ProjectGrid({
             Schedule Site Meeting
           </Link>
           <a
-            href="https://wa.me/2347042070950?text=Hello%20Beyond%20Borders,%20I%20have%20a%20custom%20real%20estate%20inquiry."
+            href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20have%20a%20custom%20real%20estate%20inquiry.`}
             target="_blank"
             rel="noreferrer"
             className="btn-outline !text-xs !uppercase !tracking-wider"

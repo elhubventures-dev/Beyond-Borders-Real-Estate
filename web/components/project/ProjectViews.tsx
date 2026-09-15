@@ -1,4 +1,5 @@
 import { BrandGallery } from "@/components/sections/BrandGallery";
+import { VideoBand } from "@/components/sections/VideoBand";
 import {
   CTABand,
   EstateFaqs,
@@ -14,9 +15,22 @@ function ProjectProgressGallery({ project }: { project: Project }) {
   return (
     <BrandGallery
       items={project.progressGallery}
+      variant="flipbook"
       eyebrow="Project Updates"
       title="Site Progress"
-      subtitle={`Live construction at ${project.name} — ${project.distanceBadge}, ${project.locationBadge}.`}
+      subtitle={`Live construction at ${project.name} — ${project.distanceBadge}, ${project.locationBadge}. Turn the pages to tour the site.`}
+    />
+  );
+}
+
+function ProjectVideos({ project }: { project: Project }) {
+  if (!project.videos?.length) return null;
+  return (
+    <VideoBand
+      eyebrow="Watch The Project"
+      title={`${project.shortName} on camera`}
+      subtitle={`Walkthroughs and site footage for ${project.name}.`}
+      clips={project.videos}
     />
   );
 }
@@ -43,6 +57,7 @@ export function HousesProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <ProjectVideos project={project} />
       <ProjectProgressGallery project={project} />
       <EstateFees project={project} />
       <FeatureList features={project.features} />
@@ -71,6 +86,7 @@ export function LandsProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <ProjectVideos project={project} />
       <ProjectProgressGallery project={project} />
       <EstateFees project={project} />
       <FeatureList features={project.features} />
