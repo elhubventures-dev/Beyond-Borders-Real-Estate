@@ -2,3 +2,16 @@ web/public/media/brochures/beyond-borders-company-brochure.pdf filter=lfs diff=l
 web/public/media/brochures/ruby-5-bed-triplex.pdf filter=lfs diff=lfs merge=lfs -text
 web/public/media/brochures/christ-embassy-convention-grounds.pdf filter=lfs diff=lfs merge=lfs -text
 web/public/media/video/white-city-abuja-3d.mp4 filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/white-city-beverly-gate.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/diamond/front.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/pearl-1/street.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/pearl-1/terrace.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/pearl-3/street.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/silver/front.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/silver/gate.png filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/wce-layout/layout-1.jpg filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/wce-layout/layout-2.jpg filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/white-city-mall/view-02.jpg filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/white-city-mall/view-03.jpg filter=lfs diff=lfs merge=lfs -text
+web/public/media/projects/white-city-mall/view-04.jpg filter=lfs diff=lfs merge=lfs -text
+web/public/media/units/diamond/corner.png filter=lfs diff=lfs merge=lfs -text
