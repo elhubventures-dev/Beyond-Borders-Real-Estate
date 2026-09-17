@@ -5,12 +5,12 @@ import Link from "next/link";
 import { site } from "@/content/site";
 
 const PRESET_UNITS = [
-  { name: "High Flyer — 2 Bed + BQ (White City Beverly)", price: 59000000 },
-  { name: "Pearl 2 — 3 Bed Terrace + BQ (White City Beverly)", price: 89000000 },
-  { name: "Emerald — 3 Bed Semi Detached (White City Beverly)", price: 99000000 },
-  { name: "Silver — 3 Bed Duplex + BQ (White City Beverly)", price: 109000000 },
-  { name: "Gold — 4 Bed Duplex + 2BQ (White City Beverly)", price: 114000000 },
   { name: "Diamond — 5 Bed Duplex + BQ (White City Beverly)", price: 129000000 },
+  { name: "Gold — 4/5 Bed Duplex + BQ (White City Beverly)", price: 114000000 },
+  { name: "Silver — 3/4 Bed Duplex + Studio (White City Beverly)", price: 109000000 },
+  { name: "Pearl 2 — 3 Bed Terrace + Studio (White City Beverly)", price: 89000000 },
+  { name: "Emerald — 3 Bed Semi Detached (White City Beverly)", price: 99000000 },
+  { name: "Sapphire 1 — 2 Bed Apartments + BQ (White City Beverly)", price: 59000000 },
   { name: "250 SQM Buy & Build (White City Beverly)", price: 20000000 },
   { name: "1 Hectare / 10,000 SQM (Abuja corridors)", price: 79000000 },
   { name: "5 Bed Premium Smart Duplex (White Court)", price: 225000000 },

@@ -6,6 +6,7 @@ export const site = {
     "Smart and luxury homes, estates, and land investments across Abuja and Port Harcourt — buy & build packages, finished smart homes, and titled land.",
   url: "https://www.beyondborders.ng",
   email: "info@beyondborders.ng",
+  emailAlt: "Beyondborders234@gmail.com",
   phone: "+234 907 171 1222",
   phoneAlt: "+234 905 595 9509",
   phoneExtra: "+234 904 319 7743",
@@ -19,7 +20,11 @@ export const site = {
   addressAlt: {
     line1: "Plot 84, Victor B.K Crescent",
     line2:
-      "off Graba Idris Street, After Lakeview Homes, Behind Customs Quarters, Kado, Abuja",
+      "Off Garba Idris Street, after Lake View Homes, Behind Customs Quarters, Jahi, Abuja",
+  },
+  addressPh: {
+    line1: "First Floor, Vine Yard Plaza",
+    line2: "88 Woji Road, GRA Phase 2, Port Harcourt, Rivers State",
   },
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100074835450660",
@@ -33,7 +38,7 @@ export const site = {
   favicon: "/icon.png",
   ogImage: "/og-image.png",
   downloads: {
-    companyProfile: "/media/brochures/beyond-borders-company-profile.pdf",
+    companyProfile: "/media/brochures/beyond-borders-company-brochure.pdf",
     portfolioFlyer: "/media/brochures/beyond-borders-portfolio-flyer.pdf",
   },
   videos: {
@@ -42,6 +47,7 @@ export const site = {
     logoIntro: "/media/video/brand-logo-intro.mp4",
     abujaOngoing: "/media/video/abuja-ongoing.mp4",
     whiteCityCgi: "/media/video/white-city-cgi-tour.mp4",
+    whiteCity3d: "/media/video/white-city-abuja-3d.mp4",
     whiteCityInterior: "/media/video/white-city-interior-tour.mp4",
     aspen2Promo: "/media/video/white-city-aspen-2-promo.mp4",
   },
@@ -66,6 +72,11 @@ export const site = {
     "Flooring & Roofing",
     "INT/EXT Painting",
     "Property Sales",
+    "Site & Serviced Plots",
+    "Project Management",
+    "Estate & Facility Management",
+    "Turnkey Projects",
+    "Smart Homes",
     "Land Banking / Hectares",
     "Buy & Build Advisory",
   ] as const,
@@ -80,7 +91,7 @@ export const site = {
       label: "Projects",
       href: "/houses/",
       children: [
-        { label: "Beyond Towers", href: "/houses-beyond-towers/" },
+        { label: "The Borderless", href: "/houses-beyond-towers/" },
         { label: "White City Beverly", href: "/houses-white-city-beverly/" },
         { label: "The White Court", href: "/houses-white-court/" },
         { label: "Halaand Estate", href: "/houses-halaand-estate/" },
@@ -95,6 +106,7 @@ export const site = {
         { label: "Jahi", href: "/houses-beyond-borders-jahi/" },
         { label: "Hectare O'Clock", href: "/lands-hectare-abuja/" },
         { label: "Kings City Manhattan (PH)", href: "/lands-kingscity-manhattan/" },
+        { label: "Convention Grounds (PH)", href: "/houses-christ-embassy-convention/" },
       ],
     },
     { label: "Schedule an Inspection", href: "/schedule-an-inspection/" },

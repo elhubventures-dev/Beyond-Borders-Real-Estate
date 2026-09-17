@@ -14,9 +14,6 @@ import { projects } from "@/content/projects";
 import { campaignGallery } from "@/content/pages";
 import { site } from "@/content/site";
 
-const beverlyProgress =
-  projects.find((p) => p.id === "beverly")?.progressGallery ?? [];
-
 const seo = getSeo("/");
 
 export const metadata: Metadata = {
@@ -45,6 +42,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const beverlyProgress =
+    projects.find((p) => p.id === "beverly")?.progressGallery ?? [];
   return (
     <>
       <Hero />
@@ -60,8 +59,8 @@ export default function HomePage() {
         items={beverlyProgress}
         variant="flipbook"
         eyebrow="Project Updates"
-        title="White City Beverly — On Site"
-        subtitle="Ongoing construction opposite Idu Railway Station, Abuja — turn the album to walk the site."
+        title="White City Beverly — Idu"
+        subtitle="The designed gate house and estate masterplan, then live construction opposite Idu Railway Station, Abuja."
       />
       <ProjectGrid />
       <VideoBand
@@ -74,6 +73,7 @@ export default function HomePage() {
           { src: site.videos.whiteCityInterior, label: "Interior Living" },
           { src: site.videos.aspen2Promo, label: "Aspen 2" },
           { src: site.videos.products, label: "Current Products" },
+          { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
         ]}
       />
       <EstateComparison />

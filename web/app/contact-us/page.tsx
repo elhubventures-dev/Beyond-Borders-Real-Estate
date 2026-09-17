@@ -31,11 +31,19 @@ export default function ContactPage() {
             </p>
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
-                Kado
+                Plot 84, Jahi
               </span>
               {site.addressAlt.line1}
               <br />
               {site.addressAlt.line2}
+            </p>
+            <p>
+              <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
+                Port Harcourt
+              </span>
+              {site.addressPh.line1}
+              <br />
+              {site.addressPh.line2}
             </p>
           </div>
           <h2 className="mt-8 font-display text-2xl">Talk to us</h2>
@@ -44,6 +52,10 @@ export default function ContactPage() {
               Email:{" "}
               <a className="text-bb-accent-deep" href={`mailto:${site.email}`}>
                 {site.email}
+              </a>
+              {" · "}
+              <a className="text-bb-accent-deep" href={`mailto:${site.emailAlt}`}>
+                {site.emailAlt}
               </a>
             </li>
             <li>

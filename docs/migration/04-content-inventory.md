@@ -9,6 +9,9 @@ Typed modules: `web/content/`. Sources: `Updates/` (Sep 2026) with locked confli
 4. **Lifecamp / Guzape / Jahi:** full estate offerings (inquiry pricing until dedicated flyers).
 5. **Beverly:** brochure model names **+** Independence Day promo prices; Buy & Build + hectares retained.
 
+## Company brochure
+`BEYOND BIRDERS BROCHURE.pdf` is the 24-page Beyond Borders company profile (filename typo). Hosted as `web/public/media/brochures/beyond-borders-company-brochure.pdf` and used for the company-profile download. Facts folded into Our Company (vision, mission, T.I.E), White City Beverly (2.5 ha / 50 homes / Oct 2024–Sep 2026), Guzape (Kings Choice + Kings Court — not new cards), Beyond Towers (Jabi), and Contact (Plot 84 as Jahi, Port Harcourt Vine Yard Plaza, brochure email).
+
 ## Site config
 [`web/content/site.ts`](../../web/content/site.ts) — dual addresses, downloads, videos, expanded services (incl. Property Sales, Land Banking / Hectares, Buy & Build Advisory).
 
@@ -29,7 +32,7 @@ white-city-estates · portfolio-products · brand-logo-intro · abuja-ongoing
 Wired via `VideoBand` on Home / Our Company / project `videos[]`.
 
 ## Brand gallery `web/public/media/brand/`
-dream-home-delivered · buy-sell-invest · construction-crew · site-machinery · landlord-amenities — Our Company `BrandGallery`.
+dream-home-delivered · buy-sell-invest · construction-crew · site-machinery · hi-vis-jacket · branded-hard-hats · landlord-amenities — Our Company `BrandGallery`.
 
 ## Fees (application forms)
 | Estate | App | Docs | Levy |

@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project, Unit } from "@/content/projects";
 import { site } from "@/content/site";
-import { HoverPopImage } from "@/components/ui/HoverPopImage";
+import { UnitShowcase } from "@/components/sections/UnitShowcase";
 
 export function UnitPricing({
   title,
@@ -43,7 +44,8 @@ export function UnitPricing({
 
       <div className="mt-10 grid gap-8 overflow-visible sm:grid-cols-2 lg:grid-cols-3">
         {units.map((unit) => {
-          const isLand = kind === "lands" || unit.title.toLowerCase().includes("meter");
+          const isMall = unit.title.toLowerCase().includes("mall");
+          const isLand = !isMall && (kind === "lands" || unit.title.toLowerCase().includes("meter"));
           const whatsappInquiry = encodeURIComponent(
             `Hello Beyond Borders Concierge, I am inquiring about "${unit.title}" at ${projectName || "your estate"} priced at ${unit.price}. Please provide available plots/units.`
           );
@@ -55,64 +57,45 @@ export function UnitPricing({
             >
               <div>
                 {/* Visual Thumbnail — pop-out only on this section */}
-                <div className="group/media relative z-0 hover:z-40">
-                  {unit.image ? (
-                    <HoverPopImage
-                      src={unit.image}
-                      alt={unit.title}
-                      sizes="(max-width:768px) 100vw, 33vw"
-                    />
-                  ) : (
-                    <div className="flex aspect-[16/10] w-full items-center justify-center bg-slate-800 text-xs text-slate-400">
-                      Beyond Borders Architecture
-                    </div>
-                  )}
-                  <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-700 group-hover/media:opacity-30" />
-
-                  {/* Badge */}
-                  <div className="pointer-events-none absolute top-3 left-3 z-10 transition-opacity duration-700 group-hover/media:opacity-0">
-                    <span className="rounded bg-black/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-bb-bronze-light backdrop-blur-md">
-                      {isLand ? "Demarcated Plot" : "Architectural Typology"}
-                    </span>
-                  </div>
-
-                  {/* Price overlay banner */}
-                  <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-10 transition-opacity duration-700 group-hover/media:opacity-0">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
-                      {unit.wasPrice ? "Promo Price" : "Offering Price"}
-                    </span>
-                    {unit.wasPrice && (
-                      <p className="text-sm font-semibold text-slate-300 line-through decoration-red-400/80">
-                        {unit.wasPrice}
-                      </p>
-                    )}
-                    <p className="font-display text-2xl font-medium text-white drop-shadow-sm">
-                      {unit.price}
-                    </p>
-                  </div>
-                </div>
+                <UnitShowcase
+                  unit={unit}
+                  badge={isMall ? "Estate Amenity" : isLand ? "Demarcated Plot" : "Architectural Typology"}
+                />
 
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="font-display text-xl font-medium text-bb-obsidian group-hover:text-bb-bronze-dark transition-colors">
                     {unit.title}
                   </h3>
+                  <p className="mt-2 font-display text-2xl text-bb-obsidian">
+                    {unit.wasPrice && (
+                      <span className="mr-2 text-sm text-slate-400 line-through">{unit.wasPrice}</span>
+                    )}
+                    {unit.price}
+                  </p>
 
                   {/* Feature highlights */}
                   <ul className="mt-4 space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze" />
-                      <span>{isLand ? "Immediate Physical Allocation" : "Pre-Finished / Fully Finished Options"}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze" />
-                      <span>{isLand ? "Perimeter Fenced & Beaconed" : "En-Suite Bathrooms & Ample Parking"}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze" />
-                      <span>Title: Verified Government Layout</span>
-                    </li>
+                    {(unit.highlights ?? [
+                      isLand ? "Immediate Physical Allocation" : "Pre-Finished / Fully Finished Options",
+                      isLand ? "Perimeter Fenced & Beaconed" : "En-Suite Bathrooms & Ample Parking",
+                      "Title: Verified Government Layout",
+                    ]).map((line) => (
+                      <li key={line} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-bb-bronze" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
                   </ul>
+                  {unit.downloadPdf && (
+                    <a
+                      href={unit.downloadPdf}
+                      download
+                      className="mt-4 inline-flex text-xs font-bold uppercase tracking-wider text-bb-bronze-dark hover:text-bb-obsidian"
+                    >
+                      {unit.downloadLabel ?? "Download"}
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -204,7 +187,7 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
               {project.name}
             </h1>
             <p className="mt-2 text-base text-slate-600 max-w-2xl">
-              {project.inspectionLabel} — Designed with modern architecture, durable infrastructure, and verified title documentation.
+              {project.inspectionLabel} — {project.summary ?? "Designed with modern architecture, durable infrastructure, and verified title documentation."}
             </p>
           </div>
 
@@ -247,19 +230,38 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
           </div>
         </div>
 
+        {project.entrance && (
+          <figure className="mt-8 overflow-hidden rounded-lg bg-bb-obsidian">
+            <div className="relative aspect-[21/9] w-full sm:aspect-[2.4/1]">
+              <Image
+                src={project.entrance.src}
+                alt={project.entrance.alt}
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 1280px) 100vw, 1200px"
+              />
+            </div>
+            <figcaption className="flex items-center justify-between gap-4 px-4 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-white/80">
+              <span>{project.entrance.label ?? "Gate house"}</span>
+              <span className="text-bb-bronze-light">{project.entrance.alt}</span>
+            </figcaption>
+          </figure>
+        )}
+
         {/* Key Property Specs Ribbon */}
         <div className="mt-10 grid grid-cols-2 gap-4 border-t border-bb-border pt-6 sm:grid-cols-4">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Title Status</span>
-            <p className="text-sm font-semibold text-bb-obsidian">AGIS / FCDA Compliant</p>
+            <p className="text-sm font-semibold text-bb-obsidian">{project.specs?.title ?? "AGIS / FCDA Compliant"}</p>
           </div>
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Delivery Tier</span>
-            <p className="text-sm font-semibold text-bb-obsidian">Pre-Finished & Custom Handover</p>
+            <p className="text-sm font-semibold text-bb-obsidian">{project.specs?.delivery ?? "Pre-Finished & Custom Handover"}</p>
           </div>
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Payment Option</span>
-            <p className="text-sm font-semibold text-bb-obsidian">Outright & Structured Installments</p>
+            <p className="text-sm font-semibold text-bb-obsidian">{project.specs?.payment ?? "Outright & Structured Installments"}</p>
           </div>
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Inspection Schedule</span>

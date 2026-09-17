@@ -5,11 +5,18 @@ import {
   type ProjectFees,
 } from "./formExtras";
 
+export type UnitMedia = { src: string; alt: string; label?: string };
+
 export type Unit = {
   title: string;
   price: string;
   wasPrice?: string;
   image?: string;
+  highlights?: string[];
+  views3d?: UnitMedia[];
+  floorPlans?: UnitMedia[];
+  downloadPdf?: string;
+  downloadLabel?: string;
 };
 
 export type Project = {
@@ -39,6 +46,9 @@ export type Project = {
   faqs?: ProjectFaq[];
   progressGallery?: { src: string; alt: string }[];
   videos?: { src: string; label: string }[];
+  entrance?: { src: string; alt: string; label?: string };
+  summary?: string;
+  specs?: { title: string; delivery: string; payment: string };
 };
 
 const ABUJA_ESTATE_FEATURES = [
@@ -93,7 +103,47 @@ export const projects: Project[] = [
     landsIntro:
       "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Hectare O'Clock — Golden Abuja Land.",
     brochurePdf: "/media/brochures/white-city-beverly-brochure.pdf",
+    entrance: {
+      src: "/media/projects/white-city-beverly-gate.png",
+      alt: "White City Estate gate house, Idu Abuja",
+    },
     progressGallery: [
+      {
+        src: "/media/projects/white-city-beverly-gate.png",
+        alt: "Designed gate house — White City Estate, Idu Abuja",
+      },
+      {
+        src: "/media/projects/white-city-beverly-masterplan.jpg",
+        alt: "White City Beverly estate masterplan, Idu Abuja",
+      },
+      {
+        src: "/media/projects/wce-layout/street-1.jpg",
+        alt: "White City Beverly street layout — terrace row",
+      },
+      {
+        src: "/media/projects/wce-layout/street-2.jpg",
+        alt: "White City Beverly street layout — duplex approach",
+      },
+      {
+        src: "/media/projects/wce-layout/street-3.jpg",
+        alt: "White City Beverly street layout — apartment row",
+      },
+      {
+        src: "/media/projects/wce-layout/street-4.jpg",
+        alt: "White City Beverly street layout — bungalow street",
+      },
+      {
+        src: "/media/projects/wce-layout/street-5.jpg",
+        alt: "White City Beverly street layout — villa street",
+      },
+      {
+        src: "/media/projects/wce-layout/layout-1.jpg",
+        alt: "White City Beverly estate layout aerial",
+      },
+      {
+        src: "/media/projects/wce-layout/layout-2.jpg",
+        alt: "White City Beverly estate layout looking across the masterplan",
+      },
       {
         src: "/media/projects/beverly-progress/gatehouse.jpg",
         alt: "White City Beverly estate gatehouse under construction opposite Idu Railway",
@@ -148,43 +198,358 @@ export const projects: Project[] = [
         src: "/media/video/white-city-interior-tour.mp4",
         label: "Interior Living Area",
       },
+      {
+        src: "/media/video/white-city-abuja-3d.mp4",
+        label: "White City Abuja — 3D Animation",
+      },
     ],
     houses: [
       {
-        title: "High Flyer — 2 Bed + BQ Apartment",
-        wasPrice: "₦118 million",
-        price: "₦59 million",
-        image: "/media/projects/beverly-2bed-apartment.jpg",
+        title: "Diamond — 5/6 Bed Duplex + BQ",
+        wasPrice: "₦258 million",
+        price: "₦129 million",
+        image: "/media/units/diamond/front.png",
+        highlights: [
+          "Elevator",
+          "Swimming pool",
+          "Boys' quarters",
+          "Up to 4 car parking",
+        ],
+        views3d: [
+          {
+            src: "/media/units/diamond/front.png",
+            label: "Front elevation",
+            alt: "Diamond house front elevation — 5/6 bedroom duplex with BQ",
+          },
+          {
+            src: "/media/units/diamond/corner.png",
+            label: "Corner elevation",
+            alt: "Diamond house corner view showing the stone facade and balcony",
+          },
+          {
+            src: "/media/units/diamond/pool.png",
+            label: "Pool courtyard",
+            alt: "Diamond house private swimming pool courtyard",
+          },
+          {
+            src: "/media/units/diamond/aerial.jpg",
+            label: "Aerial",
+            alt: "Diamond house aerial view with pool and parking for up to four cars",
+          },
+        ],
       },
       {
-        title: "Pearl 2 — 3 Bed Terrace Duplex + BQ",
+        title: "Gold — 4/5 Bed Duplex + BQ",
+        wasPrice: "₦228 million",
+        price: "₦114 million",
+        image: "/media/units/gold/front.jpg",
+        highlights: [
+          "2-room boys' quarters",
+          "Up to 3 car parking",
+        ],
+        views3d: [
+          {
+            src: "/media/units/gold/front.jpg",
+            label: "Front elevation",
+            alt: "Gold house front elevation — 4/5 bedroom duplex with BQ",
+          },
+          {
+            src: "/media/units/gold/approach.jpg",
+            label: "Drive approach",
+            alt: "Gold house driveway approach with parking for up to three cars",
+          },
+          {
+            src: "/media/units/gold/corner.jpg",
+            label: "Corner elevation",
+            alt: "Gold house corner elevation with garden and side facade",
+          },
+        ],
+      },
+      {
+        title: "Silver — 3/4 Bed Duplex + Studio",
+        wasPrice: "₦219 million",
+        price: "₦109 million",
+        image: "/media/units/silver/front.png",
+        highlights: ["Studio room", "2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/silver/front.png",
+            label: "Front elevation",
+            alt: "Silver house front elevation — 3/4 bedroom duplex with studio room",
+          },
+          {
+            src: "/media/units/silver/gate.png",
+            label: "Gate approach",
+            alt: "Silver house gate approach with covered parking",
+          },
+          {
+            src: "/media/units/silver/aerial.jpg",
+            label: "Aerial",
+            alt: "Silver house aerial view with two-car parking",
+          },
+        ],
+      },
+      {
+        title: "Pearl 3 — 4 Bed Terrace Triplex + BQ",
+        price: "Price on request",
+        image: "/media/units/pearl-3/front.jpg",
+        highlights: ["2 floors", "Boys' quarters", "2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/pearl-3/front.jpg",
+            label: "Front elevation",
+            alt: "Pearl 3 terrace triplex front elevation with two-car parking",
+          },
+          {
+            src: "/media/units/pearl-3/street.png",
+            label: "Street elevation",
+            alt: "Pearl 3 terrace row along the street",
+          },
+          {
+            src: "/media/units/pearl-3/aerial.jpg",
+            label: "Aerial",
+            alt: "Pearl 3 terrace triplex aerial view",
+          },
+        ],
+      },
+      {
+        title: "Pearl 2 — 3 Bed Terrace Duplex + Studio",
         wasPrice: "₦178 million",
         price: "₦89 million",
-        image: "/media/projects/beverly-3bed-terrace.jpg",
+        image: "/media/units/pearl-2/front.jpg",
+        highlights: ["Studio room", "2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/pearl-2/front.jpg",
+            label: "Front elevation",
+            alt: "Pearl 2 terrace duplex front elevation with two-car parking",
+          },
+          {
+            src: "/media/units/pearl-2/street.jpg",
+            label: "Street elevation",
+            alt: "Pearl 2 terrace row along the street",
+          },
+          {
+            src: "/media/units/pearl-2/corner.jpg",
+            label: "Corner elevation",
+            alt: "Pearl 2 terrace duplex corner elevation",
+          },
+        ],
       },
       {
         title: "Emerald — 3 Bed Semi Detached Duplex",
         wasPrice: "₦189 million",
         price: "₦99 million",
-        image: "/media/projects/beverly-3bed-semi.jpg",
+        image: "/media/units/emerald/front.jpg",
+        highlights: ["Semi detached pair", "2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/emerald/front.jpg",
+            label: "Front elevation",
+            alt: "Emerald semi detached duplex front elevation with two-car parking",
+          },
+          {
+            src: "/media/units/emerald/corner.jpg",
+            label: "Corner elevation",
+            alt: "Emerald semi detached pair from the corner",
+          },
+          {
+            src: "/media/units/emerald/entrance.jpg",
+            label: "Unit entrance",
+            alt: "Emerald house unit entrance",
+          },
+        ],
       },
       {
-        title: "Silver — 3 Bed Duplex + BQ",
-        wasPrice: "₦219 million",
-        price: "₦109 million",
-        image: "/media/projects/beverly-3bed-duplex.jpg",
+        title: "Onyx — 2 Bed Semi Detached Bungalow",
+        price: "Price on request",
+        image: "/media/units/onyx/front.jpg",
+        highlights: ["Semi detached pair", "2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/onyx/front.jpg",
+            label: "Front elevation",
+            alt: "Onyx semi detached bungalow front elevation with two-car parking",
+          },
+          {
+            src: "/media/units/onyx/unit-1a.jpg",
+            label: "Unit 1A",
+            alt: "Onyx bungalow unit 1A entrance",
+          },
+          {
+            src: "/media/units/onyx/unit-1b.jpg",
+            label: "Unit 1B",
+            alt: "Onyx bungalow unit 1B entrance",
+          },
+        ],
       },
       {
-        title: "Gold — 4 Bed Duplex + 2BQ Spaces",
-        wasPrice: "₦228 million",
-        price: "₦114 million",
-        image: "/media/projects/beverly-4bed-duplex.jpg",
+        title: "Sapphire 1 — 2 Bed Apartments + BQ",
+        wasPrice: "₦118 million",
+        price: "₦59 million",
+        image: "/media/units/sapphire-1/front.jpg",
+        highlights: ["Boys' quarters"],
+        views3d: [
+          {
+            src: "/media/units/sapphire-1/front.jpg",
+            label: "Front elevation",
+            alt: "Sapphire 1 apartment block front elevation — 2 bedroom apartments with BQ",
+          },
+          {
+            src: "/media/units/sapphire-1/corner.jpg",
+            label: "Corner elevation",
+            alt: "Sapphire 1 apartment block from the street corner",
+          },
+          {
+            src: "/media/units/sapphire-1/aerial.jpg",
+            label: "Aerial",
+            alt: "Sapphire 1 apartment block aerial view with parking court",
+          },
+        ],
       },
       {
-        title: "Diamond — 5 Bed Duplex + BQ",
-        wasPrice: "₦258 million",
-        price: "₦129 million",
-        image: "/media/projects/beverly-5bed-duplex.jpg",
+        title: "Pearl 1 — 2 Bed Terrace Duplex",
+        price: "Price on request",
+        image: "/media/units/pearl-1/front.jpg",
+        highlights: ["2 car parking"],
+        views3d: [
+          {
+            src: "/media/units/pearl-1/front.jpg",
+            label: "Front elevation",
+            alt: "Pearl 1 terrace duplex front elevation with two-car parking",
+          },
+          {
+            src: "/media/units/pearl-1/street.png",
+            label: "Street elevation",
+            alt: "Pearl 1 terrace row along the street",
+          },
+          {
+            src: "/media/units/pearl-1/terrace.png",
+            label: "Terrace row",
+            alt: "Pearl 1 terrace duplex row from the road",
+          },
+        ],
+      },
+      {
+        title: "Sapphire 2 — 3 Bed Smart Apartments + BQ",
+        price: "Price on request",
+        image: "/media/units/sapphire-2/front.jpg",
+        highlights: ["Boys' quarters"],
+        views3d: [
+          {
+            src: "/media/units/sapphire-2/front.jpg",
+            label: "Front elevation",
+            alt: "Sapphire 2 smart apartment block front elevation with BQ",
+          },
+          {
+            src: "/media/units/sapphire-2/corner-left.jpg",
+            label: "Left corner",
+            alt: "Sapphire 2 apartment block from the left corner",
+          },
+          {
+            src: "/media/units/sapphire-2/corner-right.jpg",
+            label: "Right corner",
+            alt: "Sapphire 2 apartment block from the right corner",
+          },
+        ],
+      },
+      {
+        title: "Ruby — 5 Bed Terrace Triplex + BQ",
+        price: "Price on request",
+        image: "/media/units/ruby/front.jpg",
+        highlights: ["Boys' quarters", "2 car parking", "Private cinema"],
+        views3d: [
+          {
+            src: "/media/units/ruby/front.jpg",
+            label: "Front elevation",
+            alt: "Ruby terrace duplex front elevation with BQ and two-car parking",
+          },
+          {
+            src: "/media/units/ruby/corner-left.jpg",
+            label: "Left corner",
+            alt: "Ruby terrace duplex from the left corner",
+          },
+          {
+            src: "/media/units/ruby/corner-right.jpg",
+            label: "Right corner",
+            alt: "Ruby terrace duplex from the right corner",
+          },
+          {
+            src: "/media/units/ruby/exterior-1.jpg",
+            label: "Terrace elevation",
+            alt: "Ruby 5 bedroom terrace triplex exterior",
+          },
+          {
+            src: "/media/units/ruby/exterior-2.jpg",
+            label: "Street elevation",
+            alt: "Ruby terrace triplex along the street",
+          },
+          {
+            src: "/media/units/ruby/exterior-3.jpg",
+            label: "End elevation",
+            alt: "Ruby terrace triplex end elevation",
+          },
+          {
+            src: "/media/units/ruby/living.jpg",
+            label: "Living area",
+            alt: "Ruby terrace triplex living area",
+          },
+          {
+            src: "/media/units/ruby/kitchen.jpg",
+            label: "Kitchen",
+            alt: "Ruby terrace triplex kitchen",
+          },
+          {
+            src: "/media/units/ruby/master-1.jpg",
+            label: "Master bedroom",
+            alt: "Ruby terrace triplex master bedroom",
+          },
+          {
+            src: "/media/units/ruby/master-2.jpg",
+            label: "Second master bedroom",
+            alt: "Ruby terrace triplex second master bedroom",
+          },
+          {
+            src: "/media/units/ruby/cinema.jpg",
+            label: "Cinema",
+            alt: "Ruby terrace triplex private cinema",
+          },
+        ],
+        downloadPdf: "/media/brochures/ruby-5-bed-triplex.pdf",
+        downloadLabel: "Download presentation",
+      },
+      {
+        title: "White City Mall",
+        price: "Contact for pricing",
+        image: "/media/projects/white-city-mall/view-01.jpg",
+        highlights: ["On the Beverly estate", "Revised 3D views"],
+        views3d: [
+          {
+            src: "/media/projects/white-city-mall/view-01.jpg",
+            label: "Front elevation",
+            alt: "White City Mall front elevation",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-02.jpg",
+            label: "Side elevation",
+            alt: "White City Mall side elevation",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-03.jpg",
+            label: "Corner approach",
+            alt: "White City Mall corner approach",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-04.jpg",
+            label: "Aerial",
+            alt: "White City Mall aerial view",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-05.jpg",
+            label: "Rear elevation",
+            alt: "White City Mall rear elevation",
+          },
+        ],
       },
     ],
     lands: [
@@ -192,10 +557,46 @@ export const projects: Project[] = [
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦60 million", "₦30 million", "/media/projects/white-city-beverly.jpg"),
       packageUnit(500, "6 Bed Smart Duplex with BQ", "₦80 million", "₦40 million", "/media/projects/white-city-beverly.jpg"),
       packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦120 million", "₦60 million", "/media/projects/white-city-beverly.jpg"),
+      {
+        title: "White City Mall",
+        price: "Contact for pricing",
+        image: "/media/projects/white-city-mall/view-01.jpg",
+        highlights: ["On the Beverly estate", "Revised 3D views"],
+        views3d: [
+          {
+            src: "/media/projects/white-city-mall/view-01.jpg",
+            label: "Front elevation",
+            alt: "White City Mall front elevation",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-02.jpg",
+            label: "Side elevation",
+            alt: "White City Mall side elevation",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-03.jpg",
+            label: "Corner approach",
+            alt: "White City Mall corner approach",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-04.jpg",
+            label: "Aerial",
+            alt: "White City Mall aerial view",
+          },
+          {
+            src: "/media/projects/white-city-mall/view-05.jpg",
+            label: "Rear elevation",
+            alt: "White City Mall rear elevation",
+          },
+        ],
+      },
     ],
     features: [
       ...ABUJA_ESTATE_FEATURES,
       "Directly opposite Idu Railway Station · Lugbe 1 Layout",
+      "2.5 hectares · 50 modern homes · programme Oct 2024–Sep 2026",
+      "Nigerian Air Force Estate behind the site",
+      "White City Shopping Mall on the estate",
       "~15 mins to Nnamdi Azikiwe International Airport",
       "Smart Home Automation",
       "24-hour power supply",
@@ -630,9 +1031,9 @@ export const projects: Project[] = [
     cardImage: "/media/projects/dream-home-corridors.jpg",
     housesSlug: "/houses-beyond-borders-guzape/",
     landsSlug: "/lands-beyond-borders-guzape/",
-    inspectionLabel: "Beyond Borders Guzape (Abuja)",
+    inspectionLabel: "Beyond Borders Guzape — Kings Choice (Guzape 2) & Kings Court (Guzape Main)",
     locationBadge: "Guzape Abuja",
-    distanceBadge: "Dream Home Corridor",
+    distanceBadge: "Kings Choice · Kings Court",
     startingHouse: "Contact for packages",
     startingLand: "Contact for packages",
     houseTypes: "Smart homes & Buy & Build",
@@ -653,7 +1054,12 @@ export const projects: Project[] = [
         image: "/media/projects/dream-home-corridors.jpg",
       },
     ],
-    features: [...ABUJA_ESTATE_FEATURES, "Guzape Abuja premium corridor"],
+    features: [
+      ...ABUJA_ESTATE_FEATURES,
+      "Kings Choice Estates — Guzape 2",
+      "Kings Court — Guzape Main",
+      "Guzape Abuja premium corridor",
+    ],
   },
   {
     id: "jahi",
@@ -882,43 +1288,176 @@ export const projects: Project[] = [
   },
   {
     id: "beyond-towers",
-    name: "Beyond Towers",
-    shortName: "Beyond Towers",
-    cardImage: "/media/projects/beyond-towers-flyer.jpg",
+    name: "The Borderless — Beyond Twin Towers",
+    shortName: "The Borderless",
+    cardImage: "/media/projects/beyond-towers/front.jpg",
     housesSlug: "/houses-beyond-towers/",
     landsSlug: "/lands-beyond-towers/",
-    inspectionLabel: "Beyond Towers — Twin Tower Mixed-Use",
-    locationBadge: "Abuja",
-    distanceBadge: "Premium Mixed-Use",
+    inspectionLabel: "The Borderless — Beyond Twin Towers (Jabi Abuja)",
+    locationBadge: "Jabi Abuja",
+    distanceBadge: "Twin Tower Mixed-Use",
     startingHouse: "Contact for packages",
     startingLand: "Contact for commercial",
     houseTypes: "Residential apartments",
     landSizes: "Retail & commercial spaces",
     region: "abuja",
-    promo: "Exclusive twin tower mixed-use — a smarter way to live",
-    housesIntro: "Residential apartments in an exclusive twin-tower mixed-use project",
-    landsIntro: "Retail and commercial spaces within Beyond Towers",
+    promo: "The Borderless — exclusive twin-tower mixed-use in Jabi",
+    housesIntro: "Residential apartments in The Borderless, the Beyond Twin Towers",
+    landsIntro: "Retail and commercial spaces within The Borderless",
+    entrance: {
+      src: "/media/projects/beyond-towers/front.jpg",
+      alt: "The Borderless — Beyond Twin Towers, Jabi Abuja",
+      label: "The Borderless",
+    },
     houses: [
       {
         title: "Residential Apartments",
         price: "Contact for pricing",
-        image: "/media/projects/beyond-towers-flyer.jpg",
+        image: "/media/projects/beyond-towers/front.jpg",
+        highlights: ["Mixed-use", "Skybridge", "Helipad", "Rooftop pool"],
+        views3d: [
+          {
+            src: "/media/projects/beyond-towers/aerial.jpg",
+            label: "Rooftop",
+            alt: "The Borderless twin towers rooftop with helipad and pool",
+          },
+          {
+            src: "/media/projects/beyond-towers/front.jpg",
+            label: "Front elevation",
+            alt: "The Borderless twin towers front elevation with skybridge",
+          },
+          {
+            src: "/media/projects/beyond-towers/street.jpg",
+            label: "Street view",
+            alt: "The Borderless twin towers from the street",
+          },
+          {
+            src: "/media/projects/beyond-towers/core.jpg",
+            label: "Glass core",
+            alt: "The Borderless tower glass core elevation",
+          },
+          {
+            src: "/media/projects/beyond-towers/corner.jpg",
+            label: "Corner elevation",
+            alt: "The Borderless twin towers from the corner",
+          },
+        ],
       },
     ],
     lands: [
       {
         title: "Retail & Commercial Spaces",
         price: "Contact for pricing",
-        image: "/media/projects/beyond-towers-flyer.jpg",
+        image: "/media/projects/beyond-towers/street.jpg",
+        highlights: ["Mixed-use podium", "Retail & commercial"],
+        views3d: [
+          {
+            src: "/media/projects/beyond-towers/street.jpg",
+            label: "Street view",
+            alt: "The Borderless commercial podium from the street",
+          },
+          {
+            src: "/media/projects/beyond-towers/front.jpg",
+            label: "Front elevation",
+            alt: "The Borderless twin towers front elevation with skybridge",
+          },
+          {
+            src: "/media/projects/beyond-towers/aerial.jpg",
+            label: "Rooftop",
+            alt: "The Borderless twin towers rooftop with helipad and pool",
+          },
+        ],
       },
     ],
     features: [
-      "Residential Apartments",
-      "Retail & Commercial Spaces",
-      "Premium Security",
-      "Modern Living Environment",
-      "Exclusive twin tower mixed-use project",
-      "Premium real estate · a smarter way to live",
+      "The Borderless — Beyond Twin Towers",
+      "Residential apartments",
+      "Retail and commercial podium",
+      "Skybridge between the towers",
+      "Rooftop helipad and pool",
+      "Premium security",
+      "Jabi, Abuja",
+    ],
+  },
+  {
+    id: "cec-ph",
+    name: "Christ Embassy Convention Grounds",
+    shortName: "Convention Grounds",
+    cardImage: "/media/projects/cec-ph/entrance.jpg",
+    housesSlug: "/houses-christ-embassy-convention/",
+    inspectionLabel: "Christ Embassy International Convention Grounds (Port Harcourt, Zone 2)",
+    locationBadge: "Port Harcourt",
+    distanceBadge: "Zone 2",
+    startingHouse: "Contact for details",
+    houseTypes: "Proposed convention grounds",
+    region: "port-harcourt",
+    promo: "Proposed development — inquiry only",
+    housesIntro: "Ground and upper floor plans, entrance, elevations, and interiors",
+    summary: "A proposed convention grounds in Port Harcourt, Zone 2. This page is for inquiry, not a priced plot listing.",
+    specs: {
+      title: "Proposed",
+      delivery: "Design presentation",
+      payment: "Contact for engagement",
+    },
+    brochurePdf: "/media/brochures/christ-embassy-convention-grounds.pdf",
+    entrance: {
+      src: "/media/projects/cec-ph/entrance.jpg",
+      alt: "Christ Embassy International Convention Grounds, Port Harcourt Zone 2",
+      label: "Main entrance",
+    },
+    houses: [
+      {
+        title: "Convention Grounds",
+        price: "Contact for pricing",
+        image: "/media/projects/cec-ph/entrance.jpg",
+        highlights: ["Port Harcourt, Zone 2", "Floor plans included"],
+        views3d: [
+          {
+            src: "/media/projects/cec-ph/entrance.jpg",
+            label: "Main entrance",
+            alt: "Convention grounds main entrance",
+          },
+          {
+            src: "/media/projects/cec-ph/right.jpg",
+            label: "Right elevation",
+            alt: "Convention grounds right side elevation",
+          },
+          {
+            src: "/media/projects/cec-ph/left.jpg",
+            label: "Left elevation",
+            alt: "Convention grounds left side elevation",
+          },
+          {
+            src: "/media/projects/cec-ph/interior-1.jpg",
+            label: "Interior",
+            alt: "Convention grounds interior",
+          },
+          {
+            src: "/media/projects/cec-ph/interior-2.jpg",
+            label: "Interior view",
+            alt: "Convention grounds second interior view",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/projects/cec-ph/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Convention grounds ground floor plan",
+          },
+          {
+            src: "/media/projects/cec-ph/upper-floor.jpg",
+            label: "Upper floor",
+            alt: "Convention grounds upper floor plan",
+          },
+        ],
+      },
+    ],
+    features: [
+      "Christ Embassy International Convention Grounds",
+      "Port Harcourt, Zone 2",
+      "Main entrance, side elevations, and interiors",
+      "Ground and upper floor plans",
+      "Inquiry only — not a priced land listing",
     ],
   },
 ];
@@ -941,14 +1480,14 @@ export function getProjectById(id: string) {
 
 export const estateHubListings = [
   {
-    title: "Beyond Towers — Residential Apartments",
-    location: "Twin Tower Mixed-Use",
-    image: "/media/projects/beyond-towers-flyer.jpg",
+    title: "The Borderless — Beyond Twin Towers",
+    location: "Jabi Abuja",
+    image: "/media/projects/beyond-towers/front.jpg",
   },
   {
-    title: "2 Bed + BQ Apartment",
+    title: "Sapphire 1 — 2 Bed Apartments + BQ",
     location: "White City Beverly (Idu)",
-    image: "/media/projects/beverly-2bed-apartment.jpg",
+    image: "/media/units/sapphire-1/front.jpg",
   },
   {
     title: "5 Bed Premium Smart Duplex + BQ",

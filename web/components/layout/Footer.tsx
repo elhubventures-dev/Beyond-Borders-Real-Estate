@@ -119,7 +119,7 @@ export function Footer() {
               </li>
               <li className="leading-snug">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  Kado
+                  Plot 84, Jahi
                 </span>
                 <br />
                 {site.addressAlt.line1}

@@ -6,7 +6,6 @@ import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
 const PATH = "/houses-beyond-towers/";
-const project = projects.find((p) => p.id === "beyond-towers");
 
 const seo = getSeo(PATH);
 
@@ -17,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const project = projects.find((p) => p.id === "beyond-towers");
   if (!project) notFound();
   return <HousesProjectBody project={project} />;
 }

@@ -6,6 +6,24 @@ export const aboutPage = {
     "Our portfolio spans 8 million+ sq ft across master-planned communities in Abuja and Port Harcourt — from Idu, Kuje, Katampe, Ketti, Lifecamp, Guzape, and Jahi in the FCT to Igurita, Isiokpo, and Omagwa in Rivers. Completed delivery includes twenty 4-bedroom terraces at Dakwa, with ongoing estates and land banking across both cities.",
     "This focus, combined with our affordable housing and desirable locations, delivers sustainable and growing returns for our growing clients, while we also provide further opportunities to provide value from our portfolio of properties and lands.",
   ],
+  vision:
+    "To become a globally recognized company known for superior value creation and exceptional service delivery in real estate development.",
+  mission:
+    "To deliver world-class real estate solutions through innovation, integrity, and excellence while creating superior value for our clients, investors, and communities, maintaining global standards in service delivery.",
+  values: [
+    {
+      title: "Teamwork",
+      body: "Collaborating effectively to achieve excellence.",
+    },
+    {
+      title: "Integrity",
+      body: "Upholding the highest standards of professionalism.",
+    },
+    {
+      title: "Excellence",
+      body: "Delivering high-quality results in every project.",
+    },
+  ],
   pillars: [
     {
       title: "Premium Properties",
@@ -50,6 +68,14 @@ export const aboutGallery = [
   {
     src: "/media/brand/site-machinery.jpeg",
     alt: "Estate construction machinery and delivery",
+  },
+  {
+    src: "/media/brand/hi-vis-jacket.jpeg",
+    alt: "Beyond Borders high-visibility site jacket",
+  },
+  {
+    src: "/media/brand/branded-hard-hats.jpeg",
+    alt: "Beyond Borders branded site hard hats",
   },
 ] as const;
 
@@ -109,7 +135,7 @@ export const faqs = [
     items: [
       {
         q: "What locations do you develop in?",
-        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1), Kuje (Aspen), Katampe (KingsCity Davos, Halaand Estate), Ketti, Lifecamp, Guzape, Jahi (including The White Court), Beyond Towers mixed-use, and Hectare O'Clock land banking. In Port Harcourt: Igurita, Isiokpo, and Omagwa.",
+        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1 — 2.5 hectares opposite Idu Railway), Kuje (Aspen), Katampe (KingsCity Davos, Halaand Estate), Ketti (White Country Parks), Lifecamp, Guzape (including Kings Choice and Kings Court), Jahi (including The White Court), Beyond Towers (The Borderless) in Jabi, and Hectare O'Clock land banking. In Port Harcourt: Igurita, Isiokpo, Omagwa, and the proposed Christ Embassy International Convention Grounds, Zone 2.",
       },
       {
         q: "Do you sell both houses and land?",
@@ -134,7 +160,7 @@ export const faqs = [
       },
       {
         q: "Where is your office?",
-        a: "Primary: Suite A13D Platinum Plaza, opposite Mabushi Ultramodern Market, Jahi, Abuja. Also: Plot 84, Victor B.K Crescent, off Graba Idris Street, After Lakeview Homes, Behind Customs Quarters, Kado, Abuja.",
+        a: "Abuja: Suite A13D Platinum Plaza, opposite Mabushi Ultramodern Market, Jahi; and Plot 84, Victor B.K Crescent, Off Garba Idris Street, after Lake View Homes, Behind Customs Quarters, Jahi. Port Harcourt: First Floor, Vine Yard Plaza, 88 Woji Road, GRA Phase 2.",
       },
       {
         q: "Which email should I use?",

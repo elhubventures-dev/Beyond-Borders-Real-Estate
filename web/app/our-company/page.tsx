@@ -25,6 +25,25 @@ export default function OurCompanyPage() {
             {p}
           </p>
         ))}
+        <div className="mt-10 space-y-4 border-t border-bb-border pt-8">
+          <h2 className="font-display text-2xl">Vision, mission & values</h2>
+          <p className="text-bb-muted">
+            <span className="font-semibold text-bb-obsidian">Vision. </span>
+            {aboutPage.vision}
+          </p>
+          <p className="text-bb-muted">
+            <span className="font-semibold text-bb-obsidian">Mission. </span>
+            {aboutPage.mission}
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {aboutPage.values.map((value) => (
+              <div key={value.title} className="border-t-2 border-bb-accent pt-3">
+                <h3 className="font-display text-lg">{value.title}</h3>
+                <p className="mt-2 text-sm text-bb-muted">{value.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {aboutPage.pillars.map((pillar) => (
             <div key={pillar.title} className="border-t-2 border-bb-accent pt-4">

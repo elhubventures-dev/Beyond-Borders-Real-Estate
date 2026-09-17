@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LandsProjectBody } from "@/components/project/ProjectViews";
+import { HousesProjectBody } from "@/components/project/ProjectViews";
 import { projects } from "@/content/projects";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
-const PATH = "/lands-beyond-towers/";
-
+const PATH = "/houses-christ-embassy-convention/";
 const seo = getSeo(PATH);
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const project = projects.find((p) => p.id === "beyond-towers");
+  const project = projects.find((p) => p.id === "cec-ph");
   if (!project) notFound();
-  return <LandsProjectBody project={project} />;
+  return <HousesProjectBody project={project} />;
 }
