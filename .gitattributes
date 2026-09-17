@@ -4,7 +4,6 @@ web/public/media/brochures/christ-embassy-convention-grounds.pdf filter=lfs diff
 web/public/media/video/white-city-abuja-3d.mp4 filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/white-city-beverly-gate.png filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/diamond/front.png filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/pearl-1/street.png filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/pearl-1/terrace.png filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/silver/front.png filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/wce-layout/layout-1.jpg filter=lfs diff=lfs merge=lfs -text
