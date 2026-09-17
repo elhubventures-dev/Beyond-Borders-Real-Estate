@@ -11,10 +11,8 @@ web/public/media/projects/cec-ph/upper-floor.jpg filter=lfs diff=lfs merge=lfs -
 web/public/media/units/gold/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/pearl-2/corner.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-left.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/projects/white-city-beverly-masterplan.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/onyx/unit-1b.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/ruby/master-2.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/emerald/corner.jpg filter=lfs diff=lfs merge=lfs -text
@@ -28,7 +26,6 @@ web/public/media/units/onyx/unit-1a.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/pearl-2/street.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/brand/branded-hard-hats.jpeg filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/beyond-towers/aerial.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/projects/beyond-towers/core.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/emerald/entrance.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-1/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/corner-left.jpg filter=lfs diff=lfs merge=lfs -text
