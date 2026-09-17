@@ -8,14 +8,11 @@ web/public/media/units/pearl-3/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/silver/aerial.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/cec-ph/upper-floor.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/gold/front.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/pearl-2/corner.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-left.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/onyx/unit-1b.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/front.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/emerald/corner.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/pearl-3/aerial.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-1/corner.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/brand/hi-vis-jacket.jpeg filter=lfs diff=lfs merge=lfs -text
