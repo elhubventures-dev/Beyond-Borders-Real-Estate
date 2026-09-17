@@ -3,7 +3,6 @@ web/public/media/brochures/ruby-5-bed-triplex.pdf filter=lfs diff=lfs merge=lfs 
 web/public/media/brochures/christ-embassy-convention-grounds.pdf filter=lfs diff=lfs merge=lfs -text
 web/public/media/video/white-city-abuja-3d.mp4 filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/cec-ph/ground-floor.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/pearl-1/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/pearl-3/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/silver/aerial.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/projects/cec-ph/upper-floor.jpg filter=lfs diff=lfs merge=lfs -text
@@ -11,16 +10,13 @@ web/public/media/units/gold/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-left.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/onyx/unit-1b.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/sapphire-2/corner-right.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/ruby/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-1/corner.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/brand/hi-vis-jacket.jpeg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/gold/approach.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/gold/corner.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/onyx/unit-1a.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/brand/branded-hard-hats.jpeg filter=lfs diff=lfs merge=lfs -text
-web/public/media/units/emerald/entrance.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-1/front.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/units/sapphire-2/corner-left.jpg filter=lfs diff=lfs merge=lfs -text
 web/public/media/brochures/beyond-borders-portfolio-flyer.pdf filter=lfs diff=lfs merge=lfs -text
