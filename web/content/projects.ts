@@ -1392,7 +1392,7 @@ export const projects: Project[] = [
     houseTypes: "Proposed convention grounds",
     region: "port-harcourt",
     promo: "Proposed development — inquiry only",
-    housesIntro: "Ground and upper floor plans, entrance, elevations, and interiors",
+    housesIntro: "Ground and upper floor plans, entrance, both elevations, and the auditorium interiors",
     summary: "A proposed convention grounds in Port Harcourt, Zone 2. This page is for inquiry, not a priced plot listing.",
     specs: {
       title: "Proposed",
@@ -1428,14 +1428,34 @@ export const projects: Project[] = [
             alt: "Convention grounds left side elevation",
           },
           {
+            src: "/media/projects/cec-ph/left-2.jpg",
+            label: "Auditorium elevation",
+            alt: "Convention grounds left side, parking and auditorium facade",
+          },
+          {
             src: "/media/projects/cec-ph/interior-1.jpg",
-            label: "Interior",
-            alt: "Convention grounds interior",
+            label: "Stage",
+            alt: "Convention grounds stage and pulpit",
+          },
+          {
+            src: "/media/projects/cec-ph/interior-3.jpg",
+            label: "Pulpit",
+            alt: "Convention grounds pulpit and front seating",
           },
           {
             src: "/media/projects/cec-ph/interior-2.jpg",
-            label: "Interior view",
-            alt: "Convention grounds second interior view",
+            label: "Toward the stage",
+            alt: "Convention grounds seating facing the stage",
+          },
+          {
+            src: "/media/projects/cec-ph/interior-4.jpg",
+            label: "Auditorium",
+            alt: "Convention grounds wide auditorium seating",
+          },
+          {
+            src: "/media/projects/cec-ph/interior-5.jpg",
+            label: "Main hall",
+            alt: "Convention grounds main hall from the rear",
           },
         ],
         floorPlans: [
@@ -1455,7 +1475,7 @@ export const projects: Project[] = [
     features: [
       "Christ Embassy International Convention Grounds",
       "Port Harcourt, Zone 2",
-      "Main entrance, side elevations, and interiors",
+      "Main entrance, side elevations, stage, and auditorium",
       "Ground and upper floor plans",
       "Inquiry only — not a priced land listing",
     ],
