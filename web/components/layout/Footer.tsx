@@ -110,7 +110,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-slate-300">
               <li className="leading-snug">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  Jahi
+                  Abuja
                 </span>
                 <br />
                 {site.address.line1}
@@ -119,12 +119,12 @@ export function Footer() {
               </li>
               <li className="leading-snug">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  Plot 84, Jahi
+                  Port Harcourt
                 </span>
                 <br />
-                {site.addressAlt.line1}
+                {site.addressPh.line1}
                 <br />
-                <span className="text-slate-400">{site.addressAlt.line2}</span>
+                <span className="text-slate-400">{site.addressPh.line2}</span>
               </li>
               <li>
                 <a

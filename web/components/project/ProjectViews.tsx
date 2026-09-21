@@ -43,10 +43,12 @@ export function HousesProjectBody({ project }: { project: Project }) {
       <ProjectPageHeader project={project} kind={kind} />
       <UnitPricing
         title={
-          kind === "houses"
+          project.catalogTitle ??
+          (kind === "houses"
             ? `${project.name} — Residential Residences`
-            : `${project.name} — Land Investment Plots`
+            : `${project.name} — Land Investment Plots`)
         }
+        catalogEyebrow={project.catalogEyebrow}
         units={units}
         kind={kind}
         projectName={project.name}

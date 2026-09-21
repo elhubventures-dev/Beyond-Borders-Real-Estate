@@ -135,7 +135,7 @@ export const faqs = [
     items: [
       {
         q: "What locations do you develop in?",
-        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1 — 2.5 hectares opposite Idu Railway), Kuje (Aspen), Katampe (KingsCity Davos, Halaand Estate), Ketti (White Country Parks), Lifecamp, Guzape (including Kings Choice and Kings Court), Jahi (including The White Court), Beyond Towers (The Borderless) in Jabi, and Hectare O'Clock land banking. In Port Harcourt: Igurita, Isiokpo, Omagwa, and the proposed Christ Embassy International Convention Grounds, Zone 2.",
+        a: "We develop across Abuja and Port Harcourt. In Abuja: Idu (White City Beverly, Savanah, Dallas; Royal City Beverly, Dallas & Phase 1 — 2.5 hectares opposite Idu Railway), Kuje (Aspen), Katampe (KingsCity Davos, Halaand Estate), Ketti (White Country Parks), Lifecamp, Guzape (including Kings Choice and Kings Court), Jahi (including The White Court), Beyond Towers (The Borderless) in Jabi, and Hectare O'Clock land banking. In Port Harcourt: Igurita, Isiokpo, Omagwa, and the International Convention Grounds, a 14,000-seat church auditorium on Airport Road, Port Harcourt, being developed by Beyond Borders.",
       },
       {
         q: "Do you sell both houses and land?",
@@ -160,7 +160,7 @@ export const faqs = [
       },
       {
         q: "Where is your office?",
-        a: "Abuja: Suite A13D Platinum Plaza, opposite Mabushi Ultramodern Market, Jahi; and Plot 84, Victor B.K Crescent, Off Garba Idris Street, after Lake View Homes, Behind Customs Quarters, Jahi. Port Harcourt: First Floor, Vine Yard Plaza, 88 Woji Road, GRA Phase 2.",
+        a: "Abuja: Plot 84, Victor B.K Crescent, Off Garba Idris Street, after Lake View Homes, Behind Customs Quarters, Jahi. Port Harcourt: First Floor, Vine Yard Plaza, 88 Woji Road, GRA Phase 2, Rivers State.",
       },
       {
         q: "Which email should I use?",

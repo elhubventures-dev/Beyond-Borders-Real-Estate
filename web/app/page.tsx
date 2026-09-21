@@ -66,7 +66,7 @@ export default function HomePage() {
       <VideoBand
         eyebrow="White City Estates"
         title="Wouldn't You Rather Live Here"
-        subtitle="Tour White City communities, interiors, and Aspen 2 — excellence at its peak."
+        subtitle="Tour White City communities, interiors, and Aspen 2. The newest clip is the White City Idu estate film."
         clips={[
           { src: site.videos.whiteCity, label: "White City Estates" },
           { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
@@ -74,6 +74,7 @@ export default function HomePage() {
           { src: site.videos.aspen2Promo, label: "Aspen 2" },
           { src: site.videos.products, label: "Current Products" },
           { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
+          { src: site.videos.whiteCityIduFilm, label: "White City Idu — Estate Film" },
         ]}
       />
       <EstateComparison />

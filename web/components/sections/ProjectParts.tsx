@@ -11,6 +11,7 @@ export function UnitPricing({
   toggleLabel,
   kind = "houses",
   projectName,
+  catalogEyebrow,
 }: {
   title: string;
   units: Unit[];
@@ -18,13 +19,15 @@ export function UnitPricing({
   toggleLabel?: string;
   kind?: "houses" | "lands";
   projectName?: string;
+  catalogEyebrow?: string;
 }) {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-bb-border pb-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
-            {kind === "houses" ? "Available Residences & Typologies" : "Titled Land Parcels"}
+            {catalogEyebrow ??
+              (kind === "houses" ? "Available Residences & Typologies" : "Titled Land Parcels")}
           </span>
           <h2 className="mt-1 font-display text-3xl sm:text-4xl font-medium tracking-tight text-bb-obsidian">
             {title}
@@ -59,7 +62,10 @@ export function UnitPricing({
                 {/* Visual Thumbnail — pop-out only on this section */}
                 <UnitShowcase
                   unit={unit}
-                  badge={isMall ? "Estate Amenity" : isLand ? "Demarcated Plot" : "Architectural Typology"}
+                  badge={
+                    unit.badge ??
+                    (isMall ? "Estate Amenity" : isLand ? "Demarcated Plot" : "Architectural Typology")
+                  }
                 />
 
                 {/* Content */}
@@ -181,14 +187,20 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
         <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark mb-1">
-              <span>{kind === "houses" ? "Luxury Residential Development" : "Government Layout Land"}</span>
+              <span>
+                {project.eyebrow ??
+                  (kind === "houses" ? "Luxury Residential Development" : "Government Layout Land")}
+              </span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-bb-obsidian">
               {project.name}
             </h1>
-            <p className="mt-2 text-base text-slate-600 max-w-2xl">
-              {project.inspectionLabel} — {project.summary ?? "Designed with modern architecture, durable infrastructure, and verified title documentation."}
-            </p>
+            {project.summary !== "" && (
+              <p className="mt-2 text-base text-slate-600 max-w-2xl">
+                {project.summary ??
+                  `${project.inspectionLabel} — Designed with modern architecture, durable infrastructure, and verified title documentation.`}
+              </p>
+            )}
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center gap-3">

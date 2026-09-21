@@ -23,19 +23,11 @@ export default function ContactPage() {
           <div className="mt-3 space-y-5 text-bb-muted">
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
-                Jahi (Primary)
+                Abuja
               </span>
               {site.address.line1}
               <br />
               {site.address.line2}
-            </p>
-            <p>
-              <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">
-                Plot 84, Jahi
-              </span>
-              {site.addressAlt.line1}
-              <br />
-              {site.addressAlt.line2}
             </p>
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-bb-bronze-dark">

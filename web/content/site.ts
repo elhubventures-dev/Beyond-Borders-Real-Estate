@@ -14,10 +14,6 @@ export const site = {
   phonePhAlt: "+234 814 934 4813",
   whatsapp: "2349071711222",
   address: {
-    line1: "Suite A13D Platinum Plaza",
-    line2: "opposite Mabushi Ultramodern Market, Jahi, Abuja, NG",
-  },
-  addressAlt: {
     line1: "Plot 84, Victor B.K Crescent",
     line2:
       "Off Garba Idris Street, after Lake View Homes, Behind Customs Quarters, Jahi, Abuja",
@@ -48,6 +44,7 @@ export const site = {
     abujaOngoing: "/media/video/abuja-ongoing.mp4",
     whiteCityCgi: "/media/video/white-city-cgi-tour.mp4",
     whiteCity3d: "/media/video/white-city-abuja-3d.mp4",
+    whiteCityIduFilm: "/media/video/white-city-idu-film.mp4",
     whiteCityInterior: "/media/video/white-city-interior-tour.mp4",
     aspen2Promo: "/media/video/white-city-aspen-2-promo.mp4",
   },

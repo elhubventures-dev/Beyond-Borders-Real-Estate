@@ -12,6 +12,7 @@ export type Unit = {
   price: string;
   wasPrice?: string;
   image?: string;
+  badge?: string;
   highlights?: string[];
   views3d?: UnitMedia[];
   floorPlans?: UnitMedia[];
@@ -48,6 +49,9 @@ export type Project = {
   videos?: { src: string; label: string }[];
   entrance?: { src: string; alt: string; label?: string };
   summary?: string;
+  eyebrow?: string;
+  catalogEyebrow?: string;
+  catalogTitle?: string;
   specs?: { title: string; delivery: string; payment: string };
 };
 
@@ -202,6 +206,10 @@ export const projects: Project[] = [
         src: "/media/video/white-city-abuja-3d.mp4",
         label: "White City Abuja — 3D Animation",
       },
+      {
+        src: "/media/video/white-city-idu-film.mp4",
+        label: "White City Idu — Estate Film",
+      },
     ],
     houses: [
       {
@@ -264,6 +272,18 @@ export const projects: Project[] = [
             alt: "Gold house corner elevation with garden and side facade",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/gold/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Gold 4/5 bed duplex ground floor plan",
+          },
+          {
+            src: "/media/units/gold/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Gold 4/5 bed duplex first floor plan",
+          },
+        ],
       },
       {
         title: "Silver — 3/4 Bed Duplex + Studio",
@@ -288,6 +308,18 @@ export const projects: Project[] = [
             alt: "Silver house aerial view with two-car parking",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/silver/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Silver 3/4 bed duplex ground floor plan",
+          },
+          {
+            src: "/media/units/silver/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Silver 3/4 bed duplex first floor plan",
+          },
+        ],
       },
       {
         title: "Pearl 3 — 4 Bed Terrace Triplex + BQ",
@@ -309,6 +341,23 @@ export const projects: Project[] = [
             src: "/media/units/pearl-3/aerial.jpg",
             label: "Aerial",
             alt: "Pearl 3 terrace triplex aerial view",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/units/pearl-3/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Pearl 3 4 bed terrace triplex ground floor plan",
+          },
+          {
+            src: "/media/units/pearl-3/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Pearl 3 4 bed terrace triplex first floor plan",
+          },
+          {
+            src: "/media/units/pearl-3/plans/second-floor.jpg",
+            label: "Second floor",
+            alt: "Pearl 3 4 bed terrace triplex second floor plan",
           },
         ],
       },
@@ -359,6 +408,18 @@ export const projects: Project[] = [
             alt: "Emerald house unit entrance",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/emerald/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Emerald 3 bed semi detached duplex ground floor plan",
+          },
+          {
+            src: "/media/units/emerald/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Emerald 3 bed semi detached duplex first floor plan",
+          },
+        ],
       },
       {
         title: "Onyx — 2 Bed Semi Detached Bungalow",
@@ -380,6 +441,13 @@ export const projects: Project[] = [
             src: "/media/units/onyx/unit-1b.jpg",
             label: "Unit 1B",
             alt: "Onyx bungalow unit 1B entrance",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/units/onyx/plans/plan.jpg",
+            label: "Floor plan",
+            alt: "Onyx 2 bed semi detached bungalow floor plan",
           },
         ],
       },
@@ -406,6 +474,18 @@ export const projects: Project[] = [
             alt: "Sapphire 1 apartment block aerial view with parking court",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/sapphire-1/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Sapphire 1 2 bed apartments ground floor plan with BQ",
+          },
+          {
+            src: "/media/units/sapphire-1/plans/upper-floors.jpg",
+            label: "1st & 2nd floor",
+            alt: "Sapphire 1 2 bed apartments first and second floor plan",
+          },
+        ],
       },
       {
         title: "Pearl 1 — 2 Bed Terrace Duplex",
@@ -427,6 +507,18 @@ export const projects: Project[] = [
             src: "/media/units/pearl-1/terrace.png",
             label: "Terrace row",
             alt: "Pearl 1 terrace duplex row from the road",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/units/pearl-1/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Pearl 1 2 bed terrace duplex ground floor plan",
+          },
+          {
+            src: "/media/units/pearl-1/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Pearl 1 2 bed terrace duplex first floor plan",
           },
         ],
       },
@@ -515,6 +607,23 @@ export const projects: Project[] = [
             alt: "Ruby terrace triplex private cinema",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/ruby/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Ruby 5 bed terrace triplex ground floor plan",
+          },
+          {
+            src: "/media/units/ruby/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Ruby 5 bed terrace triplex first floor plan",
+          },
+          {
+            src: "/media/units/ruby/plans/second-floor.jpg",
+            label: "Second floor",
+            alt: "Ruby 5 bed terrace triplex second floor plan",
+          },
+        ],
         downloadPdf: "/media/brochures/ruby-5-bed-triplex.pdf",
         downloadLabel: "Download presentation",
       },
@@ -548,6 +657,23 @@ export const projects: Project[] = [
             src: "/media/projects/white-city-mall/view-05.jpg",
             label: "Rear elevation",
             alt: "White City Mall rear elevation",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/projects/white-city-mall/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "White City Mall ground floor plan — supermarket, restaurant, bakery",
+          },
+          {
+            src: "/media/projects/white-city-mall/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "White City Mall first floor plan — partitionable shops and offices",
+          },
+          {
+            src: "/media/projects/white-city-mall/plans/second-floor.jpg",
+            label: "Second floor",
+            alt: "White City Mall second floor plan — offices and management suites",
           },
         ],
       },
@@ -587,6 +713,23 @@ export const projects: Project[] = [
             src: "/media/projects/white-city-mall/view-05.jpg",
             label: "Rear elevation",
             alt: "White City Mall rear elevation",
+          },
+        ],
+        floorPlans: [
+          {
+            src: "/media/projects/white-city-mall/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "White City Mall ground floor plan — supermarket, restaurant, bakery",
+          },
+          {
+            src: "/media/projects/white-city-mall/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "White City Mall first floor plan — partitionable shops and offices",
+          },
+          {
+            src: "/media/projects/white-city-mall/plans/second-floor.jpg",
+            label: "Second floor",
+            alt: "White City Mall second floor plan — offices and management suites",
           },
         ],
       },
@@ -1381,36 +1524,83 @@ export const projects: Project[] = [
   },
   {
     id: "cec-ph",
-    name: "Christ Embassy Convention Grounds",
+    name: "International Convention Grounds",
     shortName: "Convention Grounds",
     cardImage: "/media/projects/cec-ph/entrance.jpg",
     housesSlug: "/houses-christ-embassy-convention/",
-    inspectionLabel: "Christ Embassy International Convention Grounds (Port Harcourt, Zone 2)",
+    inspectionLabel: "International Convention Grounds (Airport Road, Port Harcourt)",
     locationBadge: "Port Harcourt",
-    distanceBadge: "Zone 2",
-    startingHouse: "Contact for details",
-    houseTypes: "Proposed convention grounds",
+    distanceBadge: "Airport Road",
+    startingHouse: "Ongoing",
+    houseTypes: "14,000-seat church auditorium",
     region: "port-harcourt",
-    promo: "Proposed development — inquiry only",
-    housesIntro: "Ground and upper floor plans, entrance, both elevations, and the auditorium interiors",
-    summary: "A proposed convention grounds in Port Harcourt, Zone 2. This page is for inquiry, not a priced plot listing.",
+    promo: "Ongoing project",
+    eyebrow: "Ongoing Project",
+    catalogEyebrow: "The Auditorium",
+    catalogTitle: "International Convention Grounds — 14,000-Seat Auditorium",
+    housesIntro: "A 14,000-seater church auditorium at Airport Road, Port Harcourt, developed by Beyond Borders Real Estate.",
+    summary:
+      "One of our ongoing projects. A 14,000-seater church auditorium, the International Convention Grounds. A project of Christ Embassy Convention Grounds, Port Harcourt DSP. Located at Airport Road, Port Harcourt, Rivers State. Being developed by Beyond Borders Real Estate.",
     specs: {
-      title: "Proposed",
-      delivery: "Design presentation",
-      payment: "Contact for engagement",
+      title: "Ongoing",
+      delivery: "14,000-seat auditorium",
+      payment: "Developed by Beyond Borders",
     },
     brochurePdf: "/media/brochures/christ-embassy-convention-grounds.pdf",
     entrance: {
       src: "/media/projects/cec-ph/entrance.jpg",
-      alt: "Christ Embassy International Convention Grounds, Port Harcourt Zone 2",
+      alt: "International Convention Grounds, Airport Road, Port Harcourt",
       label: "Main entrance",
     },
+    progressGallery: [
+      {
+        src: "/media/projects/cec-ph/progress/exterior-roof.jpg",
+        alt: "Steel roof and block walls rising at the International Convention Grounds, Airport Road, Port Harcourt",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/exterior-path.jpg",
+        alt: "Construction path along the auditorium shell at the International Convention Grounds",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/site-loader.jpg",
+        alt: "Site machinery on the International Convention Grounds construction yard",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/interior-shell.jpg",
+        alt: "Interior shell and scaffolding inside the 14,000-seat auditorium",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/interior-hall.jpg",
+        alt: "Wide interior hall under construction at the International Convention Grounds",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/interior-structure.jpg",
+        alt: "Internal structure and blockwork underway inside the auditorium",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/blockwork-ladder.jpg",
+        alt: "Workers laying blockwork on scaffolding at the International Convention Grounds",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/scaffolding-high.jpg",
+        alt: "High-level scaffolding and wall work at the International Convention Grounds",
+      },
+      {
+        src: "/media/projects/cec-ph/progress/wall-scaffold.jpg",
+        alt: "Plastered wall and new block courses under construction at the auditorium",
+      },
+    ],
     houses: [
       {
-        title: "Convention Grounds",
-        price: "Contact for pricing",
+        title: "14,000-Seat Auditorium",
+        price: "Contact for details",
+        badge: "Church Auditorium",
         image: "/media/projects/cec-ph/entrance.jpg",
-        highlights: ["Port Harcourt, Zone 2", "Floor plans included"],
+        highlights: [
+          "Airport Road, Port Harcourt",
+          "Christ Embassy, Port Harcourt DSP",
+          "14,000-seat church auditorium",
+        ],
         views3d: [
           {
             src: "/media/projects/cec-ph/entrance.jpg",
@@ -1473,11 +1663,12 @@ export const projects: Project[] = [
       },
     ],
     features: [
-      "Christ Embassy International Convention Grounds",
-      "Port Harcourt, Zone 2",
-      "Main entrance, side elevations, stage, and auditorium",
-      "Ground and upper floor plans",
-      "Inquiry only — not a priced land listing",
+      "Ongoing project",
+      "14,000-seater church auditorium",
+      "The International Convention Grounds",
+      "A project of Christ Embassy Convention Grounds, Port Harcourt DSP",
+      "Airport Road, Port Harcourt, Rivers State",
+      "Developed by Beyond Borders Real Estate",
     ],
   },
 ];

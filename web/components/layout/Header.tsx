@@ -26,7 +26,7 @@ const estateHighlights: Record<string, { corridor: string; starting: string }> =
   manhattan: { corridor: "Igurita, Port Harcourt", starting: "Land from ₦7.9M" },
   "parks-ph": { corridor: "Isiokpo, Port Harcourt", starting: "Land from ₦1.6M" },
   "los-angeles": { corridor: "Omagwa, Port Harcourt", starting: "Land from ₦3M" },
-  "cec-ph": { corridor: "Port Harcourt, Zone 2", starting: "Proposed · inquiry only" },
+  "cec-ph": { corridor: "Airport Road, Port Harcourt", starting: "14,000-seat auditorium" },
 };
 
 export function Header() {
