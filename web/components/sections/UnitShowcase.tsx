@@ -240,6 +240,7 @@ function ViewingRoom({
                 src={item.src}
                 alt={item.alt}
                 fill
+                unoptimized
                 className="object-contain"
                 sizes="(max-width:1024px) 100vw, 75vw"
                 priority={Math.abs(i - index) <= 1}
@@ -308,7 +309,7 @@ function ViewingRoom({
                           active ? "border-bb-bronze-light" : "border-white/10"
                         }`}
                       >
-                        <Image src={item.src} alt="" fill className="object-cover" sizes="80px" />
+                        <Image src={item.src} alt="" fill unoptimized className="object-cover" sizes="80px" />
                       </span>
                       <span className="min-w-0">
                         <span className="block text-[10px] font-bold tracking-[0.14em] text-bb-bronze-light">
