@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
 import { PageHero, CTABand } from "@/components/sections/ProjectParts";
+import { PaymentCalculator } from "@/components/sections/PaymentCalculator";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -17,6 +18,7 @@ export default function HousesPage() {
     <>
       <PageHero title="Houses" subtitle="Duplexes and terraces across our Abuja estates." />
       <ProjectGrid title="Choose an estate" subtitle="Open a project to see packages and pricing." />
+      <PaymentCalculator />
       <CTABand />
     </>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppConcierge } from "@/components/layout/WhatsAppConcierge";
@@ -7,15 +7,17 @@ import { site } from "@/content/site";
 import { absoluteUrl } from "@/lib/utils";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const display = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["500", "600"],
+  variable: "--font-display-face",
   display: "swap",
 });
 
-const manrope = Manrope({
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans-face",
   display: "swap",
 });
 
@@ -85,7 +87,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${manrope.variable} antialiased`}>
+      <body className={`${display.variable} ${sans.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

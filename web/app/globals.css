@@ -44,8 +44,8 @@
   --color-bb-forest: var(--bb-forest);
   --color-bb-white: var(--bb-white);
   --color-bb-black: var(--bb-black);
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-sans-face), Inter, system-ui, sans-serif;
+  --font-display: var(--font-display-face), "Source Serif 4", Georgia, serif;
 }
 
 @layer base {
@@ -60,7 +60,7 @@
   body {
     background: var(--bb-cream);
     color: var(--bb-ink);
-    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-family: var(--font-sans-face), Inter, system-ui, sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -71,8 +71,8 @@
   h3,
   h4,
   .font-display {
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-weight: 450;
+    font-family: var(--font-display-face), "Source Serif 4", Georgia, serif;
+    font-weight: 500;
     letter-spacing: -0.025em;
   }
 

@@ -12,18 +12,26 @@ type FilterTab = "all" | "houses" | "lands";
 export function ProjectGrid({
   title = "Master-Planned Communities",
   subtitle = "Architecturally planned residential estates and land investments across Abuja and Port Harcourt. Built for capital preservation and refined family living.",
+  limit,
+  showFilters = true,
+  showFooter = true,
 }: {
   title?: string;
   subtitle?: string;
+  limit?: number;
+  showFilters?: boolean;
+  showFooter?: boolean;
 }) {
   const [activeTab, setActiveTab] = useState<FilterTab>("all");
 
-  const filteredProjects = projects.filter((p) => {
-    if (activeTab === "all") return true;
-    if (activeTab === "houses") return p.houses && p.houses.length > 0;
-    if (activeTab === "lands") return p.lands && p.lands.length > 0;
-    return true;
-  });
+  const filteredProjects = projects
+    .filter((p) => {
+      if (activeTab === "all") return true;
+      if (activeTab === "houses") return p.houses && p.houses.length > 0;
+      if (activeTab === "lands") return p.lands && p.lands.length > 0;
+      return true;
+    })
+    .slice(0, limit ?? projects.length);
 
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -39,7 +47,7 @@ export function ProjectGrid({
           <p className="mt-3 text-base text-slate-600 leading-relaxed">{subtitle}</p>
         </div>
 
-        {/* Filter Navigation Tabs */}
+        {showFilters && (
         <div className="flex shrink-0 items-center rounded-lg border border-bb-border bg-white p-1 shadow-sm">
           <button
             type="button"
@@ -75,6 +83,7 @@ export function ProjectGrid({
             Land Plots
           </button>
         </div>
+        )}
       </div>
 
       {/* Grid of Elevated Property Cards */}
@@ -210,7 +219,15 @@ export function ProjectGrid({
         </AnimatePresence>
       </motion.div>
 
-      {/* Bottom Consultation Ribbon */}
+      {limit && (
+        <div className="mt-12 flex justify-center">
+          <Link href="/estates/" className="btn-primary !text-xs !uppercase !tracking-wider">
+            View the full portfolio
+          </Link>
+        </div>
+      )}
+
+      {showFooter && (
       <div className="mt-16 rounded-xl border border-bb-border bg-white p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-widest text-bb-bronze">
@@ -237,6 +254,7 @@ export function ProjectGrid({
           </a>
         </div>
       </div>
+      )}
     </section>
   );
 }

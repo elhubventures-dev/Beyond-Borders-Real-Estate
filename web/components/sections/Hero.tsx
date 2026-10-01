@@ -2,12 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { homeHero } from "@/content/pages";
-import { projects } from "@/content/projects";
-import { site } from "@/content/site";
 
 const trustMetrics = [
   { value: "18+", label: "Active Offerings", sub: "Abuja & Port Harcourt" },
@@ -17,10 +14,7 @@ const trustMetrics = [
 ];
 
 export function Hero() {
-  const router = useRouter();
   const [index, setIndex] = useState(0);
-  const [selectedEstate, setSelectedEstate] = useState("all");
-  const [selectedType, setSelectedType] = useState<"houses" | "lands">("houses");
 
   const slide = homeHero.slides[index];
 
@@ -31,28 +25,9 @@ export function Hero() {
     return () => window.clearInterval(id);
   }, []);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (selectedEstate === "all") {
-      router.push(selectedType === "houses" ? "/houses/" : "/lands/");
-      return;
-    }
-    const found = projects.find((p) => p.id === selectedEstate);
-    if (!found) {
-      router.push("/houses/");
-      return;
-    }
-    if (selectedType === "lands" && found.landsSlug) {
-      router.push(found.landsSlug);
-    } else {
-      router.push(found.housesSlug);
-    }
-  };
-
   return (
     <section className="relative w-full overflow-hidden bg-[#0b0f17] text-white">
-      {/* Background Slides with Cinematic Motion */}
-      <div className="relative min-h-[92vh] w-full flex flex-col justify-between">
+      <div className="relative min-h-[78vh] w-full flex flex-col justify-between">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.image}
@@ -113,8 +88,7 @@ export function Hero() {
               transition={{ delay: 0.35 }}
               className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300/90"
             >
-              Smart homes, Buy & Build packages, and titled land across Idu, Kuje, Katampe, and Ketti in
-              Abuja — plus Igurita, Isiokpo, and Omagwa in Port Harcourt.
+              Smart homes, Buy & Build packages, and titled land in Abuja and Port Harcourt.
             </motion.p>
 
             {/* Hero CTAs */}
@@ -130,90 +104,8 @@ export function Hero() {
               <Link href="/houses/" className="btn-ghost !text-sm">
                 Explore All Estates
               </Link>
-              <a
-                href={site.downloads.portfolioFlyer}
-                download
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition px-2 py-1"
-              >
-                <span>Download Portfolio Flyer</span>
-                <span aria-hidden>→</span>
-              </a>
-              <a
-                href={`https://wa.me/${site.whatsapp}?text=Hello%20Beyond%20Borders,%20I%20would%20like%20to%20receive%20the%20portfolio%20brochure.`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition px-2 py-1"
-              >
-                <span>Request Brochure on WhatsApp</span>
-                <span aria-hidden>→</span>
-              </a>
             </motion.div>
           </div>
-
-          {/* Quick Property Finder Glass Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.5 }}
-            className="mt-14 w-full rounded-lg border border-white/15 bg-black/60 p-4 md:p-5 shadow-2xl backdrop-blur-xl"
-          >
-            <form onSubmit={handleSearch} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:items-end">
-              <div>
-                <label className="block text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-1.5">
-                  Select Estate
-                </label>
-                <select
-                  value={selectedEstate}
-                  onChange={(e) => setSelectedEstate(e.target.value)}
-                  className="w-full rounded border border-white/20 bg-slate-900/90 px-3.5 py-2.5 text-sm font-medium text-white outline-none transition focus:border-bb-bronze"
-                >
-                  <option value="all">All Locations (Abuja & PH)</option>
-                  {projects.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-1.5">
-                  Property Asset
-                </label>
-                <select
-                  value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value as "houses" | "lands")}
-                  className="w-full rounded border border-white/20 bg-slate-900/90 px-3.5 py-2.5 text-sm font-medium text-white outline-none transition focus:border-bb-bronze"
-                >
-                  <option value="houses">Residential Houses & Duplexes</option>
-                  <option value="lands">Titled Land Plots (300m² - 1500m²)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-1.5">
-                  Payment Preference
-                </label>
-                <div className="flex h-[42px] items-center rounded border border-white/20 bg-slate-900/60 px-3.5 text-xs text-slate-300">
-                  Outright or Structured Installments
-                </div>
-              </div>
-
-              <div>
-                <button
-                  type="submit"
-                  className="btn-gold w-full !h-[42px] !py-0 flex items-center justify-center gap-2 !text-xs !font-bold !uppercase !tracking-wider"
-                >
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  <span>Search Properties</span>
-                </button>
-              </div>
-            </form>
-          </motion.div>
         </div>
 
         {/* Slide Progress Indicator Bar */}

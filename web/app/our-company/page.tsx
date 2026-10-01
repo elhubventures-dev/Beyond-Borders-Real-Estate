@@ -55,6 +55,19 @@ export default function OurCompanyPage() {
         <p className="mt-10 text-sm text-bb-muted">
           Portfolio snapshot: {site.stats.sqFt} · {site.stats.estates} · {site.stats.lands}
         </p>
+        <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-bb-border pt-8 sm:grid-cols-4">
+          {[
+            { value: "18+", label: "Active offerings" },
+            { value: "8M+", label: "Sq. ft. portfolio" },
+            { value: "FCDA", label: "Approved layouts" },
+            { value: "2", label: "City markets" },
+          ].map((item) => (
+            <div key={item.label}>
+              <dt className="font-display text-3xl text-bb-bronze-dark">{item.value}</dt>
+              <dd className="mt-1 text-sm text-bb-muted">{item.label}</dd>
+            </div>
+          ))}
+        </dl>
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href={site.downloads.companyProfile}
@@ -73,6 +86,14 @@ export default function OurCompanyPage() {
             className="btn-outline !text-xs !uppercase !tracking-wider"
           >
             Portfolio Flyer
+          </a>
+          <a
+            href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hello Beyond Borders, I would like to receive the portfolio brochure.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-outline !text-xs !uppercase !tracking-wider"
+          >
+            Request Brochure on WhatsApp
           </a>
         </div>
       </section>
