@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { projects } from "@/content/projects";
 import { HoverPopImage } from "@/components/ui/HoverPopImage";
 import { site } from "@/content/site";
@@ -22,6 +22,7 @@ export function ProjectGrid({
   showFilters?: boolean;
   showFooter?: boolean;
 }) {
+  const reduceMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState<FilterTab>("all");
 
   const filteredProjects = projects
@@ -103,12 +104,12 @@ export function ProjectGrid({
 
             return (
               <motion.article
-                layout
+                layout={reduceMotion ? false : "position"}
                 key={project.id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
+                initial={false}
+                animate={{ opacity: 1 }}
+                exit={reduceMotion ? undefined : { opacity: 0 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.28, delay: i * 0.04 }}
                 className="architectural-card group relative z-0 flex flex-col overflow-visible rounded-lg"
               >
                 {/* Media Image Frame with Badges — pop-out only on this section */}

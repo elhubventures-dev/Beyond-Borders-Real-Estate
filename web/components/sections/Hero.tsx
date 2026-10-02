@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { homeHero } from "@/content/pages";
 
@@ -14,16 +14,18 @@ const trustMetrics = [
 ];
 
 export function Hero() {
+  const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
 
   const slide = homeHero.slides[index];
 
   useEffect(() => {
+    if (reduceMotion) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % homeHero.slides.length);
     }, 8500);
     return () => window.clearInterval(id);
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <section className="relative w-full overflow-hidden bg-[#0b0f17] text-white">
@@ -32,10 +34,10 @@ export function Hero() {
           <motion.div
             key={slide.image}
             className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
           >
             <Image
               src={slide.image}
@@ -55,56 +57,37 @@ export function Hero() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 md:pt-40 pb-16">
           <div className="max-w-3xl">
             {/* Luxury Eyebrow Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
-              className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-bb-bronze/30 bg-black/40 px-3.5 py-1.5 backdrop-blur-md"
-            >
+            <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-bb-bronze/30 bg-black/40 px-3.5 py-1.5 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze"></span>
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-light">
                 Abuja & Port Harcourt Communities
               </span>
-            </motion.div>
+            </div>
 
             {/* Editorial Main Headline */}
-            <motion.h1
+            <h1
               key={slide.title}
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.6 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight text-white"
             >
               {slide.title}
               <span className="mt-2 block font-sans text-xl sm:text-2xl md:text-3xl font-light text-slate-300">
                 {slide.subtitle}
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Value Proposition Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300/90"
-            >
+            <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300/90">
               Smart homes, Buy & Build packages, and titled land in Abuja and Port Harcourt.
-            </motion.p>
+            </p>
 
-            {/* Hero CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
-            >
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/schedule-an-inspection/" className="btn-gold !text-sm">
                 Schedule Private Site Tour
               </Link>
               <Link href="/houses/" className="btn-ghost !text-sm">
                 Explore All Estates
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
 

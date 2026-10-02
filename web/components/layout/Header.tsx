@@ -61,10 +61,7 @@ export function Header() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 font-medium tracking-wide text-slate-400">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-              </span>
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
               Abuja Sales Desk Live
             </span>
             <span className="text-slate-600">|</span>
@@ -129,14 +126,14 @@ export function Header() {
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
             <Link
               href="/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               Home
             </Link>
 
             <Link
               href="/our-company/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               Our Company
             </Link>
@@ -146,10 +143,17 @@ export function Header() {
               className="relative"
               onMouseEnter={() => setProjectsMenuOpen(true)}
               onMouseLeave={() => setProjectsMenuOpen(false)}
+              onFocus={() => setProjectsMenuOpen(true)}
+              onBlur={(e) => {
+                const next = e.relatedTarget;
+                if (!(next instanceof Node) || !e.currentTarget.contains(next)) {
+                  setProjectsMenuOpen(false);
+                }
+              }}
             >
               <Link
                 href="/houses/"
-                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+                className="nav-link flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
               >
                 <span>Estates & Properties</span>
                 <svg
@@ -266,28 +270,28 @@ export function Header() {
 
             <Link
               href="/estates/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               Estates
             </Link>
 
             <Link
               href="/our-projects/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               Services
             </Link>
 
             <Link
               href="/faqs/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               FAQs
             </Link>
 
             <Link
               href="/contact-us/"
-              className="text-xs font-bold uppercase tracking-[0.14em] text-bb-ink transition-colors hover:text-bb-bronze-dark"
+              className="nav-link text-xs font-bold uppercase tracking-[0.14em] text-bb-ink hover:text-bb-bronze-dark"
             >
               Contact
             </Link>
