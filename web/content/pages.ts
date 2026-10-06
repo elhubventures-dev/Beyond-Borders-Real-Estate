@@ -188,20 +188,24 @@ export const faqs = [
 ];
 
 export const homeHero = {
-  slides: [
-    {
-      title: "Smart And Luxury Home",
-      subtitle: "Designed For Your Lifestyle",
-      image: "/media/hero/banner-1.jpg",
-      ctaLabel: "Schedule an Inspection",
-      ctaHref: "/schedule-an-inspection/",
-    },
-    {
-      title: "Building Tailormade Homes",
-      subtitle: "With You In Mind",
-      image: "/media/hero/banner-2.jpg",
-      ctaLabel: "Schedule an Inspection",
-      ctaHref: "/schedule-an-inspection/",
-    },
-  ],
+  badge: "Abuja & Port Harcourt Communities",
+  headline: ["Smart And Luxury Homes", "Designed For Your", "Lifestyle"] as const,
+  body: "Smart homes, Buy & Build packages, and titled land in Abuja and Port Harcourt.",
+  ctaLabel: "Schedule an Inspection",
+  ctaHref: "/schedule-an-inspection/",
+  tourLabel: "Watch a Tour",
+  image: "/media/hero/banner-1.jpg",
+  imageAlt:
+    "Modern Beyond Borders home with a cantilevered concrete form, set in landscaped grounds.",
+  frame: {
+    title: "Building homes",
+    accent: "in Abuja.",
+    body: "Smart homes and titled land, shaped for how you want to live.",
+    chip: "Explore estates",
+    chipHref: "/houses/",
+  },
+  metric: { value: "18+", label: "Active Offerings" },
+  approval: { title: "FCDA Approved", detail: "Verified layouts" },
+  trustLabel: "Trusted across Abuja & Port Harcourt",
+  trustMarks: ["FCDA Layouts", "AGIS Titles", "18+ Offerings", "8M+ Sq. Ft."] as const,
 };

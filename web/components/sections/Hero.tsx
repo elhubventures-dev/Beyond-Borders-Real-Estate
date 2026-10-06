@@ -2,148 +2,312 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { homeHero } from "@/content/pages";
-
-const trustMetrics = [
-  { value: "18+", label: "Active Offerings", sub: "Abuja & Port Harcourt" },
-  { value: "8M+", label: "Sq. Ft. Portfolio", sub: "Estates & Investment Land" },
-  { value: "FCDA", label: "Approved Layouts", sub: "Verified Abuja Developments" },
-  { value: "2", label: "City Markets", sub: "FCT + Rivers corridors" },
-];
+import { site } from "@/content/site";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
-  const [index, setIndex] = useState(0);
+  const allowMotion = reduceMotion === false;
+  const [tourOpen, setTourOpen] = useState(false);
+  const tourButtonRef = useRef<HTMLButtonElement>(null);
 
-  const slide = homeHero.slides[index];
-
-  useEffect(() => {
-    if (reduceMotion) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % homeHero.slides.length);
-    }, 8500);
-    return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  const closeTour = useCallback(() => {
+    setTourOpen(false);
+    tourButtonRef.current?.focus();
+  }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0b0f17] text-white">
-      <div className="relative min-h-[78vh] w-full flex flex-col justify-between">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={slide.image}
-            className="absolute inset-0"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
-          >
+    <section className="relative overflow-hidden bg-[#f7faf7]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-16 top-[-8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(10,76,4,0.16),transparent_68%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(10,76,4,0.06),transparent_70%)]"
+      />
+
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-14 sm:py-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-6 lg:py-20">
+        <div className="@container max-w-xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-bb-bronze/15 bg-white/80 px-3 py-1.5 shadow-sm">
+            <HouseMark className="h-3.5 w-3.5 text-bb-bronze" />
+            <span className="text-[11px] font-semibold tracking-wide text-bb-bronze-dark sm:text-xs">
+              {homeHero.badge}
+            </span>
+          </div>
+
+          <h1 className="mt-6 font-display text-[2.05rem] font-medium leading-[1.02] tracking-[-0.035em] text-bb-ink sm:text-[2.45rem] lg:text-[clamp(2rem,7.6cqi,2.8rem)]">
+            <span className="block lg:whitespace-nowrap">{homeHero.headline[0]}</span>
+            <span className="mt-1 block lg:whitespace-nowrap">{homeHero.headline[1]}</span>
+            <span className="mt-1 block whitespace-nowrap text-bb-bronze">{homeHero.headline[2]}</span>
+          </h1>
+
+          <p className="mt-6 max-w-md text-base leading-relaxed text-slate-500 sm:text-[17px]">
+            {homeHero.body}
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
+            <Link
+              href={homeHero.ctaHref}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#3f8a38] via-[#0a4c04] to-[#073803] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_-8px_rgba(10,76,4,0.65)] transition hover:brightness-110"
+            >
+              {homeHero.ctaLabel}
+              <ArrowIcon />
+            </Link>
+            <button
+              ref={tourButtonRef}
+              type="button"
+              onClick={() => setTourOpen(true)}
+              className="inline-flex items-center gap-3 rounded-full text-left"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-bb-ink shadow-[0_8px_20px_-12px_rgba(17,24,39,0.45)]">
+                <PlayIcon />
+              </span>
+              <span className="text-sm font-medium text-bb-ink">{homeHero.tourLabel}</span>
+            </button>
+          </div>
+
+          <div className="mt-12 border-t border-bb-bronze/10 pt-6">
+            <p className="text-xs leading-relaxed text-slate-400 sm:text-[13px]">{homeHero.trustLabel}</p>
+            <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+              {homeHero.trustMarks.map((mark) => (
+                <li
+                  key={mark}
+                  className="font-display text-[15px] font-medium tracking-tight text-slate-400/90"
+                >
+                  {mark}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <HeroStage allowMotion={allowMotion} />
+      </div>
+
+      <TourDialog open={tourOpen} onClose={closeTour} />
+    </section>
+  );
+}
+
+function HeroStage({ allowMotion }: { allowMotion: boolean }) {
+  const float = (delay: number, distance = 8) =>
+    allowMotion
+      ? {
+          y: [0, -distance, 0],
+          transition: { duration: 5.4, repeat: Infinity, ease: "easeInOut" as const, delay },
+        }
+      : undefined;
+
+  return (
+    <div className="relative mx-auto w-full max-w-[640px] lg:max-w-none">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-10 bottom-6 hidden h-10 rounded-full bg-[#0b0f17]/10 blur-2xl lg:block"
+      />
+
+      <div className="relative z-10 w-full origin-center rounded-[28px] border border-white bg-white p-3.5 shadow-[0_28px_70px_-24px_rgba(17,24,39,0.28)] sm:p-5 xl:w-[84%] xl:p-6 xl:[transform:perspective(1400px)_rotateY(-14deg)_rotateX(6deg)_rotateZ(-2deg)]">
+        <div className="grid items-start gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.05fr)]">
+          <div className="px-1 py-2 sm:py-4 xl:pb-0 xl:pt-1">
+            <p className="font-display text-[1.65rem] font-medium leading-[1.05] tracking-tight text-bb-ink sm:text-[1.85rem]">
+              {homeHero.frame.title}{" "}
+              <span className="italic text-bb-bronze">{homeHero.frame.accent}</span>
+            </p>
+            <p className="mt-3 max-w-[16rem] text-[11px] leading-relaxed text-slate-500 sm:text-xs">
+              {homeHero.frame.body}
+            </p>
+            <Link
+              href={homeHero.frame.chipHref}
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-bb-bronze px-3 py-1.5 text-[11px] font-semibold text-white"
+            >
+              {homeHero.frame.chip}
+              <ArrowIcon className="h-3 w-3" />
+            </Link>
+            <motion.div
+              aria-hidden
+              animate={float(0.8, 6)}
+              className="mt-5 hidden w-full max-w-[230px] rounded-2xl border border-slate-100 bg-white px-3.5 py-3 shadow-[0_18px_40px_-18px_rgba(17,24,39,0.35)] xl:block"
+            >
+              <div className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-bb-bronze text-white">
+                  <CheckIcon />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-bb-ink">{homeHero.approval.title}</p>
+                  <p className="text-[11px] text-slate-400">{homeHero.approval.detail}</p>
+                </div>
+              </div>
+              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-bb-stone">
+                <div className="h-full w-full rounded-full bg-bb-bronze" />
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-bb-stone sm:aspect-[5/6]">
             <Image
-              src={slide.image}
-              alt="Beyond Borders Luxury Estate"
+              src={homeHero.image}
+              alt={homeHero.imageAlt}
               fill
               priority
+              sizes="(min-width: 1024px) 280px, 70vw"
               className="object-cover object-center"
-              sizes="100vw"
             />
-            {/* Multi-layered cinematic gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f17] via-[#0b0f17]/60 to-[#0b0f17]/40" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0f17]/90 via-[#0b0f17]/50 to-transparent" />
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Hero Content Layer */}
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 md:pt-40 pb-16">
-          <div className="max-w-3xl">
-            {/* Luxury Eyebrow Badge */}
-            <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-bb-bronze/30 bg-black/40 px-3.5 py-1.5 backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-bb-bronze"></span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-light">
-                Abuja & Port Harcourt Communities
-              </span>
-            </div>
-
-            {/* Editorial Main Headline */}
-            <h1
-              key={slide.title}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight text-white"
-            >
-              {slide.title}
-              <span className="mt-2 block font-sans text-xl sm:text-2xl md:text-3xl font-light text-slate-300">
-                {slide.subtitle}
-              </span>
-            </h1>
-
-            {/* Value Proposition Description */}
-            <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300/90">
-              Smart homes, Buy & Build packages, and titled land in Abuja and Port Harcourt.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/schedule-an-inspection/" className="btn-gold !text-sm">
-                Schedule Private Site Tour
-              </Link>
-              <Link href="/houses/" className="btn-ghost !text-sm">
-                Explore All Estates
-              </Link>
-            </div>
           </div>
         </div>
+      </div>
 
-        {/* Slide Progress Indicator Bar */}
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-6 flex items-center justify-between text-xs text-slate-400">
-          <div className="flex items-center gap-3">
-            {homeHero.slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Slide ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className="group flex items-center gap-2 py-2"
-              >
-                <span
-                  className={`h-0.5 transition-all duration-300 ${
-                    i === index ? "w-12 bg-bb-bronze" : "w-6 bg-white/30 group-hover:bg-white/60"
-                  }`}
-                />
-                <span className={`text-[11px] uppercase tracking-wider ${i === index ? "text-white font-semibold" : "text-slate-500"}`}>
-                  0{i + 1}
-                </span>
-              </button>
-            ))}
-          </div>
-          <span className="text-[11px] uppercase tracking-[0.15em] text-slate-400">
-            Abuja, Federal Capital Territory
+      <motion.div
+        aria-hidden
+        animate={float(0.2, 7)}
+        className="absolute right-3 top-[52%] z-20 w-[132px] rounded-2xl border border-white/80 bg-white px-3 py-2.5 shadow-[0_16px_40px_-18px_rgba(17,24,39,0.35)] sm:w-[148px] xl:right-[18%] xl:top-[18%]"
+      >
+        <p className="font-display text-2xl leading-none text-bb-ink">{homeHero.metric.value}</p>
+        <p className="mt-1 text-[11px] font-medium text-slate-500">{homeHero.metric.label}</p>
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        animate={float(0.8, 9)}
+        className="absolute bottom-3 left-[28%] z-20 w-[210px] rounded-2xl border border-white/80 bg-white px-3.5 py-3 shadow-[0_18px_40px_-18px_rgba(17,24,39,0.35)] sm:w-[230px] xl:hidden"
+      >
+        <div className="flex items-start gap-2.5">
+          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-bb-bronze text-white">
+            <CheckIcon />
           </span>
-        </div>
-      </div>
-
-      {/* Developer Trust & Metric Bar (Architectural Slab) */}
-      <div className="border-y border-white/10 bg-[#111827]">
-        <div className="mx-auto max-w-7xl px-6 py-6 md:py-8">
-          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
-            {trustMetrics.map((item, idx) => (
-              <div
-                key={item.label}
-                className={`flex flex-col ${
-                  idx !== 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
-                }`}
-              >
-                <span className="font-display text-2xl sm:text-3xl font-normal text-bb-bronze-light">
-                  {item.value}
-                </span>
-                <span className="mt-1 text-sm font-semibold text-white tracking-tight">
-                  {item.label}
-                </span>
-                <span className="text-xs text-slate-400">
-                  {item.sub}
-                </span>
-              </div>
-            ))}
+          <div>
+            <p className="text-sm font-semibold text-bb-ink">{homeHero.approval.title}</p>
+            <p className="text-[11px] text-slate-400">{homeHero.approval.detail}</p>
           </div>
         </div>
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-bb-stone">
+          <div className="h-full w-full rounded-full bg-bb-bronze" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        animate={float(0.3, 5)}
+        className="pointer-events-none absolute -right-1 top-6 z-30 hidden xl:block"
+      >
+        <HeroPlant />
+      </motion.div>
+    </div>
+  );
+}
+
+function TourDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const titleId = useId();
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-[#0b0f17]/75 p-4"
+      onClick={onClose}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="w-full max-w-3xl overflow-hidden rounded-2xl bg-[#0b0f17] shadow-2xl"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-center justify-between gap-4 px-4 py-3 text-white">
+          <h2 id={titleId} className="font-display text-lg">
+            White City estate tour
+          </h2>
+          <button
+            ref={closeRef}
+            type="button"
+            onClick={onClose}
+            className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold tracking-wide"
+          >
+            Close
+          </button>
+        </div>
+        <video
+          src={site.videos.whiteCityIduFilm}
+          controls
+          autoPlay
+          playsInline
+          className="aspect-video w-full bg-black"
+          aria-label="White City Idu estate film"
+        />
       </div>
-    </section>
+    </div>
+  );
+}
+
+function HeroPlant() {
+  return (
+    <svg viewBox="0 0 160 280" className="h-64 w-36" aria-hidden>
+      <ellipse cx="82" cy="268" rx="36" ry="8" fill="rgba(17,24,39,0.1)" />
+      <path d="M50 198h64l-12 58H62z" fill="#ffffff" stroke="#e4ebe4" strokeWidth="1.5" />
+      <ellipse cx="82" cy="198" rx="34" ry="9" fill="#f7faf7" stroke="#e4ebe4" />
+      <ellipse cx="82" cy="196" rx="20" ry="5" fill="#073803" />
+      <path d="M82 196c-6-28-38-40-58-28 8 22 28 36 52 42" fill="#073803" />
+      <path d="M80 190c-8-46-46-62-62-34 16 18 36 28 58 36" fill="#0a4c04" />
+      <path d="M84 192c10-40 48-58 66-28-18 16-38 24-62 32" fill="#0a4c04" />
+      <path d="M78 188c-4-52-28-96-18-132 10 36 16 78 20 124" fill="#2e6b28" />
+      <path d="M86 186c6-48 24-92 46-118-8 40-22 78-40 112" fill="#1f6b18" />
+      <path d="M74 184c-16-36-8-84-28-112 16 28 22 70 28 108" fill="#3f8a38" />
+      <path d="M90 180c14-30 8-78 30-104-14 32-24 68-30 100" fill="#3f8a38" />
+      <path d="M82 176c-2-40 8-78 2-108 8 32 6 70 0 104" fill="#4c9a44" />
+    </svg>
+  );
+}
+
+function HouseMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path
+        d="M4 11.5 12 4l8 7.5V20a1 1 0 0 1-1 1h-5.2v-6.2H10.2V21H5a1 1 0 0 1-1-1v-8.5Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4" aria-hidden>
+      <path d="M8 6.5v11l10-5.5-10-5.5Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" aria-hidden>
+      <path d="M6 12.5 10 16.5 18 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
