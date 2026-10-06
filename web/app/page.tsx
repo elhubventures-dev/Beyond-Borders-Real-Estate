@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
+import { LeadershipAnnouncement } from "@/components/sections/LeadershipAnnouncement";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
 import { CTABand } from "@/components/sections/ProjectParts";
 import { getSeo } from "@/content/seo";
@@ -36,6 +37,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LeadershipAnnouncement compact />
       <ProjectGrid
         title="Selected communities"
         subtitle="Six current estates. Prices, floor plans, and the rest of the portfolio stay on their own pages."

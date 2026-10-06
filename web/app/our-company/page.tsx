@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { aboutGallery, aboutPage } from "@/content/pages";
 import { site } from "@/content/site";
+import { LeadershipAnnouncement } from "@/components/sections/LeadershipAnnouncement";
 import { PageHero, CTABand } from "@/components/sections/ProjectParts";
 import { VideoBand } from "@/components/sections/VideoBand";
 import { BrandGallery } from "@/components/sections/BrandGallery";
@@ -19,6 +20,7 @@ export default function OurCompanyPage() {
   return (
     <>
       <PageHero title={aboutPage.title} subtitle={aboutPage.headline} />
+      <LeadershipAnnouncement />
       <section className="mx-auto max-w-3xl px-4 py-14">
         {aboutPage.body.map((p) => (
           <p key={p.slice(0, 32)} className="mb-5 text-lg leading-relaxed text-bb-muted">

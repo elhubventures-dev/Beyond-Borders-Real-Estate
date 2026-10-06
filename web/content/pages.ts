@@ -1,3 +1,20 @@
+export const leadershipAnnouncement = {
+  eyebrow: "Special announcement",
+  title: "Appointment of a new Managing Director",
+  name: "Mr. Patrick Sile",
+  role: "Managing Director",
+  company: "Beyond Borders Real Estate Ltd",
+  effective: "September 1, 2026",
+  image: "/media/announcements/patrick-sile-managing-director.png",
+  imageAlt:
+    "Official announcement of Mr. Patrick Sile as Managing Director of Beyond Borders Real Estate Ltd, effective September 1, 2026.",
+  paragraphs: [
+    "We are pleased to announce the appointment of Mr. Patrick Sile as the new Managing Director of Beyond Borders Real Estate Ltd.",
+    "Mr. Patrick brings on board over 13 years of experience in business management, banking, and corporate governance. He will work closely with the Board of Directors of Beyond Borders Real Estate Ltd to deliver superior customer experience and unbeatable shareholder value as we take our exceptional real estate, investment, and property development services global.",
+    "Congratulations, Mr. Patrick. Together we are achieving more.",
+  ],
+};
+
 export const aboutPage = {
   title: "Our Company",
   headline: "Who we are",
