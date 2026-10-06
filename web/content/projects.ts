@@ -24,6 +24,7 @@ export type Project = {
   id: string;
   name: string;
   shortName: string;
+  cardTitle?: string;
   cardImage: string;
   housesSlug: string;
   landsSlug?: string;
@@ -91,7 +92,8 @@ export const projects: Project[] = [
     id: "beverly",
     name: "White City Beverly",
     shortName: "Beverly",
-    cardImage: "/media/projects/beverly-progress/gatehouse.jpg",
+    cardTitle: "Gate House — White City Idu Abuja",
+    cardImage: "/media/projects/white-city-beverly-gate.png",
     housesSlug: "/houses-white-city-beverly/",
     landsSlug: "/lands-white-city-beverly/",
     inspectionLabel: "White City Beverly (Idu Abuja, Opposite Railway)",

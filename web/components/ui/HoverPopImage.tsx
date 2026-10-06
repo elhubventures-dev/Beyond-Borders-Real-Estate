@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 /** Bust stale CDN/browser caches from earlier Git LFS pointer responses. */
-const MEDIA_CACHE = "20260922a";
+const MEDIA_CACHE = "20261006a";
 
 function mediaSrc(src: string) {
   if (!src.startsWith("/media/")) return src;

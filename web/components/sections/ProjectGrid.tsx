@@ -156,7 +156,7 @@ export function ProjectGrid({
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
                     <h3 className="font-display text-2xl font-medium text-bb-obsidian transition-colors group-hover:text-bb-bronze-dark">
-                      {project.name}
+                      {project.cardTitle ?? project.name}
                     </h3>
 
                     {/* Features and Specs */}
