@@ -248,6 +248,23 @@ export const projects: Project[] = [
             alt: "Diamond house aerial view with pool and parking for up to four cars",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/diamond/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Diamond 5/6 bed duplex ground floor plan",
+          },
+          {
+            src: "/media/units/diamond/plans/first-floor.jpg",
+            label: "First floor",
+            alt: "Diamond 5/6 bed duplex first floor plan",
+          },
+          {
+            src: "/media/units/diamond/plans/second-floor.jpg",
+            label: "Second floor",
+            alt: "Diamond 5/6 bed duplex second floor plan",
+          },
+        ],
       },
       {
         title: "Gold — 4/5 Bed Duplex + BQ",
