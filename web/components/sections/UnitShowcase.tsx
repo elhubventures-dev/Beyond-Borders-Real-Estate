@@ -17,13 +17,7 @@ function viewLabel(slide: UnitMedia, index: number) {
   return slide.label || `View ${pad(index + 1)}`;
 }
 
-export function UnitShowcase({
-  unit,
-  badge,
-}: {
-  unit: Unit;
-  badge?: string;
-}) {
+export function UnitShowcase({ unit }: { unit: Unit }) {
   const reduceMotion = useReducedMotion();
   const views = unit.views3d ?? [];
   const plans = unit.floorPlans ?? [];
@@ -91,13 +85,6 @@ export function UnitShowcase({
             className="absolute inset-0 z-20 cursor-zoom-in bg-transparent"
             aria-label={`Open presentation for ${unit.title}`}
           />
-        )}
-        {badge && (
-          <div className="pointer-events-none absolute top-3 left-3 z-10">
-            <span className="rounded bg-[#0A4C04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
-              {badge}
-            </span>
-          </div>
         )}
         {canOpen && (
           <span className="pointer-events-none absolute bottom-3 right-3 z-30 rounded bg-bb-obsidian/85 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white">

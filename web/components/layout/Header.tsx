@@ -20,8 +20,8 @@ const estateHighlights: Record<string, { corridor: string; starting: string }> =
   davos: { corridor: "Katampe Extension • Hilltop", starting: "Packages from ₦25M" },
   "white-court": { corridor: "Prime Abuja Location", starting: "5 Bed Smart Duplex ₦225M" },
   lifecamp: { corridor: "Lifecamp Abuja", starting: "Contact for packages" },
-  guzape: { corridor: "Guzape Abuja", starting: "Contact for packages" },
-  jahi: { corridor: "Jahi • Mabushi Corridor", starting: "Contact for packages" },
+  guzape: { corridor: "Guzape Abuja", starting: "Sold out" },
+  jahi: { corridor: "Jahi • Mabushi Corridor", starting: "Sold out" },
   "hectare-abuja": { corridor: "Idu · Katampe · Kuje · Ketti", starting: "1 Hectare from ₦79M" },
   manhattan: { corridor: "Igurita, Port Harcourt", starting: "Land from ₦7.9M" },
   "parks-ph": { corridor: "Isiokpo, Port Harcourt", starting: "Land from ₦1.6M" },
@@ -225,23 +225,31 @@ export function Header() {
                                   <p className="truncate text-[11px] text-slate-500">{meta.corridor}</p>
                                 </div>
                                 <div className="flex items-center gap-3 pt-1 text-[11px]">
-                                  {p.houses.length > 0 ? (
-                                    <Link
-                                      href={p.housesSlug}
-                                      className="font-bold text-bb-bronze-dark hover:underline"
-                                      onClick={() => setProjectsMenuOpen(false)}
-                                    >
-                                      Houses →
-                                    </Link>
-                                  ) : null}
-                                  {p.landsSlug && (
-                                    <Link
-                                      href={p.landsSlug}
-                                      className="font-medium text-slate-600 hover:text-bb-obsidian hover:underline"
-                                      onClick={() => setProjectsMenuOpen(false)}
-                                    >
-                                      {p.houses.length > 0 ? "Lands" : "Plots →"}
-                                    </Link>
+                                  {p.soldOut ? (
+                                    <span className="font-bold uppercase tracking-[0.14em] text-slate-400">
+                                      Sold out
+                                    </span>
+                                  ) : (
+                                    <>
+                                      {p.houses.length > 0 ? (
+                                        <Link
+                                          href={p.housesSlug}
+                                          className="font-bold text-bb-bronze-dark hover:underline"
+                                          onClick={() => setProjectsMenuOpen(false)}
+                                        >
+                                          Houses →
+                                        </Link>
+                                      ) : null}
+                                      {p.landsSlug && (
+                                        <Link
+                                          href={p.landsSlug}
+                                          className="font-medium text-slate-600 hover:text-bb-obsidian hover:underline"
+                                          onClick={() => setProjectsMenuOpen(false)}
+                                        >
+                                          {p.houses.length > 0 ? "Lands" : "Plots →"}
+                                        </Link>
+                                      )}
+                                    </>
                                   )}
                                 </div>
                               </div>
@@ -395,23 +403,31 @@ export function Header() {
                       <div className="flex items-center justify-between">
                         <span className="font-display font-medium text-slate-100">{p.name}</span>
                         <div className="flex gap-2 text-xs">
-                          {p.houses.length > 0 && (
-                            <Link
-                              href={p.housesSlug}
-                              onClick={() => setMobileOpen(false)}
-                              className="rounded bg-bb-bronze/20 px-2 py-0.5 text-bb-bronze-light hover:bg-bb-bronze hover:text-white"
-                            >
-                              Houses
-                            </Link>
-                          )}
-                          {p.landsSlug && (
-                            <Link
-                              href={p.landsSlug}
-                              onClick={() => setMobileOpen(false)}
-                              className="rounded bg-white/10 px-2 py-0.5 text-slate-300 hover:bg-white/20"
-                            >
-                              {p.houses.length > 0 ? "Lands" : "Plots"}
-                            </Link>
+                          {p.soldOut ? (
+                            <span className="rounded bg-white/10 px-2 py-0.5 font-bold uppercase tracking-[0.12em] text-slate-300">
+                              Sold out
+                            </span>
+                          ) : (
+                            <>
+                              {p.houses.length > 0 && (
+                                <Link
+                                  href={p.housesSlug}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="rounded bg-bb-bronze/20 px-2 py-0.5 text-bb-bronze-light hover:bg-bb-bronze hover:text-white"
+                                >
+                                  Houses
+                                </Link>
+                              )}
+                              {p.landsSlug && (
+                                <Link
+                                  href={p.landsSlug}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="rounded bg-white/10 px-2 py-0.5 text-slate-300 hover:bg-white/20"
+                                >
+                                  {p.houses.length > 0 ? "Lands" : "Plots"}
+                                </Link>
+                              )}
+                            </>
                           )}
                         </div>
                       </div>

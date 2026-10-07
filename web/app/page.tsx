@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FilmInvite } from "@/components/sections/FilmInvite";
 import { Hero } from "@/components/sections/Hero";
 import { LeadershipAnnouncement } from "@/components/sections/LeadershipAnnouncement";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
@@ -45,6 +46,7 @@ export default function HomePage() {
         showFilters={false}
         showFooter={false}
       />
+      <FilmInvite />
       <CTABand />
     </>
   );

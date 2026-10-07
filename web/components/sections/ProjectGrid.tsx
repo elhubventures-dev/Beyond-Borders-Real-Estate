@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { projects } from "@/content/projects";
+import { projects, type Project } from "@/content/projects";
 import { HoverPopImage } from "@/components/ui/HoverPopImage";
 import { site } from "@/content/site";
 
@@ -23,7 +25,23 @@ export function ProjectGrid({
   showFooter?: boolean;
 }) {
   const reduceMotion = useReducedMotion();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<FilterTab>("all");
+  const [choice, setChoice] = useState<Project | null>(null);
+  const closeChoice = useCallback(() => setChoice(null), []);
+
+    const openCard = (project: Project) => {
+    if (project.soldOut) return;
+    const houses = project.houses.length > 0;
+    const landsDistinct = Boolean(
+      project.lands?.length && project.landsSlug && project.landsSlug !== project.housesSlug,
+    );
+    if (houses && landsDistinct) {
+      setChoice(project);
+      return;
+    }
+    router.push(houses ? project.housesSlug : project.landsSlug || project.housesSlug);
+  };
 
   const filteredProjects = projects
     .filter((p) => {
@@ -101,6 +119,7 @@ export function ProjectGrid({
             };
             const hasHouses = project.houses.length > 0;
             const hasLands = Boolean(project.lands?.length);
+            const soldOut = project.soldOut === true;
 
             return (
               <motion.article
@@ -113,35 +132,48 @@ export function ProjectGrid({
                 className="architectural-card group relative z-0 flex flex-col overflow-visible rounded-lg"
               >
                 {/* Media Image Frame with Badges — pop-out only on this section */}
-                <div className="group/media relative z-0 hover:z-40">
-                  <HoverPopImage
-                    src={project.cardImage}
-                    alt={project.name}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-700 group-hover/media:opacity-30" />
+                <div className={`group/media relative z-0 ${soldOut ? "" : "hover:z-40"}`}>
+                  <div className={soldOut ? "pointer-events-none grayscale" : undefined}>
+                    <HoverPopImage
+                      src={project.cardImage}
+                      alt={project.name}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      onClick={soldOut ? undefined : () => openCard(project)}
+                    />
+                  </div>
+                  <div className={`pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-transparent via-transparent to-black/15 ${soldOut ? "" : "transition-opacity duration-700 group-hover/media:opacity-40"}`} />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-32 bg-gradient-to-t from-black from-25% via-black/75 to-transparent" />
+                  {soldOut && (
+                    <div className="pointer-events-none absolute right-0 top-0 z-20 h-28 w-28 overflow-hidden">
+                      <span className="absolute left-[-18%] top-[26px] w-[170%] rotate-45 border-y border-[#c4a574]/80 bg-[#0b0f17] py-1.5 text-center text-[10px] font-bold uppercase tracking-[0.22em] text-[#f5f8f5] shadow-[0_10px_18px_-10px_rgba(11,15,23,0.85)]">
+                        Sold out
+                      </span>
+                    </div>
+                  )}
 
                   {/* Top Location & Distance Badges */}
-                  <div className="pointer-events-none absolute left-3.5 top-3.5 z-10 flex flex-wrap gap-2 transition-opacity duration-700 group-hover/media:opacity-0">
+                  <div className={`pointer-events-none absolute left-3.5 top-3.5 z-10 flex max-w-[58%] flex-wrap gap-2 ${soldOut ? "" : "transition-opacity duration-700 group-hover/media:opacity-0"}`}>
                     <span className="rounded bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
                       {meta.locationBadge}
                     </span>
-                    <span className="rounded bg-bb-bronze/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
-                      {meta.distanceBadge}
-                    </span>
+                    {!soldOut && (
+                      <span className="rounded bg-bb-bronze/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                        {meta.distanceBadge}
+                      </span>
+                    )}
                   </div>
 
                   {/* Price Tag Floating Overlay */}
-                  <div className="pointer-events-none absolute bottom-3.5 left-3.5 right-3.5 z-10 flex items-end justify-between transition-opacity duration-700 group-hover/media:opacity-0">
+                  <div className={`pointer-events-none absolute bottom-3.5 left-3.5 right-3.5 z-10 flex items-end justify-between ${soldOut ? "" : "transition-opacity duration-700 group-hover/media:opacity-0"}`}>
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-bb-bronze-light">
-                        Starting From
+                        {soldOut ? "Allocation" : "Starting From"}
                       </span>
                       <p className="font-display text-xl font-medium text-white drop-shadow-sm">
-                        {meta.startingHouse}
+                        {soldOut ? "Fully allocated" : meta.startingHouse}
                       </p>
                     </div>
-                    {meta.startingLand && (
+                    {!soldOut && meta.startingLand && (
                       <div className="text-right">
                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
                           Land From
@@ -155,9 +187,21 @@ export function ProjectGrid({
                 {/* Card Body */}
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
-                    <h3 className="font-display text-2xl font-medium text-bb-obsidian transition-colors group-hover:text-bb-bronze-dark">
-                      {project.cardTitle ?? project.name}
-                    </h3>
+                    {soldOut ? (
+                      <h3 className="font-display text-2xl font-medium text-bb-obsidian">
+                        {project.cardTitle ?? project.name}
+                      </h3>
+                    ) : (
+                      <h3 className="font-display text-2xl font-medium text-bb-obsidian">
+                        <button
+                          type="button"
+                          onClick={() => openCard(project)}
+                          className="text-left transition-colors hover:text-bb-bronze-dark"
+                        >
+                          {project.cardTitle ?? project.name}
+                        </button>
+                      </h3>
+                    )}
 
                     {/* Features and Specs */}
                     <div className="mt-3 space-y-1.5 text-xs text-slate-600">
@@ -186,32 +230,40 @@ export function ProjectGrid({
 
                   {/* Actions Bar */}
                   <div className="mt-6 pt-5 border-t border-bb-border flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 text-xs font-semibold">
-                      {hasHouses && (
-                        <Link
-                          href={project.housesSlug}
-                          className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:!text-white"
-                        >
-                          Houses
-                        </Link>
-                      )}
-                      {hasLands && project.landsSlug && (
-                        <Link
-                          href={project.landsSlug}
-                          className="rounded border border-bb-border px-3 py-1.5 text-slate-600 transition hover:bg-slate-100 hover:text-bb-obsidian"
-                        >
-                          {hasHouses ? "Lands" : "Plots"}
-                        </Link>
-                      )}
-                    </div>
+                    {soldOut ? (
+                      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                        Closed to new allocation
+                      </p>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2 text-xs font-semibold">
+                          {hasHouses && (
+                            <Link
+                              href={project.housesSlug}
+                              className="rounded border border-bb-obsidian/20 bg-slate-50 px-3 py-1.5 text-bb-obsidian transition hover:bg-bb-obsidian hover:!text-white"
+                            >
+                              Houses
+                            </Link>
+                          )}
+                          {hasLands && project.landsSlug && (
+                            <Link
+                              href={project.landsSlug}
+                              className="rounded border border-bb-border px-3 py-1.5 text-slate-600 transition hover:bg-slate-100 hover:text-bb-obsidian"
+                            >
+                              {hasHouses ? "Lands" : "Plots"}
+                            </Link>
+                          )}
+                        </div>
 
-                    <Link
-                      href="/schedule-an-inspection/"
-                      className="text-xs font-bold text-bb-bronze-dark hover:underline flex items-center gap-1"
-                    >
-                      <span>Book Tour</span>
-                      <span>→</span>
-                    </Link>
+                        <Link
+                          href="/schedule-an-inspection/"
+                          className="text-xs font-bold text-bb-bronze-dark hover:underline flex items-center gap-1"
+                        >
+                          <span>Book Tour</span>
+                          <span>→</span>
+                        </Link>
+                      </>
+                    )}
                   </div>
                 </div>
               </motion.article>
@@ -219,6 +271,8 @@ export function ProjectGrid({
           })}
         </AnimatePresence>
       </motion.div>
+
+      <EstateChoiceDialog project={choice} onClose={closeChoice} />
 
       {limit && (
         <div className="mt-12 flex justify-center">
@@ -257,5 +311,97 @@ export function ProjectGrid({
       </div>
       )}
     </section>
+  );
+}
+
+function EstateChoiceDialog({
+  project,
+  onClose,
+}: {
+  project: Project | null;
+  onClose: () => void;
+}) {
+  const titleId = useId();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!project) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [project, onClose]);
+
+  if (!mounted || !project?.landsSlug) return null;
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[80] flex items-end justify-center bg-[#0b0f17]/70 p-4 sm:items-center"
+      onClick={onClose}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="w-full max-w-md rounded-2xl bg-white p-6 shadow-[0_28px_70px_-24px_rgba(11,15,23,0.55)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-bb-bronze">
+              Open this estate
+            </p>
+            <h2 id={titleId} className="mt-1 font-display text-2xl font-medium text-bb-obsidian">
+              {project.cardTitle ?? project.name}
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-full border border-bb-border px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-bb-obsidian"
+          >
+            Close
+          </button>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-500">
+          This estate has houses and land. Choose which one to view.
+        </p>
+        <div className="mt-5 grid gap-3">
+          <Link
+            href={project.housesSlug}
+            onClick={onClose}
+            className="rounded-xl border border-bb-border bg-bb-cream px-4 py-4 transition hover:border-bb-bronze"
+          >
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-bb-bronze-dark">
+              Houses
+            </span>
+            <span className="mt-1 block font-display text-xl text-bb-obsidian">Residential</span>
+            <span className="mt-1 block text-sm text-slate-500">From {project.startingHouse}</span>
+          </Link>
+          <Link
+            href={project.landsSlug}
+            onClick={onClose}
+            className="rounded-xl border border-bb-border px-4 py-4 transition hover:border-bb-bronze"
+          >
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-bb-bronze-dark">
+              Lands
+            </span>
+            <span className="mt-1 block font-display text-xl text-bb-obsidian">Plots and parcels</span>
+            <span className="mt-1 block text-sm text-slate-500">
+              From {project.startingLand ?? project.startingHouse}
+            </span>
+          </Link>
+        </div>
+      </div>
+    </div>,
+    document.body,
   );
 }

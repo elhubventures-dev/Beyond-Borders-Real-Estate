@@ -52,7 +52,8 @@ export function HousesProjectBody({ project }: { project: Project }) {
         units={units}
         kind={kind}
         projectName={project.name}
-        toggleHref={kind === "houses" ? project.landsSlug : undefined}
+        soldOut={project.soldOut}
+        toggleHref={project.soldOut ? undefined : kind === "houses" ? project.landsSlug : undefined}
         toggleLabel={
           kind === "houses" && project.landsSlug
             ? "Explore Available Land Parcels"
@@ -64,7 +65,7 @@ export function HousesProjectBody({ project }: { project: Project }) {
       <EstateFees project={project} />
       <FeatureList features={project.features} />
       <EstateFaqs project={project} />
-      <CTABand />
+      {!project.soldOut && <CTABand />}
     </>
   );
 }
@@ -79,8 +80,9 @@ export function LandsProjectBody({ project }: { project: Project }) {
         units={lands}
         kind="lands"
         projectName={project.name}
+        soldOut={project.soldOut}
         toggleHref={
-          project.housesSlug !== project.landsSlug ? project.housesSlug : undefined
+          project.soldOut || project.housesSlug === project.landsSlug ? undefined : project.housesSlug
         }
         toggleLabel={
           project.housesSlug !== project.landsSlug
@@ -93,7 +95,7 @@ export function LandsProjectBody({ project }: { project: Project }) {
       <EstateFees project={project} />
       <FeatureList features={project.features} />
       <EstateFaqs project={project} />
-      <CTABand />
+      {!project.soldOut && <CTABand />}
     </>
   );
 }

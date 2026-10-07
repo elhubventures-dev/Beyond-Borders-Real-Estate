@@ -117,4 +117,14 @@ export const site = {
   ],
 } as const;
 
+export const estateFilms = [
+  { src: site.videos.whiteCity, label: "White City Estates" },
+  { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
+  { src: site.videos.whiteCityInterior, label: "Interior Living" },
+  { src: site.videos.aspen2Promo, label: "Aspen 2" },
+  { src: site.videos.products, label: "Current Products" },
+  { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
+  { src: site.videos.whiteCityIduFilm, label: "White City Idu — Estate Film" },
+] as const;
+
 export type SiteConfig = typeof site;

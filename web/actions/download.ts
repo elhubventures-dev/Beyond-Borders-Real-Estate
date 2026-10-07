@@ -1,44 +1,41 @@
 "use server";
 
 import { headers } from "next/headers";
-import { inspectionSchema } from "@/lib/validations/forms";
+import { downloadLeadSchema } from "@/lib/validations/forms";
+import { downloadCustomerEmail, downloadInternalEmail } from "@/lib/email/messages";
 import { contactToEmail, getResend } from "@/lib/email/resend";
-import { inspectionCustomerEmail, inspectionInternalEmail } from "@/lib/email/messages";
 import { sendBrandedEmail } from "@/lib/email/template";
 import { rateLimit } from "@/lib/rate-limit";
-import type { ActionResult } from "./contact";
 
-export async function submitInspectionForm(data: unknown): Promise<ActionResult> {
-  const parsed = inspectionSchema.safeParse(data);
+export type DownloadLeadResult = { success: true } | { success: false; error: string };
+
+export async function submitDownloadLead(data: unknown): Promise<DownloadLeadResult> {
+  const parsed = downloadLeadSchema.safeParse(data);
   if (!parsed.success) {
-    return {
-      success: false,
-      error: "Please check the form fields.",
-      fields: parsed.error.flatten().fieldErrors as Record<string, string[]>,
-    };
+    return { success: false, error: "Name, email, and phone are required." };
   }
 
   const h = await headers();
   const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  const limited = rateLimit(`inspection:${ip}`);
+  const limited = rateLimit(`download:${ip}`);
   if (!limited.ok) {
     return { success: false, error: "Too many requests. Please try again shortly." };
   }
 
-  const resend = getResend();
   const lead = parsed.data;
+  const resend = getResend();
 
   if (!resend) {
     if (process.env.NODE_ENV === "production") {
-      console.error("[inspection form] RESEND_API_KEY is missing");
+      console.error("[download lead] RESEND_API_KEY is missing");
       return { success: false, error: "Could not send your request. Please call or WhatsApp us." };
     }
-    console.info("[inspection form]", lead);
+    console.info("[download lead]", lead);
     return { success: true };
   }
 
-  const internal = inspectionInternalEmail(lead);
-  const customer = inspectionCustomerEmail(lead);
+  const internal = downloadInternalEmail(lead);
+  const customer = downloadCustomerEmail(lead);
 
   try {
     await sendBrandedEmail({

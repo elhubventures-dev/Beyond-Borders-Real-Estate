@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { PageHero } from "@/components/sections/ProjectParts";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { DownloadGate } from "@/components/ui/DownloadGate";
 import { site } from "@/content/site";
 
 const seo = getSeo("/contact-us/");
@@ -87,24 +88,18 @@ export default function ContactPage() {
             </li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <DownloadGate
               href={site.downloads.companyProfile}
-              download
-              target="_blank"
-              rel="noreferrer"
+              documentName="Company Profile"
+              label="Download company profile →"
               className="text-sm font-semibold text-bb-bronze-dark hover:underline"
-            >
-              Download company profile →
-            </a>
-            <a
+            />
+            <DownloadGate
               href={site.downloads.portfolioFlyer}
-              download
-              target="_blank"
-              rel="noreferrer"
+              documentName="Portfolio Flyer"
+              label="Download portfolio flyer →"
               className="text-sm font-semibold text-bb-bronze-dark hover:underline"
-            >
-              Download portfolio flyer →
-            </a>
+            />
           </div>
         </div>
         <div className="md:pt-2">

@@ -41,6 +41,7 @@ export type Project = {
   houseTypes: string;
   landSizes?: string;
   region: "abuja" | "port-harcourt";
+  soldOut?: boolean;
   promo?: string;
   applicationPdf?: string;
   brochurePdf?: string;
@@ -1179,12 +1180,13 @@ export const projects: Project[] = [
     inspectionLabel: "Beyond Borders Guzape — Kings Choice (Guzape 2) & Kings Court (Guzape Main)",
     locationBadge: "Guzape Abuja",
     distanceBadge: "Kings Choice · Kings Court",
-    startingHouse: "Contact for packages",
-    startingLand: "Contact for packages",
+    startingHouse: "Sold out",
+    startingLand: "Sold out",
+    soldOut: true,
     houseTypes: "Smart homes & Buy & Build",
     landSizes: "Plots on inquiry",
     region: "abuja",
-    promo: "Full estate offering — schedule an inspection for current packages",
+    promo: "Fully allocated",
     houses: [
       {
         title: "Residential packages — Guzape",
@@ -1216,12 +1218,13 @@ export const projects: Project[] = [
     inspectionLabel: "Beyond Borders Jahi (Abuja)",
     locationBadge: "Jahi Abuja",
     distanceBadge: "Near Mabushi Office Corridor",
-    startingHouse: "Contact for packages",
-    startingLand: "Contact for packages",
+    startingHouse: "Sold out",
+    startingLand: "Sold out",
+    soldOut: true,
     houseTypes: "Smart homes & Buy & Build",
     landSizes: "Plots on inquiry",
     region: "abuja",
-    promo: "Full estate offering — schedule an inspection for current packages",
+    promo: "Fully allocated",
     houses: [
       {
         title: "Residential packages — Jahi",

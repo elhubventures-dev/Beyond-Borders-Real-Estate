@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from "react";
 type Clip = { src: string; label: string };
 
 export function VideoBand({
+  id,
   eyebrow,
   title,
   subtitle,
   clips,
 }: {
+  id?: string;
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -37,7 +39,7 @@ export function VideoBand({
   if (!clip) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#0b0f17] text-white border-y border-white/10">
+    <section id={id} className="relative scroll-mt-28 overflow-hidden border-y border-white/10 bg-[#0b0f17] text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="max-w-2xl mb-8">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze">

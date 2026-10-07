@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Project, Unit } from "@/content/projects";
 import { site } from "@/content/site";
 import { UnitShowcase } from "@/components/sections/UnitShowcase";
+import { DownloadGate } from "@/components/ui/DownloadGate";
 
 export function UnitPricing({
   title,
@@ -12,6 +13,7 @@ export function UnitPricing({
   kind = "houses",
   projectName,
   catalogEyebrow,
+  soldOut = false,
 }: {
   title: string;
   units: Unit[];
@@ -20,6 +22,7 @@ export function UnitPricing({
   kind?: "houses" | "lands";
   projectName?: string;
   catalogEyebrow?: string;
+  soldOut?: boolean;
 }) {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -34,7 +37,7 @@ export function UnitPricing({
           </h2>
         </div>
 
-        {toggleHref && toggleLabel && (
+        {toggleHref && toggleLabel && !soldOut && (
           <Link
             href={toggleHref}
             className="inline-flex items-center gap-2 rounded border border-bb-bronze/40 bg-bb-forest/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-bb-bronze-dark transition hover:bg-bb-bronze hover:text-white"
@@ -60,24 +63,28 @@ export function UnitPricing({
             >
               <div>
                 {/* Visual Thumbnail — pop-out only on this section */}
-                <UnitShowcase
-                  unit={unit}
-                  badge={
-                    unit.badge ??
-                    (isMall ? "Estate Amenity" : isLand ? "Demarcated Plot" : "Architectural Typology")
-                  }
-                />
+                <UnitShowcase unit={unit} />
 
                 {/* Content */}
                 <div className="p-6">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-bb-bronze-dark">
+                    {unit.badge ??
+                      (isMall ? "Estate Amenity" : isLand ? "Demarcated Plot" : "Architectural Typology")}
+                  </p>
                   <h3 className="font-display text-xl font-medium text-bb-obsidian group-hover:text-bb-bronze-dark transition-colors">
                     {unit.title}
                   </h3>
                   <p className="mt-2 font-display text-2xl text-bb-obsidian">
-                    {unit.wasPrice && (
-                      <span className="mr-2 text-sm text-slate-400 line-through">{unit.wasPrice}</span>
+                    {soldOut ? (
+                      "Sold out"
+                    ) : (
+                      <>
+                        {unit.wasPrice && (
+                          <span className="mr-2 text-sm text-slate-400 line-through">{unit.wasPrice}</span>
+                        )}
+                        {unit.price}
+                      </>
                     )}
-                    {unit.price}
                   </p>
 
                   {/* Feature highlights */}
@@ -94,34 +101,41 @@ export function UnitPricing({
                     ))}
                   </ul>
                   {unit.downloadPdf && (
-                    <a
+                    <DownloadGate
                       href={unit.downloadPdf}
-                      download
-                      className="mt-4 inline-flex text-xs font-bold uppercase tracking-wider text-bb-bronze-dark hover:text-bb-obsidian"
-                    >
-                      {unit.downloadLabel ?? "Download"}
-                    </a>
+                      documentName={`${unit.title} presentation`}
+                      label={unit.downloadLabel ?? "Download"}
+                      className="mt-4 inline-flex border-0 bg-transparent p-0 text-left text-xs font-bold uppercase tracking-wider text-bb-bronze-dark hover:text-bb-obsidian"
+                    />
                   )}
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="p-6 pt-0 border-t border-slate-100 flex items-center justify-between gap-3 mt-4">
-                <a
-                  href={`https://wa.me/${site.whatsapp}?text=${whatsappInquiry}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded border border-bb-bronze/40 bg-bb-forest/5 px-3.5 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:!text-white transition"
-                >
-                  WhatsApp Inquiry
-                </a>
+                {soldOut ? (
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                    Closed to new allocation
+                  </p>
+                ) : (
+                  <>
+                    <a
+                      href={`https://wa.me/${site.whatsapp}?text=${whatsappInquiry}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded border border-bb-bronze/40 bg-bb-forest/5 px-3.5 py-2 text-xs font-semibold text-bb-bronze-dark hover:bg-bb-bronze hover:!text-white transition"
+                    >
+                      WhatsApp Inquiry
+                    </a>
 
-                <Link
-                  href="/schedule-an-inspection/"
-                  className="inline-flex items-center justify-center rounded bg-bb-obsidian px-4 py-2 text-xs font-bold !text-white hover:bg-bb-bronze-dark hover:!text-white transition shadow-sm"
-                >
-                  Book Tour
-                </Link>
+                    <Link
+                      href="/schedule-an-inspection/"
+                      className="inline-flex items-center justify-center rounded bg-bb-obsidian px-4 py-2 text-xs font-bold !text-white hover:bg-bb-bronze-dark hover:!text-white transition shadow-sm"
+                    >
+                      Book Tour
+                    </Link>
+                  </>
+                )}
               </div>
             </article>
           );
@@ -195,6 +209,11 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
             <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-bb-obsidian">
               {project.name}
             </h1>
+            {project.soldOut && (
+              <p className="mt-4 inline-flex items-center rounded-full bg-[#0b0f17] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#f5f8f5]">
+                Sold out
+              </p>
+            )}
             {project.summary !== "" && (
               <p className="mt-2 text-base text-slate-600 max-w-2xl">
                 {project.summary ??
@@ -204,27 +223,27 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center gap-3">
+            {project.soldOut ? (
+              <p className="max-w-xs text-sm leading-relaxed text-slate-500">
+                This release is fully allocated. Houses and plots are no longer open for booking.
+              </p>
+            ) : (
+            <>
             {project.applicationPdf && (
-              <a
+              <DownloadGate
                 href={project.applicationPdf}
-                download
-                target="_blank"
-                rel="noreferrer"
+                documentName={`${project.shortName} application form`}
+                label="Download Application"
                 className="btn-outline !text-xs !uppercase !tracking-wider"
-              >
-                Download Application
-              </a>
+              />
             )}
             {project.brochurePdf && (
-              <a
+              <DownloadGate
                 href={project.brochurePdf}
-                download
-                target="_blank"
-                rel="noreferrer"
+                documentName={`${project.shortName} brochure`}
+                label="Download Brochure"
                 className="btn-outline !text-xs !uppercase !tracking-wider"
-              >
-                Download Brochure
-              </a>
+              />
             )}
             <Link href="/schedule-an-inspection/" className="btn-gold !text-xs !uppercase !tracking-wider">
               Book On-Site Inspection
@@ -239,6 +258,8 @@ export function ProjectPageHeader({ project, kind }: { project: Project; kind: "
             >
               WhatsApp Agent
             </a>
+            </>
+            )}
           </div>
         </div>
 
@@ -358,15 +379,12 @@ export function EstateFees({ project }: { project: Project }) {
         </ul>
       )}
       {project.applicationPdf && (
-        <a
+        <DownloadGate
           href={project.applicationPdf}
-          download
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex btn-primary !text-xs !uppercase !tracking-wider"
-        >
-          Download Application Form
-        </a>
+          documentName={`${project.shortName} application form`}
+          label="Download Application Form"
+          className="btn-primary mt-6 !text-xs !uppercase !tracking-wider"
+        />
       )}
     </section>
   );

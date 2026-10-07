@@ -40,7 +40,7 @@ export function InspectionForm() {
   });
 
   return (
-    <div className="rounded-xl border border-bb-border bg-white p-6 md:p-8 shadow-sm">
+    <div className="rounded-xl border border-bb-border bg-white p-6 shadow-sm md:p-8">
       <form onSubmit={onSubmit} className="grid gap-5" noValidate>
         <Field label="Full Name *" error={form.formState.errors.name?.message}>
           <input className="input-field" {...form.register("name")} autoComplete="name" placeholder="Chief / Dr. / Mr. / Mrs." />

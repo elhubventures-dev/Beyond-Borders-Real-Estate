@@ -29,3 +29,22 @@ export const inspectionSchema = z.object({
 });
 
 export type InspectionFormData = z.infer<typeof inspectionSchema>;
+
+export const downloadLeadSchema = z.object({
+  name: z.string().trim().min(2, "Enter your full name"),
+  email: z.string().trim().email("Enter a valid email"),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Enter your phone number")
+    .refine((value) => value.replace(/\D/g, "").length >= 7, "Enter a valid phone number"),
+  document: z.string().trim().min(2).max(80),
+  href: z
+    .string()
+    .trim()
+    .max(200)
+    .refine((value) => value.startsWith("/media/") && !value.includes(".."), "Invalid document")
+    .optional(),
+});
+
+export type DownloadLeadData = z.infer<typeof downloadLeadSchema>;

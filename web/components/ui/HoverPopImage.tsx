@@ -23,21 +23,39 @@ export function HoverPopImage({
   sizes,
   priority,
   aspectClass = "aspect-[16/10]",
+  onClick,
 }: {
   src: string;
   alt: string;
   sizes: string;
   priority?: boolean;
   aspectClass?: string;
+  onClick?: () => void;
 }) {
   const resolved = mediaSrc(src);
 
   return (
-    <div className={`group/media relative ${aspectClass} w-full bg-slate-900`}>
+    <div
+      className={`group/media relative ${aspectClass} w-full bg-slate-900 ${onClick ? "cursor-pointer" : ""}`}
+      onClick={onClick}
+      onKeyDown={
+        onClick
+          ? (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onClick();
+              }
+            }
+          : undefined
+      }
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      aria-label={onClick ? alt : undefined}
+    >
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={resolved}
-          alt={alt}
+          alt={onClick ? "" : alt}
           fill
           unoptimized
           className="object-cover transition-[transform,filter] duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/media:scale-[1.04] group-hover/media:brightness-90"

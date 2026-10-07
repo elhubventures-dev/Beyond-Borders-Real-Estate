@@ -7,7 +7,7 @@ import { PromoBanner } from "@/components/sections/PromoBanner";
 import { EstateComparison } from "@/components/sections/EstateComparison";
 import { EstateFinder } from "@/components/sections/EstateFinder";
 import { VideoBand } from "@/components/sections/VideoBand";
-import { site } from "@/content/site";
+import { estateFilms } from "@/content/site";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -44,18 +44,11 @@ export default function EstatesPage() {
       <ProjectGrid title="Active projects" subtitle="Jump into a current Beyond Borders development." />
       <EstateComparison />
       <VideoBand
+        id="estate-films"
         eyebrow="White City Estates"
         title="Wouldn't You Rather Live Here"
         subtitle="Tour White City communities, interiors, and Aspen 2. The newest clip is the White City Idu estate film."
-        clips={[
-          { src: site.videos.whiteCity, label: "White City Estates" },
-          { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
-          { src: site.videos.whiteCityInterior, label: "Interior Living" },
-          { src: site.videos.aspen2Promo, label: "Aspen 2" },
-          { src: site.videos.products, label: "Current Products" },
-          { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
-          { src: site.videos.whiteCityIduFilm, label: "White City Idu — Estate Film" },
-        ]}
+        clips={[...estateFilms]}
       />
       <CTABand />
     </>

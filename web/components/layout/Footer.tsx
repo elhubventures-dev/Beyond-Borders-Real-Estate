@@ -10,14 +10,19 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <div className="relative h-12 w-48 mb-6">
-              <Image
-                src={site.logo}
-                alt={site.name}
-                fill
-                className="object-contain object-left brightness-0 invert"
-              />
-            </div>
+            <Link
+              href="/"
+              className="mb-6 inline-flex max-w-full rounded-md bg-bb-cream px-2.5 py-2"
+            >
+              <span className="relative block h-11 w-44">
+                <Image
+                  src={site.logo}
+                  alt={site.name}
+                  fill
+                  className="object-contain object-left"
+                />
+              </span>
+            </Link>
             <p className="text-sm leading-relaxed text-slate-400 max-w-sm">
               Beyond Borders is a premier Nigerian real estate development and infrastructure engineering firm.
               Delivering verified master-planned communities, architectural residences, and titled land parcels across the Federal Capital Territory.

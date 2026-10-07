@@ -16,6 +16,7 @@ const comparisonData = projects.map((p) => ({
   idealFor: p.promo ?? "Investors and homeowners seeking smart estate living",
   housesSlug: p.housesSlug,
   landsSlug: p.landsSlug,
+  soldOut: p.soldOut === true,
 }));
 
 export function EstateComparison() {
@@ -60,19 +61,27 @@ export function EstateComparison() {
                 <td className="px-4 py-4 text-slate-600">{e.typologies}</td>
                 <td className="px-4 py-4 text-slate-600">{e.plotSizes}</td>
                 <td className="px-4 py-4 text-right whitespace-nowrap">
-                  <Link
-                    href={e.housesSlug}
-                    className="rounded bg-bb-obsidian px-3 py-1.5 text-xs font-semibold !text-white hover:bg-bb-bronze-dark hover:!text-white transition"
-                  >
-                    View
-                  </Link>
-                  {e.landsSlug && e.landsSlug !== e.housesSlug && (
-                    <Link
-                      href={e.landsSlug}
-                      className="ml-2 text-xs font-semibold text-bb-bronze-dark hover:underline"
-                    >
-                      Lands
-                    </Link>
+                  {e.soldOut ? (
+                    <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                      Sold out
+                    </span>
+                  ) : (
+                    <>
+                      <Link
+                        href={e.housesSlug}
+                        className="rounded bg-bb-obsidian px-3 py-1.5 text-xs font-semibold !text-white hover:bg-bb-bronze-dark hover:!text-white transition"
+                      >
+                        View
+                      </Link>
+                      {e.landsSlug && e.landsSlug !== e.housesSlug && (
+                        <Link
+                          href={e.landsSlug}
+                          className="ml-2 text-xs font-semibold text-bb-bronze-dark hover:underline"
+                        >
+                          Lands
+                        </Link>
+                      )}
+                    </>
                   )}
                 </td>
               </tr>
@@ -92,22 +101,30 @@ export function EstateComparison() {
                 </p>
               </div>
               <span className="rounded bg-bb-bronze/15 px-2 py-0.5 text-[10px] font-bold uppercase text-bb-bronze-dark">
-                From {e.houseRange}
+                {e.soldOut ? "Sold out" : `From ${e.houseRange}`}
               </span>
             </div>
             <p className="mt-3 text-sm text-slate-600">{e.typologies}</p>
             <p className="mt-1 text-xs text-slate-500">{e.plotSizes}</p>
             <div className="mt-4 flex gap-3">
-              <Link
-                href={e.housesSlug}
-                className="btn-primary !py-2 !px-4 !text-xs"
-              >
-                View Estate
-              </Link>
-              {e.landsSlug && e.landsSlug !== e.housesSlug && (
-                <Link href={e.landsSlug} className="text-xs font-bold text-bb-bronze-dark hover:underline">
-                  Lands →
-                </Link>
+              {e.soldOut ? (
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                  Closed to new allocation
+                </p>
+              ) : (
+                <>
+                  <Link
+                    href={e.housesSlug}
+                    className="btn-primary !py-2 !px-4 !text-xs"
+                  >
+                    View Estate
+                  </Link>
+                  {e.landsSlug && e.landsSlug !== e.housesSlug && (
+                    <Link href={e.landsSlug} className="text-xs font-bold text-bb-bronze-dark hover:underline">
+                      Lands →
+                    </Link>
+                  )}
+                </>
               )}
             </div>
           </article>

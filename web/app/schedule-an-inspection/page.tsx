@@ -21,7 +21,7 @@ export default function ScheduleInspectionPage() {
         subtitle="Book a guided on-site verification with our senior project surveyor. Inspect physical beacons, infrastructure progress, and architectural typologies."
         category="Direct Client Advisory"
       />
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:py-20 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="mx-auto grid max-w-7xl items-stretch gap-10 px-6 py-14 md:py-20 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <InspectionForm />
         </div>

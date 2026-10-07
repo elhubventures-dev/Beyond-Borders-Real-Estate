@@ -2,7 +2,9 @@
 
 import { headers } from "next/headers";
 import { contactSchema } from "@/lib/validations/forms";
-import { contactToEmail, emailFrom, getResend } from "@/lib/email/resend";
+import { contactToEmail, getResend } from "@/lib/email/resend";
+import { consultationCustomerEmail, consultationInternalEmail } from "@/lib/email/messages";
+import { sendBrandedEmail } from "@/lib/email/template";
 import { rateLimit } from "@/lib/rate-limit";
 
 export type ActionResult =
@@ -27,40 +29,36 @@ export async function submitContactForm(data: unknown): Promise<ActionResult> {
   }
 
   const resend = getResend();
-  const { name, email, phone, service, message } = parsed.data;
+  const lead = parsed.data;
 
   if (!resend) {
-    console.info("[contact form]", parsed.data);
+    if (process.env.NODE_ENV === "production") {
+      console.error("[contact form] RESEND_API_KEY is missing");
+      return { success: false, error: "Could not send your message. Please call or WhatsApp us." };
+    }
+    console.info("[contact form]", lead);
     return { success: true };
   }
 
+  const internal = consultationInternalEmail(lead);
+  const customer = consultationCustomerEmail(lead);
+
   try {
-    await resend.emails.send({
-      from: emailFrom,
+    await sendBrandedEmail({
       to: contactToEmail,
-      replyTo: email,
-      subject: `Consultation request from ${name}`,
-      html: `
-        <h2>New consultation request</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-        <p><strong>Service:</strong> ${escapeHtml(service)}</p>
-        <p><strong>Message:</strong></p>
-        <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
-      `,
+      replyTo: lead.email,
+      subject: internal.subject,
+      document: internal.document,
+    });
+    await sendBrandedEmail({
+      to: lead.email,
+      replyTo: contactToEmail,
+      subject: customer.subject,
+      document: customer.document,
     });
     return { success: true };
   } catch (err) {
     console.error(err);
     return { success: false, error: "Could not send your message. Please call or WhatsApp us." };
   }
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
