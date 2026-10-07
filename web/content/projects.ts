@@ -1489,6 +1489,21 @@ export const projects: Project[] = [
             label: "Corner elevation",
             alt: "The Borderless twin towers from the corner",
           },
+          {
+            src: "/media/projects/beyond-towers/terrace-lounge.jpg",
+            label: "Terrace lounge",
+            alt: "Covered terrace lounge at The Borderless with seating along the colonnade",
+          },
+          {
+            src: "/media/projects/beyond-towers/terrace-seating.jpg",
+            label: "Lounge seating",
+            alt: "Residents in the covered lounge at The Borderless",
+          },
+          {
+            src: "/media/projects/beyond-towers/rooftop-pool.jpg",
+            label: "Rooftop pool",
+            alt: "Rooftop pool, steps, and loungers at The Borderless",
+          },
         ],
       },
     ],
@@ -1513,6 +1528,21 @@ export const projects: Project[] = [
             src: "/media/projects/beyond-towers/aerial.jpg",
             label: "Rooftop",
             alt: "The Borderless twin towers rooftop with helipad and pool",
+          },
+          {
+            src: "/media/projects/beyond-towers/terrace-lounge.jpg",
+            label: "Terrace lounge",
+            alt: "Covered terrace lounge at The Borderless with seating along the colonnade",
+          },
+          {
+            src: "/media/projects/beyond-towers/terrace-seating.jpg",
+            label: "Lounge seating",
+            alt: "Residents in the covered lounge at The Borderless",
+          },
+          {
+            src: "/media/projects/beyond-towers/rooftop-pool.jpg",
+            label: "Rooftop pool",
+            alt: "Rooftop pool, steps, and loungers at The Borderless",
           },
         ],
       },
