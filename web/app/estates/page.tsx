@@ -32,11 +32,13 @@ export default function EstatesPage() {
         <div className="grid gap-8 sm:grid-cols-2">
           {estateHubListings.map((item) => (
             <article key={`${item.title}-${item.location}`}>
-              <div className="relative aspect-square overflow-hidden bg-bb-sand">
-                <Image src={item.image} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 50vw" />
-              </div>
-              <h2 className="mt-4 font-display text-2xl text-bb-accent-deep">{item.title}</h2>
-              <p className="text-bb-muted">{item.location}</p>
+              <a href={item.href} className="group block">
+                <div className="relative aspect-square overflow-hidden bg-bb-sand">
+                  <Image src={item.image} alt="" fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(max-width:768px) 100vw, 50vw" />
+                </div>
+                <h2 className="mt-4 font-display text-2xl text-bb-accent-deep group-hover:underline">{item.title}</h2>
+                <p className="text-bb-muted">{item.location}</p>
+              </a>
             </article>
           ))}
         </div>

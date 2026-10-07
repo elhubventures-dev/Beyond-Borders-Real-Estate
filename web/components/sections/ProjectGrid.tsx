@@ -123,13 +123,14 @@ export function ProjectGrid({
 
             return (
               <motion.article
+                id={`project-${project.id}`}
                 layout={reduceMotion ? false : "position"}
                 key={project.id}
                 initial={false}
                 animate={{ opacity: 1 }}
                 exit={reduceMotion ? undefined : { opacity: 0 }}
                 transition={reduceMotion ? { duration: 0 } : { duration: 0.28, delay: i * 0.04 }}
-                className="architectural-card group relative z-0 flex flex-col overflow-visible rounded-lg"
+                className="architectural-card group relative z-0 flex scroll-mt-40 flex-col overflow-visible rounded-lg"
               >
                 {/* Media Image Frame with Badges — pop-out only on this section */}
                 <div className={`group/media relative z-0 ${soldOut ? "" : "hover:z-40"}`}>

@@ -1699,21 +1699,25 @@ export const estateHubListings = [
     title: "The Borderless — Beyond Twin Towers",
     location: "Jabi Abuja",
     image: "/media/projects/beyond-towers/front.jpg",
+    href: "#project-beyond-towers",
   },
   {
     title: "Sapphire 1 — 2 Bed Apartments + BQ",
     location: "White City Beverly (Idu)",
     image: "/media/units/sapphire-1/front.jpg",
+    href: "#project-beverly",
   },
   {
     title: "5 Bed Premium Smart Duplex + BQ",
     location: "The White Court (Jahi)",
     image: "/media/projects/white-court-flyer.jpg",
+    href: "#project-white-court",
   },
   {
     title: "3 Bed Semi Detached Package",
     location: "White City Aspen 2 (Kuje)",
     image: "/media/projects/white-city-aspen-2.jpg",
+    href: "#project-aspen-2",
   },
 ];
 
