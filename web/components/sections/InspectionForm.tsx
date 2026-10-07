@@ -9,6 +9,7 @@ import {
   inspectionSchema,
   type InspectionFormData,
 } from "@/lib/validations/forms";
+import { earliestInspectionDate, inspectionScheduleIssue, inspectionTimeBounds } from "@/lib/inspection-slot";
 import { submitInspectionForm } from "@/actions/inspection";
 
 export function InspectionForm() {
@@ -26,6 +27,11 @@ export function InspectionForm() {
     },
   });
 
+  const selectedDate = form.watch("date");
+  const now = new Date();
+  const earliestDate = earliestInspectionDate(now);
+  const timeBounds = selectedDate ? inspectionTimeBounds(selectedDate, now) : null;
+
   const onSubmit = form.handleSubmit(async (data) => {
     setStatus("idle");
     setError(null);
@@ -35,8 +41,13 @@ export function InspectionForm() {
       form.reset();
       return;
     }
+    const fieldErrors = result.fields ?? {};
+    (Object.keys(fieldErrors) as Array<keyof InspectionFormData>).forEach((key) => {
+      const message = fieldErrors[key]?.[0];
+      if (message) form.setError(key, { message });
+    });
     setStatus("error");
-    setError(result.error);
+    setError(fieldErrors.date?.[0] || fieldErrors.time?.[0] || result.error);
   });
 
   return (
@@ -67,12 +78,42 @@ export function InspectionForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Preferred Date (Mon – Sat) *" error={form.formState.errors.date?.message}>
-            <input className="input-field" type="date" {...form.register("date")} />
+            <input
+              className="input-field"
+              type="date"
+              min={earliestDate}
+              {...form.register("date", {
+                onChange: (event) => {
+                  const issue = inspectionScheduleIssue(event.target.value, "12:00", new Date());
+                  if (issue?.path === "date") form.setError("date", { message: issue.message });
+                  else form.clearErrors("date");
+                },
+              })}
+            />
           </Field>
-          <Field label="Preferred Time (9:00 AM – 4:00 PM) *" error={form.formState.errors.time?.message}>
-            <input className="input-field" type="time" {...form.register("time")} />
+          <Field label="Preferred Time (9:00 AM – 5:00 PM) *" error={form.formState.errors.time?.message}>
+            <input
+              className="input-field"
+              type="time"
+              min={timeBounds?.min ?? "09:00"}
+              max={timeBounds?.max ?? "17:00"}
+              step={60}
+              {...form.register("time", {
+                onChange: (event) => {
+                  const issue = inspectionScheduleIssue(form.getValues("date"), event.target.value, new Date());
+                  if (!issue) {
+                    form.clearErrors("time");
+                    return;
+                  }
+                  form.setError(issue.path, { message: issue.message });
+                },
+              })}
+            />
           </Field>
         </div>
+        <p className="-mt-2 text-xs font-medium normal-case tracking-normal text-slate-500">
+          Monday to Saturday, 9:00 AM – 5:00 PM. The earliest appointment is 6 hours from now.
+        </p>
 
         <div className="pt-2">
           <button type="submit" className="btn-gold w-full sm:w-auto !text-xs !uppercase !tracking-wider" disabled={form.formState.isSubmitting}>
