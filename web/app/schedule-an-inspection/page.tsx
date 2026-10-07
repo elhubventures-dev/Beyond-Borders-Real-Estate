@@ -67,7 +67,7 @@ export default function ScheduleInspectionPage() {
               Immediate Assistance
             </span>
             <h3 className="mt-1 font-display text-xl font-medium text-white">
-              Speak With A Surveyor Today
+              Speak with a Consultant Today
             </h3>
             <p className="mt-2 text-xs text-slate-400 leading-relaxed">
               If you require pickup from the Abuja Airport or central business district hotels, please let our team know.
