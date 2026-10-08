@@ -184,7 +184,7 @@ export default function OurCompanyPage() {
               Profile and portfolio
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              Request the company profile or the portfolio flyer. We ask for your name, email, and phone before the file downloads.
+              Request the company profile or the portfolio flyer. Let us meet you. Your download begins shortly.
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:flex-nowrap sm:items-center">

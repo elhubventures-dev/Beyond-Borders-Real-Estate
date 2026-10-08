@@ -105,7 +105,7 @@ export function DownloadGate({ href, label, documentName, className }: DownloadG
                   {documentName}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                  Share your name, email, and phone number. All three are required before the file downloads.
+                  Let us meet you. Your download begins shortly.
                 </p>
                 <form className="mt-6 grid gap-4" onSubmit={onSubmit} noValidate>
                   <label className="grid gap-1.5 text-sm">
