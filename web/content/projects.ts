@@ -564,6 +564,18 @@ export const projects: Project[] = [
             alt: "Sapphire 2 apartment block from the right corner",
           },
         ],
+        floorPlans: [
+          {
+            src: "/media/units/sapphire-2/plans/ground-floor.jpg",
+            label: "Ground floor",
+            alt: "Sapphire 2 apartment block ground floor parking plan",
+          },
+          {
+            src: "/media/units/sapphire-2/plans/typical-floor.jpg",
+            label: "1st to 3rd floor",
+            alt: "Sapphire 2 typical first to third floor apartment plan",
+          },
+        ],
       },
       {
         title: "Ruby — 5 Bed Terrace Triplex + BQ",
