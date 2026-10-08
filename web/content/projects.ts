@@ -1062,6 +1062,10 @@ export const projects: Project[] = [
         src: "/media/video/white-city-aspen-2-promo.mp4",
         label: "White City Aspen 2 Promo",
       },
+      {
+        src: "/media/video/white-city-aspen-2-site.mp4",
+        label: "Sites and Service",
+      },
     ],
   },
   {
@@ -1131,6 +1135,12 @@ export const projects: Project[] = [
       documentation: "₦200,000",
       title: "C of O and R of O",
     }),
+    videos: [
+      {
+        src: "/media/video/kingscity-davos-hilltop.mp4",
+        label: "KingsCity Davos — Hilltop Living",
+      },
+    ],
   },
   {
     id: "white-court",

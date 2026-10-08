@@ -41,6 +41,7 @@ export const site = {
     whiteCity: "/media/video/white-city-estates.mp4",
     products: "/media/video/portfolio-products.mp4",
     logoIntro: "/media/video/brand-logo-intro.mp4",
+    beyondBorders: "/media/video/beyond-borders-assets.mp4",
     abujaOngoing: "/media/video/abuja-ongoing.mp4",
     whiteCityCgi: "/media/video/white-city-cgi-tour.mp4",
     whiteCity3d: "/media/video/white-city-abuja-3d.mp4",

@@ -215,10 +215,11 @@ export default function OurCompanyPage() {
       <VideoBand
         eyebrow="Brand Film"
         title="Beyond Borders — Achieving More"
-        subtitle="Logo intro and our ongoing work across Abuja — with more cities ahead."
+        subtitle="Logo intro, the Beyond Borders promise, and our ongoing work across Abuja."
         clips={[
           { src: site.videos.logoIntro, label: "Brand Intro" },
           { src: site.videos.abujaOngoing, label: "Ongoing In Abuja" },
+          { src: site.videos.beyondBorders, label: "Taking You Beyond Borders" },
         ]}
       />
       <BrandGallery
