@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { homeHero } from "@/content/pages";
-import { site } from "@/content/site";
+import { TourDialog } from "@/components/sections/TourDialog";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -60,6 +60,8 @@ export function Hero() {
               ref={tourButtonRef}
               type="button"
               onClick={() => setTourOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={tourOpen}
               className="inline-flex items-center gap-3 rounded-full text-left"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-bb-ink shadow-[0_8px_20px_-12px_rgba(17,24,39,0.45)]">
@@ -193,65 +195,6 @@ function HeroStage({ allowMotion }: { allowMotion: boolean }) {
       >
         <HeroPlant />
       </motion.div>
-    </div>
-  );
-}
-
-function TourDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const titleId = useId();
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", onKey);
-    closeRef.current?.focus();
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-
-  return (
-    <div
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-[#0b0f17]/75 p-4"
-      onClick={onClose}
-    >
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        className="w-full max-w-3xl overflow-hidden rounded-2xl bg-[#0b0f17] shadow-2xl"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="flex items-center justify-between gap-4 px-4 py-3 text-white">
-          <h2 id={titleId} className="font-display text-lg">
-            White City estate tour
-          </h2>
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={onClose}
-            className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold tracking-wide"
-          >
-            Close
-          </button>
-        </div>
-        <video
-          src={site.videos.whiteCityIduFilm}
-          controls
-          autoPlay
-          playsInline
-          className="aspect-video w-full bg-black"
-          aria-label="White City Idu estate film"
-        />
-      </div>
     </div>
   );
 }

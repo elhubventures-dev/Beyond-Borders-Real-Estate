@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { estateFilms } from "@/content/site";
+import { estateFilmGroups, estateFilms } from "@/content/site";
 
-const previewLabels = estateFilms.slice(0, 4).map((clip) => clip.label);
+const previewLabels = estateFilmGroups.map((group) => group.label);
 
 export function FilmInvite() {
   return (
@@ -18,7 +18,7 @@ export function FilmInvite() {
               Watch the estates
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-300 sm:text-base">
-              The Estates page holds the largest film set on the site — White City, interiors, Aspen 2, current products, and the Idu estate film.
+              Every film on the site plays here — the company, White City, Aspen 2, and KingsCity Davos.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {previewLabels.map((label) => (

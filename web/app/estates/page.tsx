@@ -7,7 +7,7 @@ import { PromoBanner } from "@/components/sections/PromoBanner";
 import { EstateComparison } from "@/components/sections/EstateComparison";
 import { EstateFinder } from "@/components/sections/EstateFinder";
 import { VideoBand } from "@/components/sections/VideoBand";
-import { estateFilms } from "@/content/site";
+import { estateFilmGroups } from "@/content/site";
 import { getSeo } from "@/content/seo";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -47,10 +47,10 @@ export default function EstatesPage() {
       <EstateComparison />
       <VideoBand
         id="estate-films"
-        eyebrow="White City Estates"
+        eyebrow="Film library"
         title="Wouldn't You Rather Live Here"
-        subtitle="Tour White City communities, interiors, and Aspen 2. The newest clip is the White City Idu estate film."
-        clips={[...estateFilms]}
+        subtitle="Every film on the site, grouped by the company and by estate. The same clips also play on their own pages."
+        groups={estateFilmGroups}
       />
       <CTABand />
     </>

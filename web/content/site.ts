@@ -48,6 +48,11 @@ export const site = {
     whiteCityIduFilm: "/media/video/white-city-idu-film.mp4",
     whiteCityInterior: "/media/video/white-city-interior-tour.mp4",
     aspen2Promo: "/media/video/white-city-aspen-2-promo.mp4",
+    aspen2Site: "/media/video/white-city-aspen-2-site.mp4",
+    davosHilltop: "/media/video/kingscity-davos-hilltop.mp4",
+    beverlyBuild: "/media/video/beverly-4bed-duplex-build.mp4",
+    beverlyConstruction: "/media/video/beverly-4bed-idu-construction.mp4",
+    beverlyBlockwork: "/media/video/beverly-site-blockwork.mp4",
   },
   promo: {
     eyebrow: "50% Promo Still On",
@@ -118,14 +123,44 @@ export const site = {
   ],
 } as const;
 
-export const estateFilms = [
-  { src: site.videos.whiteCity, label: "White City Estates" },
-  { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
-  { src: site.videos.whiteCityInterior, label: "Interior Living" },
-  { src: site.videos.aspen2Promo, label: "Aspen 2" },
-  { src: site.videos.products, label: "Current Products" },
-  { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
-  { src: site.videos.whiteCityIduFilm, label: "White City Idu — Estate Film" },
+export const estateFilmGroups = [
+  {
+    label: "The company",
+    clips: [
+      { src: site.videos.logoIntro, label: "Brand Intro" },
+      { src: site.videos.beyondBorders, label: "Taking You Beyond Borders" },
+      { src: site.videos.abujaOngoing, label: "Ongoing In Abuja" },
+      { src: site.videos.products, label: "Current Products" },
+    ],
+  },
+  {
+    label: "White City",
+    clips: [
+      { src: site.videos.whiteCity, label: "White City Estates" },
+      { src: site.videos.whiteCityCgi, label: "Gate & Mall Vision" },
+      { src: site.videos.whiteCityInterior, label: "Interior Living" },
+      { src: site.videos.whiteCity3d, label: "White City Abuja — 3D" },
+      { src: site.videos.whiteCityIduFilm, label: "White City Idu — Estate Film" },
+      { src: site.videos.beverlyBuild, label: "4 Bed Duplex + BQ Build" },
+      { src: site.videos.beverlyConstruction, label: "White City Idu Construction" },
+      { src: site.videos.beverlyBlockwork, label: "Site Blockwork" },
+    ],
+  },
+  {
+    label: "Aspen 2",
+    clips: [
+      { src: site.videos.aspen2Promo, label: "Aspen 2 Promo" },
+      { src: site.videos.aspen2Site, label: "Sites and Service" },
+    ],
+  },
+  {
+    label: "KingsCity Davos",
+    clips: [
+      { src: site.videos.davosHilltop, label: "Hilltop Living" },
+    ],
+  },
 ] as const;
+
+export const estateFilms = estateFilmGroups.flatMap((group) => [...group.clips]);
 
 export type SiteConfig = typeof site;
