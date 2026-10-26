@@ -210,6 +210,10 @@ export const projects: Project[] = [
         label: "Site Visit & Infrastructure Works",
       },
       {
+        src: "/media/video/white-city-beverly-progress.mp4",
+        label: "White City Beverly Progress",
+      },
+      {
         src: "/media/video/white-city-interior-tour.mp4",
         label: "Interior Living Area",
       },

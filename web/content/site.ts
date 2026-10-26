@@ -55,6 +55,7 @@ export const site = {
     beverlyBlockwork: "/media/video/beverly-site-blockwork.mp4",
     whiteCityTeamVisit: "/media/video/white-city-team-site-visit.mp4",
     whiteCityInfrastructure: "/media/video/white-city-infrastructure-works.mp4",
+    whiteCityBeverlyProgress: "/media/video/white-city-beverly-progress.mp4",
   },
   promo: {
     eyebrow: "50% Promo Still On",
@@ -148,6 +149,7 @@ export const estateFilmGroups = [
       { src: site.videos.beverlyBlockwork, label: "Site Blockwork" },
       { src: site.videos.whiteCityTeamVisit, label: "Team Site Visit" },
       { src: site.videos.whiteCityInfrastructure, label: "Site Visit & Infrastructure Works" },
+      { src: site.videos.whiteCityBeverlyProgress, label: "White City Beverly Progress" },
     ],
   },
   {
