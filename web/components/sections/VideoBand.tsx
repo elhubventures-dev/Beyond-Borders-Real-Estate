@@ -82,7 +82,7 @@ export function VideoBand({
             key={clip.src}
             ref={videoRef}
             src={clip.src}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             controls
             playsInline
             muted={!reduceMotion}

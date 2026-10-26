@@ -53,6 +53,8 @@ export const site = {
     beverlyBuild: "/media/video/beverly-4bed-duplex-build.mp4",
     beverlyConstruction: "/media/video/beverly-4bed-idu-construction.mp4",
     beverlyBlockwork: "/media/video/beverly-site-blockwork.mp4",
+    whiteCityTeamVisit: "/media/video/white-city-team-site-visit.mp4",
+    whiteCityInfrastructure: "/media/video/white-city-infrastructure-works.mp4",
   },
   promo: {
     eyebrow: "50% Promo Still On",
@@ -144,6 +146,8 @@ export const estateFilmGroups = [
       { src: site.videos.beverlyBuild, label: "4 Bed Duplex + BQ Build" },
       { src: site.videos.beverlyConstruction, label: "White City Idu Construction" },
       { src: site.videos.beverlyBlockwork, label: "Site Blockwork" },
+      { src: site.videos.whiteCityTeamVisit, label: "Team Site Visit" },
+      { src: site.videos.whiteCityInfrastructure, label: "Site Visit & Infrastructure Works" },
     ],
   },
   {

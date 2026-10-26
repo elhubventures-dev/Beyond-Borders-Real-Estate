@@ -196,7 +196,7 @@ export function TourDialog({ open, onClose }: { open: boolean; onClose: () => vo
               playsInline
               preload="auto"
               autoPlay={reduceMotion === false}
-              className="aspect-video w-full bg-black"
+              className="aspect-video w-full bg-black object-contain"
               aria-label={clip.label}
               onEnded={() => setEnded(true)}
               onPlay={() => setEnded(false)}

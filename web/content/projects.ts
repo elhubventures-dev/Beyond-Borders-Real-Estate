@@ -202,6 +202,14 @@ export const projects: Project[] = [
         label: "Site Blockwork Progress",
       },
       {
+        src: "/media/video/white-city-team-site-visit.mp4",
+        label: "Team Site Visit",
+      },
+      {
+        src: "/media/video/white-city-infrastructure-works.mp4",
+        label: "Site Visit & Infrastructure Works",
+      },
+      {
         src: "/media/video/white-city-interior-tour.mp4",
         label: "Interior Living Area",
       },
