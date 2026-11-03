@@ -1,5 +1,6 @@
 import {
   abuiaPlotFaqs,
+  christmasFees,
   estateFees,
   type ProjectFaq,
   type ProjectFees,
@@ -43,6 +44,7 @@ export type Project = {
   region: "abuja" | "port-harcourt";
   soldOut?: boolean;
   promo?: string;
+  instantGift?: string;
   applicationPdf?: string;
   brochurePdf?: string;
   fees?: ProjectFees;
@@ -88,6 +90,15 @@ const packageUnit = (
   image,
 });
 
+const CHRISTMAS_PROMO =
+  "Special Christmas Promo — 50% off · fees waived · instant gift";
+
+const CHRISTMAS_INSTANT_GIFT =
+  "Instant gift on purchase — rice, vegetable oil, Smart TV, smartphone, refrigerator (T&Cs apply).";
+
+const CHRISTMAS_DOC_FEE =
+  "Waived under the Special Christmas Promo (T&Cs apply)";
+
 export const projects: Project[] = [
   {
     id: "beverly",
@@ -105,11 +116,13 @@ export const projects: Project[] = [
     houseTypes: "2–5 Bed Smart Homes + BQ",
     landSizes: "250–750 SQM Buy & Build",
     region: "abuja",
-    promo: "Active campaign — 50% Independence Day Promo · site works ongoing opposite Idu Railway",
-    housesIntro: "Brochure models with Independence Day promo pricing",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
+    housesIntro: "Brochure models with Special Christmas Promo pricing",
     landsIntro:
       "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Hectare O'Clock — Golden Abuja Land.",
     brochurePdf: "/media/brochures/white-city-beverly-brochure.pdf",
+    fees: christmasFees("Confirm on inspection"),
     entrance: {
       src: "/media/projects/white-city-beverly-gate.png",
       alt: "White City Estate gate house, Idu Abuja",
@@ -812,7 +825,8 @@ export const projects: Project[] = [
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦12 million", "₦6 million", "/media/projects/white-city-savanah.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦15 million", "₦7.5 million", "/media/projects/white-city-savanah.jpg"),
@@ -830,11 +844,11 @@ export const projects: Project[] = [
       "Located at Idu, after the Idu Train Station",
     ],
     applicationPdf: "/media/forms/white-city-savanah-application.pdf",
-    fees: estateFees("₦20,000", "₦200,000 / plot", "₦1,500,000 / plot"),
+    fees: christmasFees("₦1,500,000 / plot"),
     faqs: abuiaPlotFaqs({
       where: "White City Savanah is located at Idu, after the Idu Train Station.",
       levy: "₦1,500,000",
-      documentation: "₦200,000",
+      documentation: CHRISTMAS_DOC_FEE,
       title: "C of O and R of O",
     }),
   },
@@ -848,23 +862,24 @@ export const projects: Project[] = [
     inspectionLabel: "White City Dallas (Idu Abuja, Before Nigerian Army Estate)",
     locationBadge: "Idu Abuja",
     distanceBadge: "Before Nigerian Army Estate",
-    startingHouse: "₦5 Million",
-    startingLand: "₦5 Million",
+    startingHouse: "₦7 Million",
+    startingLand: "₦7 Million",
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦13 million", "₦6.5 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦30 million", "₦15 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦14 million", "₦7 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦28 million", "₦14 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦42 million", "₦21 million", "/media/projects/white-city-dallas.jpg"),
     ],
     lands: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦13 million", "₦6.5 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-dallas.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦30 million", "₦15 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦14 million", "₦7 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦28 million", "₦14 million", "/media/projects/white-city-dallas.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦42 million", "₦21 million", "/media/projects/white-city-dallas.jpg"),
     ],
     features: [
       ...ABUJA_ESTATE_FEATURES,
@@ -872,11 +887,11 @@ export const projects: Project[] = [
       "After Idu Train Station and Police Service Commission",
     ],
     applicationPdf: "/media/forms/white-city-dallas-application.pdf",
-    fees: estateFees("₦20,000", "₦200,000 / plot", "₦1,500,000 / plot"),
+    fees: christmasFees("₦1,500,000 / plot"),
     faqs: abuiaPlotFaqs({
       where: "White City Dallas is located at Idu, after the Idu Train Station and Police Service Commission, before the Nigerian Army Estate.",
       levy: "₦1,500,000",
-      documentation: "₦200,000",
+      documentation: CHRISTMAS_DOC_FEE,
       title: "C of O and R of O",
     }),
   },
@@ -895,7 +910,8 @@ export const projects: Project[] = [
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦30 million", "₦15 million", "/media/projects/royal-city-beverly.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦40 million", "₦20 million", "/media/projects/royal-city-beverly.jpg"),
@@ -913,11 +929,11 @@ export const projects: Project[] = [
       "Located at Idu, just before the Idu Train Station",
     ],
     applicationPdf: "/media/forms/royal-city-beverly-application.pdf",
-    fees: estateFees("₦20,000", "₦200,000 / plot", "₦3,500,000 / plot"),
+    fees: christmasFees("₦3,500,000 / plot"),
     faqs: abuiaPlotFaqs({
       where: "Royal City Beverly is located at Idu, just before the Idu Train Station.",
       levy: "₦3,500,000",
-      documentation: "₦200,000",
+      documentation: CHRISTMAS_DOC_FEE,
       title: "C of O and R of O",
     }),
   },
@@ -975,25 +991,27 @@ export const projects: Project[] = [
     inspectionLabel: "Royal City Dallas (Idu Abuja)",
     locationBadge: "Idu Abuja",
     distanceBadge: "Idu Growth Corridor",
-    startingHouse: "₦7.5 Million",
-    startingLand: "₦7.5 Million",
+    startingHouse: "₦10 Million",
+    startingLand: "₦10 Million",
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦15 million", "₦7.5 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦18 million", "₦9 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦28 million", "₦14 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦45 million", "₦22.5 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦20 million", "₦10 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦26 million", "₦13 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦40 million", "₦20 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦60 million", "₦30 million", "/media/projects/royal-city-dallas.jpg"),
     ],
     lands: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦15 million", "₦7.5 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦18 million", "₦9 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦28 million", "₦14 million", "/media/projects/royal-city-dallas.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦45 million", "₦22.5 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦20 million", "₦10 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦26 million", "₦13 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦40 million", "₦20 million", "/media/projects/royal-city-dallas.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦60 million", "₦30 million", "/media/projects/royal-city-dallas.jpg"),
     ],
     features: ABUJA_ESTATE_FEATURES,
+    fees: christmasFees("Confirm on inspection"),
   },
   {
     id: "aspen-1",
@@ -1005,25 +1023,27 @@ export const projects: Project[] = [
     inspectionLabel: "White City Aspen 1 (Kuje Abuja)",
     locationBadge: "Kuje Abuja",
     distanceBadge: "FCDA Approved",
-    startingHouse: "₦4 Million",
-    startingLand: "₦4 Million",
+    startingHouse: "₦5 Million",
+    startingLand: "₦5 Million",
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦4 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦11 million", "₦8 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦14 million", "₦12 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦13 million", "₦6.5 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦30 million", "₦15 million", "/media/projects/white-city-aspen-1.jpg"),
     ],
     lands: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦4 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦11 million", "₦8 million", "/media/projects/white-city-aspen-1.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦14 million", "₦12 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦13 million", "₦6.5 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-aspen-1.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦30 million", "₦15 million", "/media/projects/white-city-aspen-1.jpg"),
     ],
     features: ABUJA_ESTATE_FEATURES,
+    fees: christmasFees("Confirm on inspection"),
   },
   {
     id: "aspen-2",
@@ -1035,23 +1055,24 @@ export const projects: Project[] = [
     inspectionLabel: "White City Aspen 2 (Kuje Abuja, Near Kuchiako LEA)",
     locationBadge: "Kuje Abuja",
     distanceBadge: "Near Kuchiako LEA",
-    startingHouse: "₦3 Million",
-    startingLand: "₦3 Million",
+    startingHouse: "₦4 Million",
+    startingLand: "₦4 Million",
     houseTypes: "3–6 Bed Smart Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special 50% Promo",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦6 million", "₦3 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦9 million", "₦4.5 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦12 million", "₦6 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦18 million", "₦9 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦8 million", "₦4 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦16 million", "₦8 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-aspen-2.jpg"),
     ],
     lands: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦6 million", "₦3 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦9 million", "₦4.5 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦12 million", "₦6 million", "/media/projects/white-city-aspen-2.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦18 million", "₦9 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦8 million", "₦4 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦16 million", "₦8 million", "/media/projects/white-city-aspen-2.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-aspen-2.jpg"),
     ],
     features: [
       ...ABUJA_ESTATE_FEATURES,
@@ -1059,15 +1080,15 @@ export const projects: Project[] = [
       "Before 1,000 Housing Estate, Kuje Abuja",
     ],
     applicationPdf: "/media/forms/white-city-aspen-2-application.pdf",
-    fees: estateFees("₦10,000", "₦200,000 / plot", "₦2,500,000 / plot"),
+    fees: christmasFees("₦2,500,000 / plot"),
     faqs: abuiaPlotFaqs({
       where: "White City Aspen 2 is located near Kuchiako LEA Primary School, before 1,000 Housing Estate, Kuje Abuja.",
       levy: "₦2,500,000",
-      documentation: "₦200,000",
+      documentation: CHRISTMAS_DOC_FEE,
       title: "FCDA R of O",
       documents: "Sales Invoice, Receipt, Deed of Assignment, and Power of Attorney.",
       allocationExtra:
-        "After complete payment for the land and documentation fees you receive allocation. Construction on the land begins after payment of development fees.",
+        "After complete payment for the land you receive allocation. Construction on the land begins after payment of development fees. Application and documentation fees are waived under the Special Christmas Promo (T&Cs apply).",
     }),
     videos: [
       {
@@ -1095,20 +1116,22 @@ export const projects: Project[] = [
     houseTypes: "3–6 Bed Duplex Packages",
     landSizes: "250–750 SQM",
     region: "abuja",
-    promo: "Special Promo Pricing",
+    promo: CHRISTMAS_PROMO,
+    instantGift: CHRISTMAS_INSTANT_GIFT,
     houses: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦3 million", "₦2.5 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦4 million", "₦3 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦6 million", "₦5 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦8 million", "₦7.5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦5 million", "₦2.5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦6 million", "₦3 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦15 million", "₦7.5 million", "/media/projects/white-country-parks.jpg"),
     ],
     lands: [
-      packageUnit(250, "3 Bed Semi Detached with BQ", "₦3 million", "₦2.5 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦4 million", "₦3 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦6 million", "₦5 million", "/media/projects/white-country-parks.jpg"),
-      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦8 million", "₦7.5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(250, "3 Bed Semi Detached with BQ", "₦5 million", "₦2.5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(300, "4 Bed Smart Duplex with BQ", "₦6 million", "₦3 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(500, "6 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-country-parks.jpg"),
+      packageUnit(750, "3 Bed Terrace Duplex with BQ", "₦15 million", "₦7.5 million", "/media/projects/white-country-parks.jpg"),
     ],
     features: ABUJA_ESTATE_FEATURES,
+    fees: christmasFees("Confirm on inspection"),
   },
   {
     id: "davos",

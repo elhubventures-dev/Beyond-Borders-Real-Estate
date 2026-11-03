@@ -338,6 +338,28 @@ export function CTABand() {
   );
 }
 
+export function InstantGiftCallout({ project }: { project: Project }) {
+  if (!project.instantGift) return null;
+  return (
+    <section className="mx-auto max-w-7xl px-6 pb-4 md:pb-6">
+      <div className="rounded-2xl border border-bb-bronze/20 bg-gradient-to-br from-[#f7faf7] via-white to-[#eef3ee] px-5 py-5 sm:px-7 sm:py-6">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
+          Special Christmas Promo
+        </p>
+        <p className="mt-2 max-w-3xl font-display text-xl font-medium tracking-tight text-bb-obsidian sm:text-2xl">
+          Instant gift with your purchase
+        </p>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">{project.instantGift}</p>
+        {(project.fees?.applicationForm === "Waived" || project.fees?.documentation === "Waived") && (
+          <p className="mt-3 text-sm font-medium text-bb-bronze-dark">
+            Documentation and application fees are waived on this promo. T&amp;Cs apply.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function EstateFees({ project }: { project: Project }) {
   if (!project.fees) return null;
   const { fees } = project;

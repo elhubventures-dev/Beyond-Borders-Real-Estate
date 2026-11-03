@@ -5,6 +5,7 @@ import {
   EstateFaqs,
   EstateFees,
   FeatureList,
+  InstantGiftCallout,
   ProjectPageHeader,
   UnitPricing,
 } from "@/components/sections/ProjectParts";
@@ -60,6 +61,7 @@ export function HousesProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <InstantGiftCallout project={project} />
       <ProjectVideos project={project} />
       <ProjectProgressGallery project={project} />
       <EstateFees project={project} />
@@ -90,6 +92,7 @@ export function LandsProjectBody({ project }: { project: Project }) {
             : undefined
         }
       />
+      <InstantGiftCallout project={project} />
       <ProjectVideos project={project} />
       <ProjectProgressGallery project={project} />
       <EstateFees project={project} />

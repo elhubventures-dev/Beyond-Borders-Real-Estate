@@ -21,6 +21,16 @@ export function estateFees(
   return { applicationForm, documentation, developmentLevy, notes };
 }
 
+export const CHRISTMAS_FEE_NOTES = [
+  "Special Christmas Promo: application and documentation fees are waived (T&Cs apply)",
+  ...FEE_NOTES_STANDARD,
+];
+
+/** Application + documentation waived for the Christmas promo; levy stays as published. */
+export function christmasFees(developmentLevy: string): ProjectFees {
+  return estateFees("Waived", "Waived", developmentLevy, CHRISTMAS_FEE_NOTES);
+}
+
 export function abuiaPlotFaqs(opts: {
   where: string;
   levy: string;
@@ -42,7 +52,9 @@ export function abuiaPlotFaqs(opts: {
     },
     {
       q: "Is there a documentation fee?",
-      a: `Yes — ${opts.documentation} per plot.`,
+      a: /waived/i.test(opts.documentation)
+        ? opts.documentation
+        : `Yes — ${opts.documentation} per plot.`,
     },
     {
       q: "When will my plot be allocated?",

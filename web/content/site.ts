@@ -58,9 +58,9 @@ export const site = {
     whiteCityBeverlyProgress: "/media/video/white-city-beverly-progress.mp4",
   },
   promo: {
-    eyebrow: "50% Promo Still On",
-    title: "Time Never Waits. Neither Do The Best Properties.",
-    body: "Get access to exclusive luxury listings — premium properties, trust & transparency, expert guidance, and end-to-end support. 50% Independence Day promo remains active across White City, Royal City, Aspen, KingsCity, White Court, and Port Harcourt land offerings.",
+    eyebrow: "Special Christmas Promo",
+    title: "50% Off Serviced Plots This Christmas.",
+    body: "White City, Royal City, Aspen, and White Country Parks plots are on a 50% Christmas promo — documentation and application fees waived, with an instant gift on purchase. T&Cs apply. Schedule an inspection to lock in current terms.",
     ctaLabel: "Schedule an Inspection",
     ctaHref: "/schedule-an-inspection/",
     image: "/media/campaigns/time-never-waits-promo.jpg",

@@ -181,7 +181,7 @@ export function Header() {
                     <div className="flex shrink-0 items-center justify-between gap-4 border-b border-slate-100 px-6 pb-3 pt-5">
                       <div className="min-w-0">
                         <p className="font-display text-lg font-medium text-bb-obsidian">Abuja & Port Harcourt Portfolio</p>
-                        <p className="text-xs text-slate-500">Smart homes, buy & build packages, and titled land — 50% promo pricing</p>
+                        <p className="text-xs text-slate-500">Smart homes, buy & build packages, and titled land — Special Christmas Promo</p>
                       </div>
                       <div className="flex shrink-0 gap-2 text-xs">
                         <Link

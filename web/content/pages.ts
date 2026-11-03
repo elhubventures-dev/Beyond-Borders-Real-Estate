@@ -160,7 +160,7 @@ export const faqs = [
       },
       {
         q: "What extra fees apply when I buy?",
-        a: "Application, documentation, and development levy amounts vary by estate — see each project page for the published schedule (and download the application form where available).",
+        a: "Development levy amounts vary by estate — see each project page for the published schedule. Under the Special Christmas Promo, application and documentation fees are waived on selected estates (T&Cs apply). Download the application form where available.",
       },
       {
         q: "Are payment plans available?",
