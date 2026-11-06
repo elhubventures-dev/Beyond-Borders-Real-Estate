@@ -33,10 +33,10 @@ export function BackToTop() {
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
             onClick={goTop}
-            className="flex items-center gap-2.5 rounded-full border border-bb-bronze/40 bg-[#0b0f17] px-4 py-3 text-white shadow-2xl backdrop-blur-md transition hover:border-bb-bronze"
+            className="group flex items-center rounded-full border border-bb-bronze/40 bg-[#0b0f17] p-3 text-white shadow-2xl backdrop-blur-md transition hover:border-bb-bronze hover:pr-4 focus-visible:border-bb-bronze focus-visible:pr-4 focus-visible:outline-none"
             aria-label="Back to top"
           >
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-bb-forest text-white">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-bb-forest text-white">
               <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
                 <path
                   d="M12 5.5 5.8 11.3l1.4 1.4L11 8.9V18.5h2V8.9l3.8 3.8 1.4-1.4Z"
@@ -44,7 +44,7 @@ export function BackToTop() {
                 />
               </svg>
             </span>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
+            <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs font-bold uppercase tracking-wider text-slate-200 opacity-0 transition-all duration-200 group-hover:ml-2.5 group-hover:max-w-[7rem] group-hover:opacity-100 group-focus-visible:ml-2.5 group-focus-visible:max-w-[7rem] group-focus-visible:opacity-100">
               Back to top
             </span>
           </motion.button>
