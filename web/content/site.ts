@@ -63,7 +63,7 @@ export const site = {
     body: "White City, Royal City, Aspen, and White Country Parks plots are on a 50% Christmas promo — documentation and application fees waived, with an instant gift on purchase. T&Cs apply. Schedule an inspection to lock in current terms.",
     ctaLabel: "Schedule an Inspection",
     ctaHref: "/schedule-an-inspection/",
-    image: "/media/campaigns/time-never-waits-promo.jpg",
+    image: "/media/campaigns/christmas/white-city-beverly.jpg",
   },
   stats: {
     sqFt: "8 million+ sq ft",

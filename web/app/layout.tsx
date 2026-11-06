@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { WhatsAppConcierge } from "@/components/layout/WhatsAppConcierge";
 import { site } from "@/content/site";
 import { absoluteUrl } from "@/lib/utils";
@@ -93,9 +95,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <Header />
-        <main>{children}</main>
+        <main className="pb-20 md:pb-0">{children}</main>
         <Footer />
+        <BackToTop />
         <WhatsAppConcierge />
+        <MobileBottomNav />
       </body>
     </html>
   );

@@ -63,16 +63,16 @@ export const aboutPage = {
 
 export const aboutGallery = [
   {
-    src: "/media/campaigns/todays-plot-tomorrows-villa.jpg",
-    alt: "Today’s plot… tomorrow’s dream villa — Beyond Borders land-to-home vision",
+    src: "/media/campaigns/christmas/white-city-beverly.jpg",
+    alt: "Special Christmas Promo — White City Beverly serviced plots, 50% off",
   },
   {
-    src: "/media/campaigns/see-your-home-clearly.jpg",
-    alt: "See your home clearly with Beyond Borders — premium properties and smart investments",
+    src: "/media/campaigns/christmas/white-city-aspen-2.jpg",
+    alt: "Special Christmas Promo — White City Aspen 2 serviced plots, 50% off",
   },
   {
-    src: "/media/campaigns/time-never-waits-promo.jpg",
-    alt: "Time never waits — exclusive luxury listings and 50% promo still on",
+    src: "/media/campaigns/christmas/royal-city-beverly.jpg",
+    alt: "Special Christmas Promo — Royal City Beverly serviced plots, 50% off",
   },
   {
     src: "/media/brand/dream-home-delivered.jpeg",
@@ -98,16 +98,16 @@ export const aboutGallery = [
 
 export const campaignGallery = [
   {
-    src: "/media/campaigns/todays-plot-tomorrows-villa.jpg",
-    alt: "Today’s plot… tomorrow’s dream villa",
+    src: "/media/campaigns/christmas/white-city-beverly.jpg",
+    alt: "Special Christmas Promo — White City Beverly",
   },
   {
-    src: "/media/campaigns/see-your-home-clearly.jpg",
-    alt: "See your home clearly with Beyond Borders Realty",
+    src: "/media/campaigns/christmas/white-city-aspen-2.jpg",
+    alt: "Special Christmas Promo — White City Aspen 2",
   },
   {
-    src: "/media/campaigns/time-never-waits-promo.jpg",
-    alt: "Time never waits — best properties and 50% promo",
+    src: "/media/campaigns/christmas/royal-city-beverly.jpg",
+    alt: "Special Christmas Promo — Royal City Beverly",
   },
 ] as const;
 

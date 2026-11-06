@@ -342,19 +342,34 @@ export function InstantGiftCallout({ project }: { project: Project }) {
   if (!project.instantGift) return null;
   return (
     <section className="mx-auto max-w-7xl px-6 pb-4 md:pb-6">
-      <div className="rounded-2xl border border-bb-bronze/20 bg-gradient-to-br from-[#f7faf7] via-white to-[#eef3ee] px-5 py-5 sm:px-7 sm:py-6">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
-          Special Christmas Promo
-        </p>
-        <p className="mt-2 max-w-3xl font-display text-xl font-medium tracking-tight text-bb-obsidian sm:text-2xl">
-          Instant gift with your purchase
-        </p>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">{project.instantGift}</p>
-        {(project.fees?.applicationForm === "Waived" || project.fees?.documentation === "Waived") && (
-          <p className="mt-3 text-sm font-medium text-bb-bronze-dark">
-            Documentation and application fees are waived on this promo. T&amp;Cs apply.
-          </p>
-        )}
+      <div className="overflow-hidden rounded-2xl border border-bb-bronze/20 bg-gradient-to-br from-[#f7faf7] via-white to-[#eef3ee]">
+        <div className={`grid gap-0 ${project.promoFlyer ? "md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]" : ""}`}>
+          {project.promoFlyer && (
+            <div className="relative aspect-[4/5] bg-bb-stone md:aspect-auto md:min-h-[22rem]">
+              <Image
+                src={project.promoFlyer}
+                alt={`${project.name} Special Christmas Promo flyer`}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 28rem"
+              />
+            </div>
+          )}
+          <div className="flex flex-col justify-center px-5 py-5 sm:px-7 sm:py-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
+              Special Christmas Promo
+            </p>
+            <p className="mt-2 max-w-3xl font-display text-xl font-medium tracking-tight text-bb-obsidian sm:text-2xl">
+              Instant gift with your purchase
+            </p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">{project.instantGift}</p>
+            {(project.fees?.applicationForm === "Waived" || project.fees?.documentation === "Waived") && (
+              <p className="mt-3 text-sm font-medium text-bb-bronze-dark">
+                Documentation and application fees are waived on this promo. T&amp;Cs apply.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -417,22 +432,25 @@ export function EstateFaqs({ project }: { project: Project }) {
   return (
     <section className="bg-bb-cream border-y border-bb-border py-14 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl mb-8">
+        <div className="max-w-3xl">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-bb-bronze-dark">
             Estate FAQ
           </span>
           <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-bb-obsidian">
             Buying At {project.name}
           </h2>
+          <div className="mt-8 space-y-4">
+            {project.faqs.map((item) => (
+              <details
+                key={item.q}
+                className="border border-bb-ink/10 bg-bb-white p-4 open:shadow-sm"
+              >
+                <summary className="cursor-pointer font-semibold">{item.q}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-bb-muted">{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
-        <dl className="mx-auto max-w-3xl space-y-5">
-          {project.faqs.map((item) => (
-            <div key={item.q} className="border-b border-bb-border pb-5">
-              <dt className="font-display text-lg text-bb-obsidian">{item.q}</dt>
-              <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{item.a}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

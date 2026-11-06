@@ -5,7 +5,7 @@ import { projects } from "@/content/projects";
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#0b0f17] text-white border-t border-white/10">
+    <footer className="relative border-t border-white/10 bg-[#0b0f17] pb-20 text-white md:pb-0">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand Column */}

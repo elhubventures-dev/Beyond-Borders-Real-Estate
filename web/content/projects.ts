@@ -45,6 +45,7 @@ export type Project = {
   soldOut?: boolean;
   promo?: string;
   instantGift?: string;
+  promoFlyer?: string;
   applicationPdf?: string;
   brochurePdf?: string;
   fees?: ProjectFees;
@@ -105,19 +106,20 @@ export const projects: Project[] = [
     name: "White City Beverly",
     shortName: "Beverly",
     cardTitle: "Gate House — White City Idu Abuja",
-    cardImage: "/media/projects/white-city-beverly-gate.png",
+    cardImage: "/media/campaigns/christmas/white-city-beverly.jpg",
     housesSlug: "/houses-white-city-beverly/",
     landsSlug: "/lands-white-city-beverly/",
     inspectionLabel: "White City Beverly (Idu Abuja, Opposite Railway)",
     locationBadge: "Idu Abuja",
     distanceBadge: "Opposite Idu Railway",
-    startingHouse: "₦59 Million",
+    startingHouse: "₦69 Million",
     startingLand: "₦20 Million",
     houseTypes: "2–5 Bed Smart Homes + BQ",
     landSizes: "250–750 SQM Buy & Build",
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-city-beverly.jpg",
     housesIntro: "Brochure models with Special Christmas Promo pricing",
     landsIntro:
       "Buy & Build packages at White City Beverly. Hectare land banking (Idu Railway and other corridors) is listed once under Hectare O'Clock — Golden Abuja Land.",
@@ -242,9 +244,9 @@ export const projects: Project[] = [
     houses: [
       {
         title: "Diamond — 5/6 Bed Duplex + BQ",
-        wasPrice: "₦258 million",
-        price: "₦129 million",
-        image: "/media/units/diamond/front.png",
+        wasPrice: "₦278 million",
+        price: "₦139 million",
+        image: "/media/campaigns/christmas/units/beverly-diamond.jpg",
         highlights: [
           "Elevator",
           "Swimming pool",
@@ -293,9 +295,9 @@ export const projects: Project[] = [
       },
       {
         title: "Gold — 4/5 Bed Duplex + BQ",
-        wasPrice: "₦228 million",
-        price: "₦114 million",
-        image: "/media/units/gold/front.jpg",
+        wasPrice: "₦248 million",
+        price: "₦124 million",
+        image: "/media/campaigns/christmas/units/beverly-gold.jpg",
         highlights: [
           "2-room boys' quarters",
           "Up to 3 car parking",
@@ -332,9 +334,9 @@ export const projects: Project[] = [
       },
       {
         title: "Silver — 3/4 Bed Duplex + Studio",
-        wasPrice: "₦219 million",
-        price: "₦109 million",
-        image: "/media/units/silver/front.png",
+        wasPrice: "₦238 million",
+        price: "₦119 million",
+        image: "/media/campaigns/christmas/units/beverly-silver.jpg",
         highlights: ["Studio room", "2 car parking"],
         views3d: [
           {
@@ -408,9 +410,9 @@ export const projects: Project[] = [
       },
       {
         title: "Pearl 2 — 3 Bed Terrace Duplex + Studio",
-        wasPrice: "₦178 million",
-        price: "₦89 million",
-        image: "/media/units/pearl-2/front.jpg",
+        wasPrice: "₦208 million",
+        price: "₦99 million",
+        image: "/media/campaigns/christmas/units/beverly-pearl-2.jpg",
         highlights: ["Studio room", "2 car parking"],
         views3d: [
           {
@@ -432,9 +434,9 @@ export const projects: Project[] = [
       },
       {
         title: "Emerald — 3 Bed Semi Detached Duplex",
-        wasPrice: "₦189 million",
-        price: "₦99 million",
-        image: "/media/units/emerald/front.jpg",
+        wasPrice: "₦218 million",
+        price: "₦109 million",
+        image: "/media/campaigns/christmas/units/beverly-emerald.jpg",
         highlights: ["Semi detached pair", "2 car parking"],
         views3d: [
           {
@@ -569,8 +571,9 @@ export const projects: Project[] = [
       },
       {
         title: "Sapphire 2 — 3 Bed Smart Apartments + BQ",
-        price: "Price on request",
-        image: "/media/units/sapphire-2/front.jpg",
+        wasPrice: "₦138 million",
+        price: "₦69 million",
+        image: "/media/campaigns/christmas/units/beverly-sapphire-2.jpg",
         highlights: ["Boys' quarters"],
         views3d: [
           {
@@ -814,7 +817,7 @@ export const projects: Project[] = [
     id: "savanah",
     name: "White City Savanah",
     shortName: "Savanah",
-    cardImage: "/media/projects/white-city-savanah.jpg",
+    cardImage: "/media/campaigns/christmas/white-city-savanah.jpg",
     housesSlug: "/houses-white-city-savanah/",
     landsSlug: "/lands-white-city-savanah/",
     inspectionLabel: "White City Savanah (Idu Abuja, After Train Station)",
@@ -827,6 +830,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-city-savanah.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦12 million", "₦6 million", "/media/projects/white-city-savanah.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦15 million", "₦7.5 million", "/media/projects/white-city-savanah.jpg"),
@@ -856,7 +860,7 @@ export const projects: Project[] = [
     id: "dallas",
     name: "White City Dallas",
     shortName: "Dallas",
-    cardImage: "/media/projects/white-city-dallas.jpg",
+    cardImage: "/media/campaigns/christmas/white-city-dallas.jpg",
     housesSlug: "/houses-white-city-dallas/",
     landsSlug: "/lands-white-city-dallas/",
     inspectionLabel: "White City Dallas (Idu Abuja, Before Nigerian Army Estate)",
@@ -869,6 +873,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-city-dallas.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦14 million", "₦7 million", "/media/projects/white-city-dallas.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦20 million", "₦10 million", "/media/projects/white-city-dallas.jpg"),
@@ -899,7 +904,7 @@ export const projects: Project[] = [
     id: "royal-beverly",
     name: "Royal City Beverly",
     shortName: "Royal Beverly",
-    cardImage: "/media/projects/royal-city-beverly.jpg",
+    cardImage: "/media/campaigns/christmas/royal-city-beverly.jpg",
     housesSlug: "/houses-royal-city-beverly/",
     landsSlug: "/lands-royal-city-beverly/",
     inspectionLabel: "Royal City Beverly (Idu Abuja, Before Train Station)",
@@ -912,6 +917,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/royal-city-beverly.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦30 million", "₦15 million", "/media/projects/royal-city-beverly.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦40 million", "₦20 million", "/media/projects/royal-city-beverly.jpg"),
@@ -985,7 +991,7 @@ export const projects: Project[] = [
     id: "royal-dallas",
     name: "Royal City Dallas",
     shortName: "Royal Dallas",
-    cardImage: "/media/projects/royal-city-dallas.jpg",
+    cardImage: "/media/campaigns/christmas/royal-city-dallas.jpg",
     housesSlug: "/houses-royal-city-dallas/",
     landsSlug: "/lands-royal-city-dallas/",
     inspectionLabel: "Royal City Dallas (Idu Abuja)",
@@ -998,6 +1004,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/royal-city-dallas.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦20 million", "₦10 million", "/media/projects/royal-city-dallas.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦26 million", "₦13 million", "/media/projects/royal-city-dallas.jpg"),
@@ -1017,7 +1024,7 @@ export const projects: Project[] = [
     id: "aspen-1",
     name: "White City Aspen 1",
     shortName: "Aspen 1",
-    cardImage: "/media/projects/white-city-aspen-1.jpg",
+    cardImage: "/media/campaigns/christmas/white-city-aspen-1.jpg",
     housesSlug: "/houses-white-city-aspen-1/",
     landsSlug: "/lands-white-city-aspen-1/",
     inspectionLabel: "White City Aspen 1 (Kuje Abuja)",
@@ -1030,6 +1037,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-city-aspen-1.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-1.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦13 million", "₦6.5 million", "/media/projects/white-city-aspen-1.jpg"),
@@ -1049,7 +1057,7 @@ export const projects: Project[] = [
     id: "aspen-2",
     name: "White City Aspen 2",
     shortName: "Aspen 2",
-    cardImage: "/media/projects/white-city-aspen-2.jpg",
+    cardImage: "/media/campaigns/christmas/white-city-aspen-2.jpg",
     housesSlug: "/houses-white-city-aspen-2/",
     landsSlug: "/lands-white-city-aspen-2/",
     inspectionLabel: "White City Aspen 2 (Kuje Abuja, Near Kuchiako LEA)",
@@ -1062,6 +1070,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-city-aspen-2.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦8 million", "₦4 million", "/media/projects/white-city-aspen-2.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦10 million", "₦5 million", "/media/projects/white-city-aspen-2.jpg"),
@@ -1105,7 +1114,7 @@ export const projects: Project[] = [
     id: "ketti",
     name: "White Country Parks & Gardens",
     shortName: "Ketti",
-    cardImage: "/media/projects/white-country-parks.jpg",
+    cardImage: "/media/campaigns/christmas/white-country-parks.jpg",
     housesSlug: "/houses-white-country-parks/",
     landsSlug: "/lands-white-country-parks/",
     inspectionLabel: "White Country Parks & Gardens (Ketti 1&2 Abuja)",
@@ -1118,6 +1127,7 @@ export const projects: Project[] = [
     region: "abuja",
     promo: CHRISTMAS_PROMO,
     instantGift: CHRISTMAS_INSTANT_GIFT,
+    promoFlyer: "/media/campaigns/christmas/white-country-parks.jpg",
     houses: [
       packageUnit(250, "3 Bed Semi Detached with BQ", "₦5 million", "₦2.5 million", "/media/projects/white-country-parks.jpg"),
       packageUnit(300, "4 Bed Smart Duplex with BQ", "₦6 million", "₦3 million", "/media/projects/white-country-parks.jpg"),
