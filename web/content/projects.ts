@@ -1255,6 +1255,13 @@ export const projects: Project[] = [
       "Approved by FCDA",
       "Jahi Abuja — prime living, prime location",
     ],
+    videos: [
+      {
+        src: "/media/video/white-court-jahi.mp4",
+        label:
+          "Abuja’s Exclusive Address — The White Court Jahi · 5 Bed Terrace Duplexes + BQ · Key in off-plan · 50% Christmas promo",
+      },
+    ],
   },
   {
     id: "lifecamp",
