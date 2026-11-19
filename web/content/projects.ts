@@ -240,6 +240,10 @@ export const projects: Project[] = [
         src: "/media/video/white-city-idu-film.mp4",
         label: "White City Idu — Estate Film",
       },
+      {
+        src: "/media/video/white-city-beverly-roof-install.mp4",
+        label: "Roof Installation — 3 Bed Duplex · White City Idu Abuja",
+      },
     ],
     houses: [
       {
