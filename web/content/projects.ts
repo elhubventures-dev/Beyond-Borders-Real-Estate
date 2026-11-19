@@ -1225,22 +1225,22 @@ export const projects: Project[] = [
     id: "white-court",
     name: "The White Court",
     shortName: "White Court",
-    cardImage: "/media/projects/white-court-flyer.jpg",
+    cardImage: "/media/campaigns/christmas/white-court.jpg",
     housesSlug: "/houses-white-court/",
     inspectionLabel: "The White Court (Jahi Abuja)",
     locationBadge: "Jahi Abuja",
     distanceBadge: "Prime Living, Prime Location",
-    startingHouse: "₦250 Million",
+    startingHouse: "₦275 Million",
     houseTypes: "5 Bed Premium Smart Duplex + BQ",
     region: "abuja",
-    promo: "Active 50% Promo — was ₦500M · now ₦250M · installment available",
+    promo: "Active 50% Promo — was ₦550M · now ₦275M · installment available",
     housesIntro: "Premium finished smart duplex — FCDA approved",
     houses: [
       {
         title: "5 Bedroom Premium Finished Smart Duplex + BQ",
-        wasPrice: "₦500 million",
-        price: "₦250 million",
-        image: "/media/projects/white-court-flyer.jpg",
+        wasPrice: "₦550 million",
+        price: "₦275 million",
+        image: "/media/campaigns/christmas/white-court.jpg",
       },
     ],
     features: [
@@ -1858,7 +1858,7 @@ export const estateHubListings = [
   {
     title: "5 Bed Premium Smart Duplex + BQ",
     location: "The White Court (Jahi)",
-    image: "/media/projects/white-court-flyer.jpg",
+    image: "/media/campaigns/christmas/white-court.jpg",
     href: "#project-white-court",
   },
   {
